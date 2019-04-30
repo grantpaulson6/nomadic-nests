@@ -1,11 +1,9 @@
 .splash-page-img {
     height: 100vh;
-    min-height: 650px;
-    /* background-image: url('/public/North_Cascades.jpg') */
-}
-
-.splash-page-img img {
-    height: 100vh;
-    min-height: 680px;
-    width: auto;
+    min-height: 400px;
+    width: 100%;
+    background-image: url('/North_Cascades.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 }
