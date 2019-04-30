@@ -1,4 +1,5 @@
 import * as SessionAPIUtil from '../util/session_api_util';
+import { closeModal } from './modal_actions';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
@@ -34,7 +35,13 @@ export const signup = user => dispatch => (
 
 export const logout = () => dispatch => (
     SessionAPIUtil.logout()
-        .then(currentUser => dispatch(logoutCurrentUser()))
+        .then(() => dispatch(logoutCurrentUser()))
 );
 
+export const demoLogin = () => dispatch => (
+    SessionAPIUtil.login({username: "Demo User", password: "password"})
+        .then(currentUser => dispatch(receiveCurrentUser(currentUser)),
+            errors => dispatch(receiveSessionErrors(errors.responseJSON)))
+        .then(() => dispatch(closeModal()))
+);
 

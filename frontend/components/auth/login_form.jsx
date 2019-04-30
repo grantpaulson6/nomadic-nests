@@ -12,8 +12,8 @@ class LoginForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.login(user);
-        this.props.closeModal();
+        this.props.login(user)
+            .then(this.props.closeModal);
     }
 
     handleChange(field) {
@@ -49,6 +49,13 @@ class LoginForm extends React.Component {
                     <button className="link-button"
                         onClick={this.props.openSignup}>
                         Sign Up
+                    </button>
+                </div>
+                <div className="session-footer">
+                    <span>Don't want to bother?</span>
+                    <button className="link-button"
+                        onClick={this.props.demoLogin}>
+                        Demo Login
                     </button>
                 </div>
             </div>

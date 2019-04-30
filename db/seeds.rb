@@ -91,30 +91,30 @@ NW = Location.create!(
 
 
 Grant = User.create!(
-    username: "ourwanderabout",
+    username: "grant",
     password: "password",
     first_name: "Grant",
-    last_name: "Audrey",
+    last_name: "Paulson",
     email: "ourwanderabout@gmail.com"
 )
 
 
-# Listing.create!(
-#     title: "Converted Fire Lookout atop stunning peak",
-#     price: 25,
-#     location_id: NW.id,
-#     description: "Located in the gorgeous North Cascades National Park, enjoy premium sunrises and sunsets from this 360 degree lookout \
-# spot.  Comes with binoculars, a timeless cot, maps to reference while studying the \
-# surrounding peaks, and an adorable desk to contemplate the meaning of it all",
-#     property_type: "cabin",
-#     owner_id: Grant.id,
-#     max_guests: 8,
-#     num_beds: 1,
-#     num_bathrooms: 20,
-#     address: "North Cascades National Park",
-#     lat: 48.491059,
-#     lng: -121.206559
-# )
+Listing.create!(
+    title: "Converted Fire Lookout atop stunning peak",
+    price: 25,
+    location_id: NW.id,
+    description: "Located in the gorgeous North Cascades National Park, enjoy premium sunrises and sunsets from this 360 degree lookout \
+spot.  Comes with binoculars, a timeless cot, maps to reference while studying the \
+surrounding peaks, and an adorable desk to contemplate the meaning of it all",
+    property_type: "cabin",
+    owner_id: Grant.id,
+    max_guests: 8,
+    num_beds: 1,
+    num_bathrooms: 20,
+    address: "North Cascades National Park",
+    lat: 48.491059,
+    lng: -121.206559
+)
 
 Listing.create!(
     title: "Klahowya Campground",
