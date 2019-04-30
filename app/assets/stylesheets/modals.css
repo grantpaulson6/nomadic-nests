@@ -1,0 +1,69 @@
+.modal-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+ }
+
+ .modal-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+ }
+
+ .modal-child .session-info {
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid rgb(187, 184, 184);
+    border-radius: 5px;
+    margin: 15px;
+    height: 40px;
+    width: 400px;
+    padding: 0 10px;
+ }
+
+ .modal-child .auth-button {
+    display: block;
+    background: salmon;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 0 10px;
+    height: 30px;
+    width: 400px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+ }
+
+.modal-child .auth-button:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.modal-child .session-footer {
+    margin: 15px;
+    font-size: 15px;
+}
+
+.modal-child .link-button {
+    display: inline;
+    background: none;
+    border: none;
+    color: blue;
+    margin-left: 5px;
+ }
+
+ .modal-child .link-button:hover {
+     cursor: pointer;
+ }
