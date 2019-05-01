@@ -98,6 +98,14 @@ Grant = User.create!(
     email: "ourwanderabout@gmail.com"
 )
 
+Demo = User.create!(
+    username: "Demo User",
+    password: "password",
+    first_name: "Demo",
+    last_name: "User",
+    email: "demo@user"  
+)
+
 
 Listing.create!(
     title: "Converted Fire Lookout atop stunning peak",

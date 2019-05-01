@@ -1,4 +1,5 @@
 import React from 'react';
+import ListingsIndexItem from './listings_index_item';
 
 class ListingsIndex extends React.Component {
 
@@ -7,12 +8,12 @@ class ListingsIndex extends React.Component {
     }
 
     render() {
-        const listingitems = this.props.listings.map( listing => <li key={listing.id}>{listing.title}</li>)
+        const listingitems = this.props.listings.map(listing => <ListingsIndexItem key={listing.id} listing={listing}/>);
         return (
             <div>
-                <ul>
+                <div className="listing-item-container">
                     {listingitems}
-                </ul>
+                </div>
             </div>
         )
     }
