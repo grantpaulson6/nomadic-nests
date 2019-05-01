@@ -8,7 +8,6 @@ class Api::ListingsController < ApplicationController
         if @listing.save
             render "api/listings/show"
         else
-            # debugger
             render json: @listing.errors.full_messages, status: 422
             # render "api/errors/listing_errors"
         end
