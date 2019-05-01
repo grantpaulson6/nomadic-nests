@@ -4,7 +4,6 @@ import NavBarContainer from './nav_bar_container';
 import Modal from './auth/modal_container';
 import SplashPage from './splash_page';
 import ListingsIndexContainer from './listings/listings_index_container';
-import ListingsFormContainer from './listings/listings_form_container';
 
 const App = () => (
     <div>

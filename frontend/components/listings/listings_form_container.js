@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ListingsForm from './listings_form';
 
 const mapStateToProps = (state, ownProps) => ({
-    errors: state.errors.listings
+    errors: state.errors.listing
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -3,12 +3,14 @@ class Api::ListingsController < ApplicationController
     def create
         @listing = Listing.new(listings_params)
         location = Location.find_by(name: params[:listing][:location])
-        @listing.location_id = location.id
+        @listing.location_id = location.id if location
         @listing.owner_id = current_user.id
         if @listing.save
             render "api/listings/show"
         else
+            # debugger
             render json: @listing.errors.full_messages, status: 422
+            # render "api/errors/listing_errors"
         end
     end
 

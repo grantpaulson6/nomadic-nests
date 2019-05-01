@@ -24,7 +24,6 @@ class ListingsForm extends React.Component {
         const formData = new FormData();
         for ( let key in this.state) {
             if (key === "photos") {
-                debugger
                 this.state[key].forEach( photo => {
                     formData.append(`listing[photos][]`, photo);
                 });
@@ -42,12 +41,10 @@ class ListingsForm extends React.Component {
     handleFile(e) {
         const addedFiles = this.state.photos.concat(e.currentTarget.files[e.currentTarget.files.length - 1]);
         this.setState({ photos: addedFiles});
-        // debugger;
-        // this.setState({ photos: e.currentTarget.files[0] });
     }
 
     render() {
-        // const errors = this.props.errors.map((error, i) => <li key={i}>{error}</li>)
+        const errors = this.props.errors.map((error, i) => <li key={i}>{error}</li>)
         return (
             <div className="create-listings">
                 <form onSubmit={this.handleSubmit.bind(this)}>
@@ -137,7 +134,7 @@ class ListingsForm extends React.Component {
                         className="listings-info"
                     />
                     <button className="listings-button">Create Listing</button>
-                    {/* <ul>{errors}</ul> */}
+                    <ul>{errors}</ul>
                 </form>
             </div>
         )

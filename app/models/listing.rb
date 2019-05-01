@@ -24,6 +24,7 @@ class Listing < ApplicationRecord
     validates :title, :price, :location_id, :description, :property_type, :owner_id, :max_guests,
         :num_beds, :num_bathrooms, :address, :lat, :lng, presence: true
     validates :title, uniqueness: true
+    validate :ensure_photos
 
     belongs_to :location
     belongs_to :owner,
@@ -32,4 +33,9 @@ class Listing < ApplicationRecord
 
     has_many_attached :photos
 
+    def ensure_photos
+        unless self.photos.attached?
+            errors[:photos] << "must be attached"
+        end
+    end
 end
