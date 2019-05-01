@@ -8,10 +8,12 @@
     top: 0;
     right: 0;
     border-bottom: 1px solid grey;
+    background-color: white;
 }
 
 .main-nav.splash {
     border-bottom: none;
+    background-color: transparent;
 }
 
 .filler-nav {

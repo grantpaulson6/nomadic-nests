@@ -15,14 +15,24 @@ class ListingsForm extends React.Component {
             address: "",
             lat: "",
             lng: "",
-            photoFile: null
+            photos: []
         };
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        const listing = Object.assign({}, this.state);
-        this.props.createListing(listing);
+        const formData = new FormData();
+        for ( let key in this.state) {
+            if (key === "photos") {
+                debugger
+                this.state[key].forEach( photo => {
+                    formData.append(`listing[photos][]`, photo);
+                });
+            } else {
+                formData.append(`listing[${key}]`, this.state[key]);
+            }
+        }
+        this.props.createListing(formData);
     }
 
     handleChange(field) {
@@ -30,7 +40,10 @@ class ListingsForm extends React.Component {
     }
 
     handleFile(e) {
-        this.setState({ photoFile: e.currentTarget.files[0]});
+        const addedFiles = this.state.photos.concat(e.currentTarget.files[e.currentTarget.files.length - 1]);
+        this.setState({ photos: addedFiles});
+        // debugger;
+        // this.setState({ photos: e.currentTarget.files[0] });
     }
 
     render() {
@@ -119,7 +132,8 @@ class ListingsForm extends React.Component {
                         className="listings-info"
                     />
                     <input type="file"
-                        onChange={this.handleFile().bind(this)}
+                        multiple="multiple"
+                        onChange={this.handleFile.bind(this)}
                         className="listings-info"
                     />
                     <button className="listings-button">Create Listing</button>
