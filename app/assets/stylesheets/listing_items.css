@@ -38,13 +38,22 @@
 }
 
 .listing-item-content .LIC-2 span {
-    font-weight: bold;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 18px;
 }
 
 .listing-item-content .LIC-3 span {
-    font-weight: lighter;
+    font-weight: 100;
     font-size: 14px;
     line-height: 14px;
+}
+
+.listing-item-content .LIC-4 span {
+    font-weight: 100;
+    font-size: 10px;
+    line-height: 10px;
 }
 
 .listing-item-container {

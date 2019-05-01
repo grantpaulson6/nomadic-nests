@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginFormContainer from './login_form_container';
 import SignupFormContainer from './signup_form_container';
+import ListingsFormContainer from '../listings/listings_form_container';
 
 const Modal = ({modal, closeModal}) => {
     if (!modal) {
@@ -9,10 +10,13 @@ const Modal = ({modal, closeModal}) => {
     let component;
     switch (modal) {
         case "login":
-            component = <LoginFormContainer/>
+            component = <LoginFormContainer/>;
             break;
         case "signup":
-            component = <SignupFormContainer />
+            component = <SignupFormContainer />;
+            break;
+        case "create_listing":
+            component = <ListingsFormContainer />;
             break;
         default:
             return null;

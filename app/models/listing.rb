@@ -7,7 +7,7 @@
 #  price         :float            not null
 #  location_id   :integer          not null
 #  description   :text             not null
-#  type          :string           not null
+#  property_type          :string           not null
 #  owner_id      :integer          not null
 #  max_guests    :integer          not null
 #  num_beds      :integer          not null

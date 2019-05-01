@@ -18,15 +18,28 @@ class NavBar extends React.Component {
         if (this.props.currentUser) {
             right_nav = (
                 <nav className="right-nav">
-                    <button>{this.props.currentUser.first_name + " " + this.props.currentUser.last_name}</button>
-                    <button onClick={this.props.logoutCurrentUser}>Log Out</button>
+                    <div className="right-nav-el">
+                        <button className="dropdown-parent">{this.props.currentUser.first_name + " " + this.props.currentUser.last_name}</button>
+                        <ul className="user-options">
+                            <li><button onClick={() => this.props.openModal("create_listing")}>Add your Nest!</button></li>
+                            <li><button>Settings</button></li>
+                            <li><button>User Profile</button></li>
+                        </ul>
+                    </div> 
+                    <div className="right-nav-el">
+                        <button onClick={this.props.logout}>Log Out</button>
+                    </div>
                 </nav>
             )
         } else {
             right_nav = (
                 <nav className="right-nav">
-                    <button onClick={() => this.props.openModal("signup")}>Sign Up</button>
-                    <button onClick={() => this.props.openModal("login")}>Log In</button>
+                    <div className="right-nav-el">
+                        <button onClick={() => this.props.openModal("signup")}>Sign Up</button>
+                    </div>
+                    <div className="right-nav-el">
+                        <button onClick={() => this.props.openModal("login")}>Log In</button>
+                    </div>
                 </nav>
             )
         }

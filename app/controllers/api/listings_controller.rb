@@ -2,6 +2,10 @@ class Api::ListingsController < ApplicationController
 
     def create
         @listing = Listing.new(listings_params)
+        location = Location.find_by(name: params[:listing][:location])
+        @listing.location_id = location.id
+        @listing.owner_id = current_user.id
+        debugger
         if @listing.save
             render "api/listings/show"
         else
@@ -24,8 +28,8 @@ class Api::ListingsController < ApplicationController
 
     private
     def listings_params
-        params.reqiure(:listing).permit(:title, :price, :location_id, :description, :property_type, :owner_id,
-            :max_guests, :num_beds, :num_bathrooms, :address, :lat, :lng)
+        params.require(:listing).permit(:title, :price, :description, :property_type,
+            :max_guests, :num_beds, :num_bathrooms, :address, :lat, :lng, :photos)
     end
     #owner_id will be grabbed using current_user
 end

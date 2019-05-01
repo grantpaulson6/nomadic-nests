@@ -1,0 +1,39 @@
+ .create-listings {
+     display: flex;
+     flex-direction: column;
+ }
+ 
+ .create-listings .listings-info {
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid rgb(187, 184, 184);
+    border-radius: 5px;
+    margin: 15px;
+    height: 40px;
+    width: 400px;
+    padding: 0 10px;
+ }
+
+.create-listings textarea.listings-info {
+   height: 120px;
+   padding: 10px;
+}
+
+ .create-listings .listings-button {
+    display: block;
+    background: salmon;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 0 10px;
+    height: 30px;
+    width: 400px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+ }
+
+.create-listings .listings-button:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-3px);
+}
