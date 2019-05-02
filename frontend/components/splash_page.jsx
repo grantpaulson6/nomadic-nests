@@ -9,7 +9,7 @@ class SplashPage extends React.Component {
         return (
             <div>
                 <div className="splash-page-img">
-                    {/* <img src="/North_Cascades.jpg" alt=""/> */}
+                    <img src={window.splashPage} alt=""/>
                 </div>
             </div>
         )
