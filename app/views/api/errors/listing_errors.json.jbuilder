@@ -1,6 +1,3 @@
-@listing.errors.keys do |field|
-    json.set! field do
-        # json.extract! error, 
-        @listing.errors.full_messages_for(field)
-    end
+@listing.errors.keys.each do |field|
+    json.set! field, @listing.errors.full_messages_for(field)
 end

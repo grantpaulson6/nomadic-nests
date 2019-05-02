@@ -9,7 +9,7 @@ class NavBar extends React.Component {
         const left_nav = (
             <div className="left-nav">
                 <div className="logo">
-                    <h3>Nomadic Nests</h3>
+                    <i class="fas fa-fighter-jet"></i>
                 </div>
             </div>
         )
@@ -46,7 +46,8 @@ class NavBar extends React.Component {
         if (this.props.navType === "splash") {
             return (
                 <div className="main-nav splash">
-                    {right_nav}
+                    { left_nav }
+                    { right_nav }
                 </div>
             )
         } else {

@@ -30,6 +30,7 @@ class SignupForm extends React.Component {
         const errors = this.props.errors.map((error, i) => <li key={i}>{error}</li>)
         return (
             <div>
+                <i class="fas fa-times" onClick={this.props.closeModal}></i>
                 <form onSubmit={this.handleSubmit.bind(this)}>
                     <input type="text"
                         value={this.state.username}
