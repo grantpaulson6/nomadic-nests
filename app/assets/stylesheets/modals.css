@@ -19,6 +19,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    overflow: scroll;
+    max-height: 80vh;
  }
 
  .modal-child .session-info {
