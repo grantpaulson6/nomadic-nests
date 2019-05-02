@@ -7,7 +7,7 @@ class ListingsForm extends React.Component {
             title: "",
             price: "",
             location: "",
-            description: "A little bit about your place",
+            description: "",
             property_type: "",
             max_guests: "",
             num_beds: "",
@@ -44,7 +44,6 @@ class ListingsForm extends React.Component {
     }
 
     render() {
-        // const errors = this.props.errors.map((error, i) => <li key={i}>{error}</li>)
         return (
             <div className="create-listings">
                 <i class="fas fa-times" onClick={this.props.closeModal}></i>
@@ -84,7 +83,8 @@ class ListingsForm extends React.Component {
                     <div className="listings-form-errors">{this.props.errors["location"]}</div>
                     <textarea onChange={this.handleChange("description").bind(this)}
                         value={this.state.description}
-                        className="listings-info">
+                        className="listings-info"
+                        placeholder="A little bit about your nest...">
                     </textarea>
                     <div className="listings-form-errors">{this.props.errors["description"]}</div>
                     <select onChange={this.handleChange("property_type").bind(this)}
@@ -140,15 +140,12 @@ class ListingsForm extends React.Component {
                         className="listings-info"
                     />
                     <div className="listings-form-errors">{this.props.errors["lng"]}</div>
-                    {/* <label className="listings-info">Upload Images */}
-                        <input type="file"
-                            multiple="multiple"
-                            onChange={this.handleFile.bind(this)}
-                        />
-                    {/* </label> */}
+                    <input type="file"
+                        multiple="multiple"
+                        onChange={this.handleFile.bind(this)}
+                    />
                     <div className="listings-form-errors">{this.props.errors["photos"]}</div>
                     <button className="listings-button">Create Listing</button>
-                    {/* <ul>{errors}</ul> */}
                 </form>
             </div>
         )

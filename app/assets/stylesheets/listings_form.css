@@ -46,7 +46,7 @@
   transform: translateY(-3px);
 }
 
-.listings-form-errors {
+.form-errors {
    font-size: 10px;
    color: red;
    margin-left: 15px

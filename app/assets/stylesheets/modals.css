@@ -34,6 +34,11 @@
     padding: 0 10px;
  }
 
+ .modal-child textarea.session-info {
+   height: 80px;
+   padding: 10px;
+}
+
  .modal-child .auth-button {
     display: block;
     background: salmon;
@@ -69,3 +74,19 @@
  .modal-child .link-button:hover {
      cursor: pointer;
  }
+
+
+input[type="date"].session-info::before {
+  width: 100%;
+  content: attr(placeholder);
+}
+
+input[type="date"].session-info:hover::before {
+  width: 0%;
+  content: "";
+}
+
+input[type="date"] {
+   font-family: inherit;
+   font-weight: lighter;
+}

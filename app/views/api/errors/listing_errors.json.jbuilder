@@ -1,3 +1,1 @@
-@listing.errors.keys.each do |field|
-    json.set! field, @listing.errors.full_messages_for(field)
-end
+json.partial! "api/errors/errors", error_set: @listing

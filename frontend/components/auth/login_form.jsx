@@ -21,7 +21,7 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        const errors = this.props.errors.map( (error,i) => <li key={i}>{error}</li>)
+        // const errors = this.props.errors.map( (error,i) => <li key={i}>{error}</li>)
         return (
             <div>
                 <i class="fas fa-times" onClick={this.props.closeModal}></i>
@@ -42,8 +42,9 @@ class LoginForm extends React.Component {
                             className="session-info"
                         />
                     </div>
+                    <div className="listings-form-errors">{this.props.errors["login"]}</div>
                     <button className="auth-button">Log In</button>
-                    <ul>{errors}</ul>
+                    {/* <ul>{errors}</ul> */}
                 </form>
                 <div className="session-footer">
                     <span>Don't have an account?</span>
