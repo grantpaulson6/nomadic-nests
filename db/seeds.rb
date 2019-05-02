@@ -123,7 +123,7 @@ surrounding peaks, and an adorable desk to contemplate the meaning of it all",
     lat: 48.491059,
     lng: -121.206559
 )
-l1.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/fire_lookout/North_Cascades1.jpg'), filename: 'North_Cascades1.jpg')
+l1.photos.attach(io: File.open('https://s3-us-west-1.amazonaws.com/nomadic-nests-dev/b4zQzDxvQVpKsJ9WGMqCswjU'), filename: 'North_Cascades1.jpg')
 l1.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/fire_lookout/North_Cascades2.jpg'), filename: 'North_Cascades2.jpg')
 l1.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/fire_lookout/North_Cascades3.jpg'), filename: 'North_Cascades3.jpg')
 l1.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/fire_lookout/North_Cascades4.jpg'), filename: 'North_Cascades4.jpg')
