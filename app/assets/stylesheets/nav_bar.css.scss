@@ -11,6 +11,14 @@
     background-color: white;
 }
 
+.main-logo {
+    background-image: image-url('camping-tent.svg');
+    height: 40px;
+    width: 40px;
+    background-size: contain;
+    margin-left: 15px;
+}
+
 .main-nav.splash {
     border-bottom: none;
     background-color: transparent;
