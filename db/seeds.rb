@@ -107,7 +107,7 @@ Demo = User.create!(
 )
 
 
-Listing.create!(
+l1 = Listing.new(
     title: "Converted Fire Lookout atop stunning peak",
     price: 25,
     location_id: NW.id,
@@ -123,8 +123,14 @@ surrounding peaks, and an adorable desk to contemplate the meaning of it all",
     lat: 48.491059,
     lng: -121.206559
 )
+l1.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/fire_lookout/North_Cascades1.jpg'), filename: 'North_Cascades1.jpg')
+l1.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/fire_lookout/North_Cascades2.jpg'), filename: 'North_Cascades2.jpg')
+l1.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/fire_lookout/North_Cascades3.jpg'), filename: 'North_Cascades3.jpg')
+l1.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/fire_lookout/North_Cascades4.jpg'), filename: 'North_Cascades4.jpg')
+l1.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/fire_lookout/North_Cascades5.jpg'), filename: 'North_Cascades5.jpg')
+l1.save!
 
-Listing.create!(
+l2 = Listing.new(
     title: "Klahowya Campground",
     price: 20,
     location_id: NW.id,
@@ -140,8 +146,13 @@ into the high peaks.",
     lat: 47.995000,
     lng: -123.888732
 )
+l2.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/olympics/IMG_4912.jpg'), filename: 'IMG_4912.jpg')
+l2.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/olympics/IMG_4907.jpg'), filename: 'IMG_4907.jpg')
+l2.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/olympics/IMG_3625.jpg'), filename: 'IMG_3625.jpg')
+l2.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/olympics/IMG_4915.jpeg'), filename: 'IMG_4915.jpeg')
+l2.save!
 
-Listing.create!(
+l3 = Listing.new(
     title: "Dispersed Camping in Gifford Pinchot National Forest",
     price: 0,
     location_id: NW.id,
@@ -158,8 +169,13 @@ lovely scent of northern birch and pine!",
     lat: 46.805806,
     lng: -121.538848
 )
+l3.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/rainier/IMG_4876.jpg'), filename: 'IMG_4876.jpg')
+l3.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/rainier/IMG_4880.jpeg'), filename: 'IMG_4880.jpeg')
+l3.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/rainier/IMG_4882.jpeg'), filename: 'IMG_4882.jpeg')
+l3.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/rainier/IMG_4886.jpeg'), filename: 'IMG_4886.jpeg')
+l3.save!
 
-Listing.create!(
+l4 = Listing.new(
     title: "Pitstop before climbing the three sisters",
     price: 5,
     location_id: NW.id,
@@ -174,8 +190,13 @@ hike in the morning.  I think the neighbors are grilling hotdogs over their camp
     lat: 44.056244,
     lng: -121.754688
 )
+l4.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/three_sisters/IMG_4762.jpeg'), filename: 'IMG_4762.jpeg')
+l4.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/three_sisters/IMG_4765.jpeg'), filename: 'IMG_4765.jpeg')
+l4.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/three_sisters/IMG_3482.jpg'), filename: 'IMG_3482.jpg')
+l4.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/three_sisters/IMG_4776.jpeg'), filename: 'IMG_4776.jpeg')
+l4.save!
 
-Listing.create!(
+l5 = Listing.new(
     title: "Creepy forest spot near Crater Lake",
     price: 100,
     location_id: NW.id,
@@ -192,9 +213,12 @@ hillbilly stumbled across your site",
     lat: 42.881325,
     lng: -122.238351
 )
+l5.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/crater_lake/IMG_4748.jpeg'), filename: 'IMG_4748.jpeg')
+l5.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/crater_lake/IMG_3470.jpg'), filename: 'IMG_3470.jpg')
+l5.save!
 
-Listing.create!(
-    title: "Quaint home in the lovely town of Eugene",
+l6 = Listing.new(
+    title: "Quaint park in the lovely town of Eugene",
     price: 1,
     location_id: NW.id,
     description: "Get some TLC from friends here. Comes with a delicious home cooked \
@@ -209,8 +233,12 @@ getting into your car.",
     lat: 44.023271,
     lng: -123.111333
 )
+l6.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/eugene/IMG_4789.jpg'), filename: 'IMG_4789.jpg')
+l6.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/eugene/IMG_3504.jpeg'), filename: 'IMG_3504.jpeg')
+l6.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/eugene/IMG_4787.jpeg'), filename: 'IMG_4787.jpeg')
+l6.save!
 
-Listing.create!(
+l7 = Listing.new(
     title: "Hillside retreat in Portland",
     price: 2,
     location_id: NW.id,
@@ -225,4 +253,53 @@ around the city, stopping for a nice pizza brunch.",
     lat: 44.545151,
     lng: -122.751617
 )
+l7.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/portland/hill_house.jpg'), filename: 'hill_house.jpg')
+l7.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/portland/IMG_4779.jpeg'), filename: 'IMG_4779.jpeg')
+l7.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/portland/IMG_4781.jpeg'), filename: 'IMG_4781.jpeg')
+l7.save!
 
+l8 = Listing.new(
+    title: "Survive a night in the APE cave",
+    price: 666,
+    location_id: NW.id,
+    description: "Feeling adventurous? Do you like dark places? Ever wondered what \
+it would be like to be in alien's liar? then come get lost for the night (or life) in this \
+lava tube under mount saint helens. Time it right and you may even get to float (ish) down \
+a river of lava",
+    property_type: "camping",
+    owner_id: Grant.id,
+    max_guests: 666,
+    num_beds: 666,
+    num_bathrooms: 666,
+    address: "Mount Saint Helens",
+    lat: 46.109054,
+    lng: -122.214393
+)
+
+l8.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/ape_cave/IMG_4870.jpeg'), filename: 'IMG_4870.jpeg')
+l8.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/ape_cave/IMG_3528.jpg'), filename: 'IMG_3528.jpg')
+l8.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/ape_cave/IMG_3597.jpeg'), filename: 'IMG_3597.jpeg')
+l8.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/ape_cave/IMG_4859.jpeg'), filename: 'IMG_4859.jpeg')
+l8.save!
+
+l9 = Listing.new(
+    title: "Relaxing spot near the lake",
+    price: 25,
+    location_id: NW.id,
+    description: "Do some fishing while you relax on your own private lake beach. Listen to the rain, feel \
+the vibes.  Stroke the furry moss",
+    property_type: "camping",
+    owner_id: Grant.id,
+    max_guests: 8,
+    num_beds: 2,
+    num_bathrooms: 1,
+    address: "Orcas Island",
+    lat: 48.646727,
+    lng: -122.848029
+)
+
+l9.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/orcas_island/IMG_3739.jpg'), filename: 'IMG_3739.jpg')
+l9.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/orcas_island/IMG_3736.jpg'), filename: 'IMG_3736.jpg')
+l9.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/orcas_island/IMG_3748.jpg'), filename: 'IMG_3748.jpg')
+l9.photos.attach(io: File.open('/Users/grantpaulson/Pictures/nomadic_nests/orcas_island/IMG_4977.jpeg'), filename: 'IMG_4977.jpeg')
+l9.save!

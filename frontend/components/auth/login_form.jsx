@@ -42,7 +42,7 @@ class LoginForm extends React.Component {
                             className="session-info"
                         />
                     </div>
-                    <div className="listings-form-errors">{this.props.errors["login"]}</div>
+                    <div className="form-errors">{this.props.errors["login"]}</div>
                     <button className="auth-button">Log In</button>
                     {/* <ul>{errors}</ul> */}
                 </form>

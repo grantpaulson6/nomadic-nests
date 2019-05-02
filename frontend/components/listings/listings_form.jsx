@@ -54,7 +54,7 @@ class ListingsForm extends React.Component {
                         placeholder="Title"
                         className="listings-info"
                     />
-                    <div className="listings-form-errors">{this.props.errors["title"]}</div>
+                    <div className="form-errors">{this.props.errors["title"]}</div>
                     <input type="number"
                         step="0.01"
                         value={this.state.price}
@@ -62,7 +62,7 @@ class ListingsForm extends React.Component {
                         placeholder="Price"
                         className="listings-info"
                     />
-                    <div className="listings-form-errors">{this.props.errors["price"]}</div>
+                    <div className="form-errors">{this.props.errors["price"]}</div>
                     <select onChange={this.handleChange("location").bind(this)}
                         className="listings-info">
                         <option disabled selected>Region of your Nest</option>
@@ -80,13 +80,13 @@ class ListingsForm extends React.Component {
                         <option value="California">California</option>
                         <option value="Northwest">Northwest</option>
                     </select>
-                    <div className="listings-form-errors">{this.props.errors["location"]}</div>
+                    <div className="form-errors">{this.props.errors["location"]}</div>
                     <textarea onChange={this.handleChange("description").bind(this)}
                         value={this.state.description}
                         className="listings-info"
                         placeholder="A little bit about your nest...">
                     </textarea>
-                    <div className="listings-form-errors">{this.props.errors["description"]}</div>
+                    <div className="form-errors">{this.props.errors["description"]}</div>
                     <select onChange={this.handleChange("property_type").bind(this)}
                         className="listings-info">
                         <option disabled selected>Type of Nest</option>
@@ -95,35 +95,35 @@ class ListingsForm extends React.Component {
                         <option value="guest friends/family">Guest of friends/family</option>
                         <option value="cabin">Cabin</option>
                     </select>
-                    <div className="listings-form-errors">{this.props.errors["property_type"]}</div>
+                    <div className="form-errors">{this.props.errors["property_type"]}</div>
                     <input type="number"
                         value={this.state.max_guests}
                         onChange={this.handleChange("max_guests").bind(this)}
                         placeholder="Max Guests"
                         className="listings-info"
                     />
-                    <div className="listings-form-errors">{this.props.errors["max_guests"]}</div>
+                    <div className="form-errors">{this.props.errors["max_guests"]}</div>
                     <input type="number"
                         value={this.state.num_beds}
                         onChange={this.handleChange("num_beds").bind(this)}
                         placeholder="Number of beds"
                         className="listings-info"
                     />
-                    <div className="listings-form-errors">{this.props.errors["num_beds"]}</div>
+                    <div className="form-errors">{this.props.errors["num_beds"]}</div>
                     <input type="number"
                         value={this.state.num_bathrooms}
                         onChange={this.handleChange("num_bathrooms").bind(this)}
                         placeholder="Number of bathrooms"
                         className="listings-info"
                     />
-                    <div className="listings-form-errors">{this.props.errors["num_bathrooms"]}</div>
+                    <div className="form-errors">{this.props.errors["num_bathrooms"]}</div>
                     <input type="text"
                         value={this.state.address}
                         onChange={this.handleChange("address").bind(this)}
                         placeholder="Address"
                         className="listings-info"
                     />
-                    <div className="listings-form-errors">{this.props.errors["address"]}</div>
+                    <div className="form-errors">{this.props.errors["address"]}</div>
                     <input type="number"
                         step="0.000001"
                         value={this.state.lat}
@@ -131,7 +131,7 @@ class ListingsForm extends React.Component {
                         placeholder="Lattitude"
                         className="listings-info"
                     />
-                    <div className="listings-form-errors">{this.props.errors["lat"]}</div>
+                    <div className="form-errors">{this.props.errors["lat"]}</div>
                     <input type="number"
                         step="0.000001"
                         value={this.state.lng}
@@ -139,12 +139,12 @@ class ListingsForm extends React.Component {
                         placeholder="Longitude"
                         className="listings-info"
                     />
-                    <div className="listings-form-errors">{this.props.errors["lng"]}</div>
+                    <div className="form-errors">{this.props.errors["lng"]}</div>
                     <input type="file"
                         multiple="multiple"
                         onChange={this.handleFile.bind(this)}
                     />
-                    <div className="listings-form-errors">{this.props.errors["photos"]}</div>
+                    <div className="form-errors">{this.props.errors["photos"]}</div>
                     <button className="listings-button">Create Listing</button>
                 </form>
             </div>
