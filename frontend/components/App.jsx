@@ -4,7 +4,10 @@ import NavBarContainer from './nav_bar_container';
 import Modal from './auth/modal_container';
 import SplashPage from './splash_page';
 import ListingsIndexContainer from './listings/listings_index_container';
+import ListingShow from './listings/listing_show';
 
+//update navbar to use withRouter, no need for switch statement
+//use withRouter and props.path to drop className in top level div for formatting with padding
 const App = () => (
     <div>
         <Modal />
@@ -18,6 +21,7 @@ const App = () => (
         </Switch>
         <Route exact path="/" component={SplashPage} />
         <Route path="/search/" component={ListingsIndexContainer} />
+        <Route path="/listings/:listingId" component={ListingShow} />
     </div>
 );
 

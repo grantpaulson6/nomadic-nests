@@ -31,7 +31,8 @@ class ListingsForm extends React.Component {
                 formData.append(`listing[${key}]`, this.state[key]);
             }
         }
-        this.props.createListing(formData);
+        this.props.createListing(formData)
+            .then(this.props.closeModal);
     }
 
     handleChange(field) {

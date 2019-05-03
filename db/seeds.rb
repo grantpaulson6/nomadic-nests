@@ -303,3 +303,98 @@ l9.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seed
 l9.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_3748.jpg'), filename: 'IMG_3748.jpg')
 l9.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_4977.jpeg'), filename: 'IMG_4977.jpeg')
 l9.save!
+
+
+
+
+################################################################################################################################################
+
+#unseeded
+
+l10 = Listing.new(
+    title: "Cute cabin, refurbished from a fire lookout with STELLAR views",
+    price: 40,
+    location_id: BC.id,
+    description: "Stretch your legs, smell the flowers, and unclench. Enjoy time here in solitary contemplation, \
+or bring a friend or a whole picnic!",
+    property_type: "cabin",
+    owner_id: Grant.id,
+    max_guests: 1,
+    num_beds: 1,
+    num_bathrooms: 1,
+    address: "Revelstoke National Park",
+    lat: 51.042805,
+    lng: -118.148333
+)
+
+l10.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_5005.jpeg'), filename: 'IMG_5005.jpeg')
+l10.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_5002.jpeg'), filename: 'IMG_5002.jpeg')
+l10.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_5015.jpeg'), filename: 'IMG_5015.jpeg')
+l10.save!
+
+l11 = Listing.new(
+    title: "Chill canadian campground with angry grizzly bear mother nearby",
+    price: 18,
+    location_id: BC.id,
+    description: "If you like hiking this place is perfect for you.  Although one of the \
+cubs of a grizzly mother was tragically killed by traffic recently, and the mother hasnt \
+found out yet, so she is aggressively searching the whole area.  Good luck.",
+    property_type: "campground",
+    owner_id: Grant.id,
+    max_guests: 2,
+    num_beds: 0,
+    num_bathrooms: 2,
+    address: "Glacier National Park",
+    lat: 51.257965,
+    lng: -117.508671
+)
+
+l11.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_5019.jpeg'), filename: 'IMG_5019.jpeg')
+l11.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_5020.jpeg'), filename: 'IMG_5020.jpeg')
+l11.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_5035.jpeg'), filename: 'IMG_5035.jpeg')
+l11.save!
+
+l12 = Listing.new(
+    title: "Bad@ss camper truck in yoho national park",
+    price: 44,
+    location_id: BC.id,
+    description: "Want to be able to drive your house over a mountain? Through a \
+river? Around the whole world and maybe even to the moon? Then this camper tank is \
+perfect for you.  Comfort not a priority.",
+    property_type: "dispersed camping",
+    owner_id: Grant.id,
+    max_guests: 10,
+    num_beds: 1,
+    num_bathrooms: 1,
+    address: "Yoho National Park",
+    lat: 51.459369,
+    lng: -116.410456
+)
+
+l12.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_5068.jpeg'), filename: 'IMG_5068.jpeg')
+l12.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_5065.jpeg'), filename: 'IMG_5065.jpeg')
+l12.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_5070.jpeg'), filename: 'IMG_5070.jpeg')
+l12.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_5122.jpeg'), filename: 'IMG_5122.jpeg')
+l12.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_3924.jpg'), filename: 'IMG_3924.jpg')
+l12.save!
+
+l13 = Listing.new(
+    title: "Sneaky camping amongst the craggy peaks of banff",
+    price: 60,
+    location_id: BC.id,
+    description: "its real nice here",
+    property_type: "dispersed camping",
+    owner_id: Grant.id,
+    max_guests: 1,
+    num_beds: 10,
+    num_bathrooms: 100,
+    address: "Banff National Park",
+    lat: 51.329265,
+    lng: -116.178169
+)
+
+l13.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_4020.jpg'), filename: 'IMG_4020.jpg')
+l13.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_3974.jpg'), filename: 'IMG_3974.jpg')
+l13.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_5230.jpeg'), filename: 'IMG_5230.jpeg')
+l13.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_5293.jpeg'), filename: 'IMG_5293.jpeg')
+l13.save!

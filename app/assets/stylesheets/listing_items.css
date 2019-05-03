@@ -28,11 +28,11 @@
     }
 }
 
-
 .listing-item {
     padding: 8px;
     background: transparent;
-    box-sizing: border-box
+    box-sizing: border-box;
+    max-height: 320px;
 }
 
 .listing-item-picture {
@@ -46,6 +46,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+    flex: 1 0 auto;
 }
 
 .listing-item-content {
@@ -57,7 +58,6 @@
     justify-content: space-evenly;
     align-items: flex-start;
 }
-
 
 .listing-item-content .LIC-1 {
     font-size: 12px;
@@ -89,5 +89,6 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding: 20px;
 }
 
