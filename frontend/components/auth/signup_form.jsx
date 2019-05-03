@@ -54,15 +54,15 @@ class SignupForm extends React.Component {
                         className="session-info"
                         // id="password"
                     />
-                    {/* <div className="form-errors">{this.props.errors["password"]}</div>
-                    <input type="password"
+                    <div className="form-errors">{this.props.errors["password"]}</div>
+                    {/* <input type="password"
                         value={this.state.password}
                         onChange={this.handleChange("password").bind(this)}
                         placeholder="Confirm Password"
                         className="session-info"
                         id="confirm_password"
-                    /> */}
-                    {/* <div className="form-errors">{this.props.errors["confirm_password"]}</div> */}
+                    />
+                    <div className="form-errors">{this.props.errors["confirm_password"]}</div> */}
                     <input type="text"
                         value={this.state.first_name}
                         onChange={this.handleChange("first_name").bind(this)}

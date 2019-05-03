@@ -1,6 +1,35 @@
+@media all and (min-width: 1501px) {
+    .listing-item {
+        width: 20%
+    }
+}
+
+@media all and (max-width: 1500px) and (min-width: 1201px) {
+    .listing-item {
+        width: 25%
+    }
+}
+
+@media all and (max-width: 1200px) and (min-width: 901px) {
+    .listing-item {
+        width: 33%
+    }
+}
+
+@media all and (max-width: 900px) and (min-width: 601px) {
+    .listing-item {
+        width: 50%
+    }
+}
+
+@media all and (max-width: 600px) {
+    .listing-item {
+        width: 100%
+    }
+}
+
+
 .listing-item {
-    height: 300px;
-    width: 280px;
     padding: 8px;
     background: transparent;
     box-sizing: border-box
@@ -9,7 +38,6 @@
 .listing-item-picture {
     width: 100%;
     height: 65%;
-    background-color: aquamarine;
     box-sizing: border-box;
 }
 
@@ -59,5 +87,7 @@
 
 .listing-item-container {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
 }
+

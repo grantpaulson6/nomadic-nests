@@ -9,6 +9,7 @@
     right: 0;
     border-bottom: 1px solid grey;
     background-color: white;
+    font-weight: 500;
 }
 
 .main-logo {
@@ -17,6 +18,10 @@
     width: 40px;
     background-size: contain;
     margin-left: 15px;
+}
+
+.main-logo:hover {
+    cursor: pointer;
 }
 
 .main-nav.splash {

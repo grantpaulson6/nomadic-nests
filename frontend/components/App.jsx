@@ -17,7 +17,7 @@ const App = () => (
             />
         </Switch>
         <Route exact path="/" component={SplashPage} />
-        <ListingsIndexContainer />
+        <Route path="/search/" component={ListingsIndexContainer} />
     </div>
 );
 

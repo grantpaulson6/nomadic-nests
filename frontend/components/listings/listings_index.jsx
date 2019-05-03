@@ -8,7 +8,13 @@ class ListingsIndex extends React.Component {
     }
 
     render() {
-        const listingitems = this.props.listings.map(listing => <ListingsIndexItem key={listing.id} listing={listing}/>);
+        const listingitems = this.props.listings.map(listing => {
+        return (
+            <ListingsIndexItem 
+                key={listing.id} 
+                listing={listing}
+                />)
+        });
         return (
             <div>
                 <div className="listing-item-container">

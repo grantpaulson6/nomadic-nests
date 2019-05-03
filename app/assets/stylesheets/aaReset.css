@@ -55,3 +55,7 @@ button:focus {
 .fa-fighter-jet {
 	font-size: 40px;
 }
+
+body {
+	padding: 20px;
+}
