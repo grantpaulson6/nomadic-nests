@@ -33,6 +33,7 @@
     background: transparent;
     box-sizing: border-box;
     max-height: 320px;
+    cursor: pointer;
 }
 
 .listing-item-picture {
@@ -46,7 +47,6 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
-    flex: 1 0 auto;
 }
 
 .listing-item-content {

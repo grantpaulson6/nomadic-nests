@@ -1,16 +1,20 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class ListingsIndexItem extends React.Component {
 
     constructor(props) {
         super(props);
     }
+
     render() {
 
         return (
-            <div className="listing-item">
+            <div className="listing-item"
+                onClick={() => this.props.history.push(`/listings/${this.props.listing.id}`)}
+            >
                 <div className="listing-item-picture">
-                    <img src={this.props.listing.photoUrl} alt=""/>
+                    <img src={this.props.listing.photoUrls[0]} alt=""/>
                 </div>
 
                 <div className="listing-item-content">
@@ -34,4 +38,4 @@ class ListingsIndexItem extends React.Component {
     }
 }
 
-export default ListingsIndexItem;
+export default withRouter(ListingsIndexItem);

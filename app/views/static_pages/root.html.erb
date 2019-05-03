@@ -6,4 +6,12 @@
         ).html_safe %>
     </script>
 <% end %>
+
+<script type="text/javascript">
+    window.locations = <%= render(
+        "api/locations/index.json.jbuilder",
+        locations: locations
+    ).html_safe %>
+</script>
+
 <main id="root"></main>

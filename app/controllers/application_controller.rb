@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
 
-    helper_method :logged_in?, :current_user
+    helper_method :logged_in?, :current_user, :locations
 
     private
     
@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
         current_user.reset_session_token!
         session[:session_token] = nil
         @current_user = nil
+    end
+
+    def locations
+        Location.all
     end
 
     #require logged in?

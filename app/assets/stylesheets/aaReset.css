@@ -56,3 +56,6 @@ button:focus {
 	font-size: 40px;
 }
 
+img {
+	image-orientation: from-image;
+}

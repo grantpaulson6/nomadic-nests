@@ -2,23 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-
+import merge from 'lodash/merge';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
-    let store;
+
+    let preloadedState = {
+        entities: {
+            locations: window.locations
+        }
+    };
+    delete window.locations;
     if (window.currentUser) {
-        const preloadedState = {
+        const userState = {
             entities: {
                 users: { [window.currentUser.id]: window.currentUser }
             },
             session: { id: window.currentUser.id }
         };
-        store = configureStore(preloadedState);
+        preloadedState = merge(preloadedState, userState);
         delete window.currentUser;
-    } else {
-        store = configureStore();
     }
+    const store = configureStore(preloadedState);
 
     window.getState = store.getState;
     window.dispatch = store.dispatch;

@@ -74,16 +74,6 @@ input[type="date"].session-info:hover::before {
   content: "";
 }
 
-// input[type="date"].search-info::before {
-//   width: 100%;
-//   content: attr(placeholder);
-// }
-
-// input[type="date"].search-info:hover::before {
-//   width: 0%;
-//   content: "";
-// }
-
 input[type="date"].search-info {
    font-size: 12px;
 }
@@ -115,10 +105,20 @@ input[type="date"] {
     color: rgb(72, 72, 72);
 }
 
-@media only screen and (max-width: 740px) {
-  .search-box {
-    display: none;
-  }
+@media only screen and (min-width: 621px) {
+    .search-box {
+        box-sizing: border-box;
+        height: 410px;
+        width: 380px;
+        background-color: white;
+        border-radius: 5px;
+        margin: 50px;
+        padding: 32px;
+        position: absolute;
+        top: 80px;
+        left: 12%;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2)
+    }
 }
 
 
