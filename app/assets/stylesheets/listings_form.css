@@ -29,7 +29,7 @@
 
  .create-listings .listings-button {
     display: block;
-    background: salmon;
+    background: rgb(255, 90, 95);
     border-radius: 5px;
     margin: 15px;
     padding: 0 10px;
@@ -37,6 +37,7 @@
     width: 400px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease 0s;
+    color: white;
  }
 
 .create-listings .listings-button:hover {

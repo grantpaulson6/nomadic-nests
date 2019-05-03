@@ -83,20 +83,6 @@ input[type="date"] {
    font-weight: lighter;
 }
 
-.search-box {
-    box-sizing: border-box;
-    height: 410px;
-    width: 380px;
-    background-color: white;
-    border-radius: 5px;
-    margin: 50px;
-    padding: 32px;
-    position: absolute;
-    top: 80px;
-    left: 12%;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2)
-}
-
 .search-box h1 {
     font-size: 26px;
     font-weight: 700;
@@ -118,6 +104,28 @@ input[type="date"] {
         top: 80px;
         left: 12%;
         box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2)
+    }
+
+    .search-button {
+        width: 100px;
+    }
+}
+@media only screen and (max-width: 620px) {
+    .search-box {
+        box-sizing: border-box;
+        width: 100vw;
+        background-color: white;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    .search-button {
+        width: 250px;
+        float: none !important;
+        margin: 0 auto;
     }
 }
 
@@ -177,7 +185,6 @@ input[type="date"] {
     background-color: rgb(255, 90, 95);
     border-radius: 5px;
     height: 50px;
-    width: 100px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease 0s;
     color: white;
