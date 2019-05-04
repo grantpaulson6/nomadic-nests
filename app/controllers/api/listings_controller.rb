@@ -17,12 +17,13 @@ class Api::ListingsController < ApplicationController
     end
 
     def index
-        @listings = Listing.all
+        location = Location.find_by(name: params[:filters][:location])
+        @listings = Listing.with_attached_photos.where(["location_id = ?", location.id])
         #lots of updating here to filter
     end
 
     def show
-        @listing = Listing.find(params[:id])
+        @listing = Listing.with_attached_photos.find(params[:id])
     end
 
     private

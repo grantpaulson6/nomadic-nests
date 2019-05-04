@@ -10,7 +10,7 @@ export const changeFilterLive = (filter, value) => ({
 });
 
 export const changeFilter = filters => ({
-    type: UPDATE_FILTERS_LIVE,
+    type: UPDATE_FILTERS,
     filters
 });
 

@@ -2,7 +2,10 @@ import { REMOVE_FILTERS, UPDATE_FILTERS, UPDATE_FILTERS_LIVE } from '../actions/
 import merge from 'lodash/merge';
 
 const noFilters = {
-    location: null
+    location: null,
+    guests: null,
+    start_date: null,
+    end_date: null
 };
 
 const filtersReducer = (state = noFilters, action) => {

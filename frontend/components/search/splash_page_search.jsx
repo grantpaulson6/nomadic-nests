@@ -13,20 +13,22 @@ class SplashPageSearch extends React.Component {
             end_date: ""
         };
         this.handleChange = this.handleChange.bind(this);
+        this.hideMatches = this.hideMatches.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        // this.props.updateFilters(formData);
+        this.props.changeFilter(this.state);
         this.props.history.push('/search/');
     }
 
     handleChange(field) {
-        return e => this.setState({ [field]: e.target.value });
+        return e => {
+            this.setState({ [field]: e.target.value }, this.sortList);
+        };
     }
 
     matches() {
-        debugger;   
         if (!this.props.location_names) {
             return [];
         }
@@ -48,15 +50,38 @@ class SplashPageSearch extends React.Component {
         return matches;
     }
 
+    showMatches() {
+        const matches = document.getElementById("search-field-matches");
+        matches.className += " display-on";
+        this.sortList();
+        document.getElementsByTagName("body")[0].addEventListener("mousedown", this.hideMatches);
+    }
+    
+    hideMatches() {
+        document.getElementsByTagName("body")[0].removeEventListener("mousedown", this.hideMatches);
+        const matches = document.getElementById("search-field-matches");
+        matches.classList.remove("display-on");
+    }
+
     selectName(e) {
-        const location = e.curretTarget.value;
-        this.setState({ location });
+        const location = e.currentTarget.innerHTML;
+        this.setState({ location }, () => {
+            const input = document.getElementById("search-info-where");
+            input.value = this.state.location;
+        });
+    }
+
+    sortList() {
+        const matches = document.getElementById("search-field-matches");
+        Array.from(matches.getElementsByTagName("li"))
+            .sort((a, b) => a.textContent.localeCompare(b.textContent))
+            .forEach(li => matches.appendChild(li));
     }
 
     render() {
 
         const locations = this.matches().map((result, i) => (
-            <li key={i} onCilck={this.selectName}>{result}</li>
+            <li key={i} onMouseDown={this.selectName.bind(this)}>{result}</li>
         ))
         return (
             <div className="search-box">
@@ -70,8 +95,11 @@ class SplashPageSearch extends React.Component {
                             className="search-info"
                             id="search-info-where"
                             onChange={this.handleChange("location")}
+                            onFocus={this.showMatches.bind(this)}
+                            pattern={this.props.location_names.join("|")}
+                            title="Only the listed regions are searcheable"
                             />
-                        <ul className="search-field-matches">
+                        <ul id="search-field-matches">
                             { locations }
                         </ul>
                     </div>
@@ -82,7 +110,7 @@ class SplashPageSearch extends React.Component {
                             </label>
                             <input type="DATE"
                                 className="search-info"
-                                id="search-info-where"
+                                id="search-info-startdate"
                                 onChange={this.handleChange("start_date")}
                             />
                         </div>
@@ -92,7 +120,7 @@ class SplashPageSearch extends React.Component {
                             </label>
                             <input type="DATE"
                                 className="search-info"
-                                id="search-info-where"
+                                id="search-info-enddate"
                                 onChange={this.handleChange("end_date")}
                             />
                         </div>

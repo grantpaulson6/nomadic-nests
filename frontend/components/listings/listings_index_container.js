@@ -3,11 +3,12 @@ import ListingsIndex from './listings_index';
 import { fetchListing, fetchListings, createListing } from '../../actions/listings_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-    listings: Object.values(state.entities.listings)
+    listings: Object.values(state.entities.listings),
+    filters: state.ui.filters
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchListings: () => dispatch(fetchListings())
+    fetchListings: filters => dispatch(fetchListings(filters))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListingsIndex);

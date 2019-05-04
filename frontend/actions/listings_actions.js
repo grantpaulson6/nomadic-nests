@@ -19,8 +19,8 @@ export const receiveListingErrors = errors => ({
     errors
 });
 
-export const fetchListings = () => dispatch => (
-    APIUtil.fetchListings().then( listings => dispatch(receiveListings(listings)))
+export const fetchListings = filters => dispatch => (
+    APIUtil.fetchListings(filters).then( listings => dispatch(receiveListings(listings)))
 );
 
 export const fetchListing = listingId => dispatch => (

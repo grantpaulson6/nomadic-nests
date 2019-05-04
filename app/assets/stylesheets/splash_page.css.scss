@@ -200,4 +200,23 @@ input[type="date"] {
 }
 
 
-// .search-field-matches
+#search-field-matches {
+    display: none;
+}
+
+#search-field-matches.display-on {
+    display: block;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    border-radius: 5px;
+
+    li {
+        margin: 10px;
+    }
+
+    li:hover {
+        text-decoration: underline;
+    }
+}
