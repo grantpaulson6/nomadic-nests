@@ -1,5 +1,5 @@
 import React from 'react';
-import SplashPageSearch from './search/splash_page_search';
+import SplashPageSearch from './search/search_container';
 
 class SplashPage extends React.Component {
 

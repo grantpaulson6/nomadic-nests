@@ -13,11 +13,10 @@
 }
 
 .main-logo {
-    background-image: image-url('camping-tent.svg');
-    height: 40px;
-    width: 40px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/86/Tent_Flat_Icon_Vector.svg');
+    height: 70px;
+    width: 70px;
     background-size: contain;
-    margin-left: 15px;
 }
 
 .main-logo:hover {
