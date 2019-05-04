@@ -311,14 +311,15 @@ require 'open-uri'
 
 #seeded dev and prod
 
+
 l10 = Listing.new(
     title: "Cute cabin, refurbished from a fire lookout with STELLAR views",
     price: 40,
-    location_id: 80,
+    location_id: 54,
     description: "Stretch your legs, smell the flowers, and unclench. Enjoy time here in solitary contemplation, \
 or bring a friend or a whole picnic!",
     property_type: "cabin",
-    owner_id: 17,
+    owner_id: 9,
     max_guests: 1,
     num_beds: 1,
     num_bathrooms: 1,
@@ -335,12 +336,12 @@ l10.save!
 l11 = Listing.new(
     title: "Chill canadian campground with angry grizzly bear mother nearby",
     price: 18,
-    location_id: 80,
+    location_id: 54,
     description: "If you like hiking this place is perfect for you.  Although one of the \
 cubs of a grizzly mother was tragically killed by traffic recently, and the mother hasnt \
 found out yet, so she is aggressively searching the whole area.  Good luck.",
     property_type: "campground",
-    owner_id: 17,
+    owner_id: 9,
     max_guests: 2,
     num_beds: 0,
     num_bathrooms: 2,
@@ -357,12 +358,12 @@ l11.save!
 l12 = Listing.new(
     title: "Bad@ss camper truck in yoho national park",
     price: 44,
-    location_id: 80,
+    location_id: 54,
     description: "Want to be able to drive your house over a mountain? Through a \
 river? Around the whole world and maybe even to the moon? Then this camper tank is \
 perfect for you.  Comfort not a priority.",
     property_type: "dispersed camping",
-    owner_id: 17,
+    owner_id: 9,
     max_guests: 10,
     num_beds: 1,
     num_bathrooms: 1,
@@ -381,10 +382,10 @@ l12.save!
 l13 = Listing.new(
     title: "Sneaky camping amongst the craggy peaks of banff",
     price: 60,
-    location_id: 80,
+    location_id: 54,
     description: "its real nice here",
     property_type: "dispersed camping",
-    owner_id: 17,
+    owner_id: 9,
     max_guests: 1,
     num_beds: 10,
     num_bathrooms: 100,
