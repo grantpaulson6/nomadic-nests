@@ -6,11 +6,20 @@ class ListingsMap extends React.Component {
     //calculate zoom;
 
     componentDidMount() {
-        const mapOptions = {
-            center: { lat: this.props.current_location.lat,
-                lng: this.props.current_location.lng
-            }, zoom: 7
-        };
+        let mapOptions;
+        if (this.props.current_location) {
+            mapOptions = {
+                center: { lat: this.props.current_location.lat,
+                    lng: this.props.current_location.lng
+                }, zoom: 5
+            };
+        } else {
+            mapOptions = {
+                center: { lat: 50,
+                    lng: -114
+                }, zoom: 3
+            };
+        }
         this.map = new google.maps.Map(document.getElementById("map"), mapOptions);
         this.map.addListener('idle', () => {
             const bounds = this.map.getBounds().toJSON();

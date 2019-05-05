@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'react-router-dom';
 import SearchContainer from './search/search_container';
+import FilterBarContainer from './search/filter_bar_container';
 
 class NavBar extends React.Component {
 
@@ -8,10 +9,13 @@ class NavBar extends React.Component {
     render() {
 
         let search_box;
+        let filter_bar;
         if (this.props.location.pathname === "/") {
             search_box = null;
+            filter_bar = null;
         } else {
             search_box = <SearchContainer />;
+            filter_bar = <FilterBarContainer />;
         }
         const left_nav = (
             <div className="left-nav">
@@ -68,6 +72,7 @@ class NavBar extends React.Component {
                         { left_nav }
                         { right_nav }
                     </div>
+                    { filter_bar }
                 </div>
             )
         }

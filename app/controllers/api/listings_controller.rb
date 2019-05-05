@@ -18,16 +18,20 @@ class Api::ListingsController < ApplicationController
 
     def index
         location = Location.find_by(name: params[:filters][:location])
-        location_id = location ? location.id : 0
+        # location_id = location ? location.id : 0
         max_guests = params[:filters][:guests] == "" ? 0 : params[:filters][:guests]
         max_lat = params[:filters][:bounds][:north]
         max_lng = params[:filters][:bounds][:east]
         min_lat = params[:filters][:bounds][:south]
         min_lng = params[:filters][:bounds][:west]
 
-        @listings = Listing.with_attached_photos.where(["location_id = ? and max_guests >= ? and lat <= ? and lng <= ? and lat >= ? and lng >= ?", 
-        location_id, max_guests, max_lat, max_lng, min_lat, min_lng])
-
+        if location
+            @listings = Listing.with_attached_photos.where(["location_id = ? and max_guests >= ? and lat <= ? and lng <= ? and lat >= ? and lng >= ?", 
+            location.id, max_guests, max_lat, max_lng, min_lat, min_lng])
+        else
+            @listings = Listing.with_attached_photos.where(["max_guests >= ? and lat <= ? and lng <= ? and lat >= ? and lng >= ?", 
+            max_guests, max_lat, max_lng, min_lat, min_lng])
+        end
     end
 
     def show
