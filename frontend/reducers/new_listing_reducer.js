@@ -4,7 +4,6 @@ const newListingReducer = (state = null, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_LISTING:
-        debugger
             return action.listing.id;
         default:
             return state;

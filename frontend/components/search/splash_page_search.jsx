@@ -29,7 +29,6 @@ class SplashPageSearch extends React.Component {
     }
 
     matches() {
-        debugger
         if (!this.props.locations) {
             return [];
         }
