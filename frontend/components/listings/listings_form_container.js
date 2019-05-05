@@ -2,9 +2,11 @@ import { createListing } from '../../actions/listings_actions';
 import { connect } from 'react-redux';
 import ListingsForm from './listings_form';
 import { closeModal } from '../../actions/modal_actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => ({
-    errors: state.errors.listing
+    errors: state.errors.listing,
+    new_listing: state.ui.new_listing
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -12,4 +14,4 @@ const mapDispatchToProps = (dispatch) => ({
     closeModal: () => dispatch(closeModal())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListingsForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ListingsForm));

@@ -3,11 +3,13 @@ import React from 'react';
 class ListingShow extends React.Component {
 
     componentDidMount() {
-        this.props.fetchListing(this.props.match.params.listingId);
+        if (!this.props.listing) {
+            this.props.fetchListing(this.props.match.params.listingId);
+        }
     }
 
     componentDidUpdate() {
-        if (!this.props.listing || this.props.listing.photoUrls.length <= 1) {
+        if (!this.props.listing) {
             this.props.fetchListing(this.props.match.params.listingId);
         }
     }

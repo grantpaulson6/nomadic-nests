@@ -32,7 +32,8 @@ class ListingsForm extends React.Component {
             }
         }
         this.props.createListing(formData)
-            .then(this.props.closeModal);
+            .then(this.props.closeModal)
+            .then(() => this.props.history.push(`/listings/${this.props.new_listing}`));
     }
 
     handleChange(field) {
@@ -47,7 +48,7 @@ class ListingsForm extends React.Component {
     render() {
         return (
             <div className="create-listings">
-                <i class="fas fa-times" onClick={this.props.closeModal}></i>
+                <i className="fas fa-times" onClick={this.props.closeModal}></i>
                 <form onSubmit={this.handleSubmit.bind(this)}>
                     <input type="text"
                         value={this.state.title}

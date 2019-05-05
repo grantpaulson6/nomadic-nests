@@ -18,7 +18,9 @@ class Api::ListingsController < ApplicationController
 
     def index
         location = Location.find_by(name: params[:filters][:location])
-        @listings = Listing.with_attached_photos.where(["location_id = ?", location.id])
+        location_id = location ? location.id : 0
+        max_guests = params[:filters][:guests] == "" ? 0 : params[:filters][:guests]
+        @listings = Listing.with_attached_photos.where(["location_id = ? and max_guests >= ? ", location_id, max_guests])
         #lots of updating here to filter
     end
 
