@@ -5,7 +5,7 @@ import ListingsMapContainer from './listings_map_container';
 class ListingsIndex extends React.Component {
 
     componentDidMount() {
-        this.props.fetchListings(this.props.filters);
+        // this.props.fetchListings(this.props.filters);
     }
 
     render() {

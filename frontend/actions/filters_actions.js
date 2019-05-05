@@ -1,8 +1,10 @@
+import { fetchListings } from './listings_actions';
 
 export const REMOVE_FILTERS = "REMOVE_FILTERS";
 export const UPDATE_FILTERS = "UPDATE_FILTERS";
 export const UPDATE_FILTERS_LIVE = "UPDATE_FILTERS_LIVE";
-export const UPDATE_BOUNDS = "UPDATE_BOUNDS"
+export const UPDATE_BOUNDS = "UPDATE_BOUNDS";
+
 
 //live may be unused
 export const changeFilterLive = (filter, value) => ({
@@ -16,7 +18,12 @@ export const changeFilter = filters => ({
     filters
 });
 
-export const updateBounds = bounds => ({
+export const receiveBounds = bounds => ({
     type: UPDATE_BOUNDS,
     bounds
 });
+
+export const updateBounds = bounds => (dispatch, getState) => {
+    dispatch(receiveBounds(bounds));
+    return fetchListings(getState().ui.filters)(dispatch);
+};
