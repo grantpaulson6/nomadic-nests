@@ -29,15 +29,16 @@ class SplashPageSearch extends React.Component {
     }
 
     matches() {
-        if (!this.props.location_names) {
+        debugger
+        if (!this.props.locations) {
             return [];
         }
         const matches = [];
         if (this.state.location.length === 0) {
-            return this.props.location_names;
+            return this.props.locations;
         }
 
-        this.props.location_names.forEach(location => {
+        this.props.locations.forEach(location => {
             const sub = location.slice(0, this.state.location.length);
             if (sub.toLowerCase() === this.state.location.toLowerCase()) {
                 matches.push(location);
@@ -50,15 +51,16 @@ class SplashPageSearch extends React.Component {
         return matches;
     }
 
-    showMatches() {
+    showMatches(e) {
         const matches = document.getElementById("search-field-matches");
         matches.className += " display-on";
         this.sortList();
-        document.getElementsByTagName("body")[0].addEventListener("mousedown", this.hideMatches);
+        document.getElementById("search-info-where").addEventListener("mousedown", e => e.stopPropagation(), true);
+        document.getElementsByTagName("body")[0].addEventListener("mousedown", this.hideMatches, false);
     }
     
     hideMatches() {
-        document.getElementsByTagName("body")[0].removeEventListener("mousedown", this.hideMatches);
+        document.getElementsByTagName("body")[0].removeEventListener("mousedown", this.hideMatches, false);
         const matches = document.getElementById("search-field-matches");
         matches.classList.remove("display-on");
     }
@@ -96,8 +98,9 @@ class SplashPageSearch extends React.Component {
                             id="search-info-where"
                             onChange={this.handleChange("location")}
                             onFocus={this.showMatches.bind(this)}
-                            pattern={this.props.location_names.join("|")}
+                            pattern={this.props.locations.join("|")}
                             title="Only the listed regions are searcheable"
+                            required
                             />
                         <ul id="search-field-matches">
                             { locations }

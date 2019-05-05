@@ -6,7 +6,6 @@ import merge from 'lodash/merge';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
-
     let preloadedState = {
         entities: {
             locations: window.locations
