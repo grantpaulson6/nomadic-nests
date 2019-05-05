@@ -65,7 +65,9 @@ class SplashPageSearch extends React.Component {
     }
 
     selectName(e) {
-        const location = e.currentTarget.innerHTML;
+        let location = e.currentTarget.innerHTML;
+        location = location.split(" ");
+        location = location.slice(0, location.length - 1).join(" ");
         this.setState({ location }, () => {
             const input = document.getElementById("search-info-where");
             input.value = this.state.location;
@@ -97,7 +99,7 @@ class SplashPageSearch extends React.Component {
                             id="search-info-where"
                             onChange={this.handleChange("location")}
                             onFocus={this.showMatches.bind(this)}
-                            pattern={this.props.locations.join("|")}
+                            pattern={this.props.location_names.join("|")}
                             title="Only the listed regions are searcheable"
                             required
                             />
