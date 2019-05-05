@@ -58,13 +58,14 @@ class SplashPageSearch extends React.Component {
         document.getElementsByTagName("body")[0].addEventListener("mousedown", this.hideMatches, false);
     }
     
-    hideMatches() {
+    hideMatches(e) {
         document.getElementsByTagName("body")[0].removeEventListener("mousedown", this.hideMatches, false);
         const matches = document.getElementById("search-field-matches");
         matches.classList.remove("display-on");
     }
 
     selectName(e) {
+        e.preventDefault();
         let location = e.currentTarget.innerHTML;
         location = location.split(" ");
         location = location.slice(0, location.length - 1).join(" ");

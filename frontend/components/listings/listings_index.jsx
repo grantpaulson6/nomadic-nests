@@ -21,7 +21,7 @@ class ListingsIndex extends React.Component {
                 <div className="listing-item-container map-on">
                     {listingitems}
                 </div>
-                <ListingsMapContainer />
+                <ListingsMapContainer listings={this.props.listings}/>
             </div>
         )
     }

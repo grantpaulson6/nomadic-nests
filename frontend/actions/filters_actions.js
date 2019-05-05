@@ -2,7 +2,9 @@
 export const REMOVE_FILTERS = "REMOVE_FILTERS";
 export const UPDATE_FILTERS = "UPDATE_FILTERS";
 export const UPDATE_FILTERS_LIVE = "UPDATE_FILTERS_LIVE";
+export const UPDATE_BOUNDS = "UPDATE_BOUNDS"
 
+//live may be unused
 export const changeFilterLive = (filter, value) => ({
     type: UPDATE_FILTERS_LIVE,
     filter,
@@ -14,4 +16,7 @@ export const changeFilter = filters => ({
     filters
 });
 
-
+export const updateBounds = bounds => ({
+    type: UPDATE_BOUNDS,
+    bounds
+});
