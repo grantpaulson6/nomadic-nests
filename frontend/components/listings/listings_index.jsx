@@ -1,6 +1,6 @@
 import React from 'react';
 import ListingsIndexItem from './listings_index_item';
-import ListingsMap from './listings_map';
+import ListingsMapContainer from './listings_map_container';
 
 class ListingsIndex extends React.Component {
 
@@ -18,12 +18,10 @@ class ListingsIndex extends React.Component {
         });
         return (
             <div>
-                <div className="listing-item-container">
+                <div className="listing-item-container map-on">
                     {listingitems}
                 </div>
-                <div>
-                    <ListingsMap />
-                </div>
+                <ListingsMapContainer />
             </div>
         )
     }

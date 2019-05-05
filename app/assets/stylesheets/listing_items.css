@@ -1,29 +1,59 @@
 @media all and (min-width: 1501px) {
-    .listing-item {
+    .listing-item.map-off {
         width: 20%
     }
 }
 
 @media all and (max-width: 1500px) and (min-width: 1201px) {
-    .listing-item {
+    .listing-item.map-off {
         width: 25%
     }
 }
 
 @media all and (max-width: 1200px) and (min-width: 901px) {
-    .listing-item {
+    .listing-item.map-off {
         width: 33%
     }
 }
 
 @media all and (max-width: 900px) and (min-width: 601px) {
-    .listing-item {
+    .listing-item.map-off {
         width: 50%
     }
 }
 
 @media all and (max-width: 600px) {
-    .listing-item {
+    .listing-item.map-off {
+        width: 100%
+    }
+}
+
+@media all and (min-width: 2201px) {
+    .listing-item.map-on {
+        width: 20%
+    }
+}
+
+@media all and (max-width: 2200px) and (min-width: 1801px) {
+    .listing-item.map-on {
+        width: 25%
+    }
+}
+
+@media all and (max-width: 1800px) and (min-width: 1401px) {
+    .listing-item.map-on {
+        width: 33%
+    }
+}
+
+@media all and (max-width: 1400px) and (min-width: 901px) {
+    .listing-item.map-on {
+        width: 50%
+    }
+}
+
+@media all and (max-width: 900px) {
+    .listing-item.map-on {
         width: 100%
     }
 }
@@ -90,5 +120,29 @@
     flex-direction: row;
     flex-wrap: wrap;
     padding: 20px;
+    box-sizing: border-box;
 }
 
+.listing-item-container.map-on {
+    width: 66vw;
+}
+
+.listing-item-container.map-off {
+    width: 100vw;
+}
+
+.listing-map.map-on {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 34vw;
+    height: 100%;
+    float: right;
+    background-color: beige;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}

@@ -10,7 +10,7 @@ class ListingsIndexItem extends React.Component {
     render() {
 
         return (
-            <div className="listing-item"
+            <div className="listing-item map"
                 onClick={() => this.props.history.push(`/listings/${this.props.listing.id}`)}
             >
                 <div className="listing-item-picture">
