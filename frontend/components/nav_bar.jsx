@@ -1,11 +1,18 @@
 import React from 'react';
 import Link from 'react-router-dom';
+import SearchContainer from './search/search_container';
 
 class NavBar extends React.Component {
 
 
     render() {
 
+        let search_box;
+        if (this.props.location.pathname === "/") {
+            search_box = null;
+        } else {
+            search_box = <SearchContainer />;
+        }
         const left_nav = (
             <div className="left-nav">
                 <div className="logo">
@@ -14,6 +21,7 @@ class NavBar extends React.Component {
                         onClick={() => this.props.history.push('/')}
                     ></div>
                 </div>
+                { search_box }
             </div>
         )
         
@@ -46,7 +54,7 @@ class NavBar extends React.Component {
                 </nav>
             )
         }
-        if (this.props.navType === "splash") {
+        if (this.props.location.pathname === "/") {
             return (
                 <div className="main-nav splash">
                     { left_nav }

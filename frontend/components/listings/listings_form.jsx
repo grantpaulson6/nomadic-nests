@@ -49,6 +49,7 @@ class ListingsForm extends React.Component {
         return (
             <div className="create-listings">
                 <i className="fas fa-times" onClick={this.props.closeModal}></i>
+                <h1>Fill out your nests details!</h1>
                 <form onSubmit={this.handleSubmit.bind(this)}>
                     <input type="text"
                         value={this.state.title}

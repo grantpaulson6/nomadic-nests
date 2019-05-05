@@ -6,13 +6,8 @@ import { fetchListing } from '../../actions/listings_actions';
 
 const mapStateToProps = (state, ownProps) => {
     const listing = state.entities.listings[ownProps.match.params.listingId];
-    let location;
-    if (listing) {
-        location = state.entities.locations[listing.location_id];
-    }
     return ({
-        listing,
-        location
+        listing
     });
 };
 

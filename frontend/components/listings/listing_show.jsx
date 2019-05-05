@@ -40,7 +40,7 @@ class ListingShow extends React.Component {
                         <div className="listing-body">
                             <div className="listing-details">
                                 <h1>{this.props.listing.title}</h1>
-                                <div className="details">{this.props.location.name}</div>
+                                <div className="details">{this.props.listing.location}</div>
                                 <div className="details">{this.props.listing.property_type}</div>
                                 <ul className="details nums">
                                     <li className="nums-li">{this.props.listing.max_guests} guests</li>

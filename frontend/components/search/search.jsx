@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 
-class SplashPageSearch extends React.Component {
+class Search extends React.Component {
 
     constructor(props) {
         super(props);
@@ -72,6 +72,9 @@ class SplashPageSearch extends React.Component {
         this.setState({ location }, () => {
             const input = document.getElementById("search-info-where");
             input.value = this.state.location;
+            if (this.props.location.pathname != "/") {
+                this.props.changeFilter(this.state);
+            }
         });
     }
 
@@ -87,15 +90,12 @@ class SplashPageSearch extends React.Component {
         const locations = this.matches().map((result, i) => (
             <li key={i} onMouseDown={this.selectName.bind(this)}>{result}</li>
         ))
-        return (
-            <div className="search-box">
-                <h1>Discover the nests of two nomads</h1>
+
+        const nav_search_box = (
+            <div className="nav-search-box">
                 <form onSubmit={this.handleSubmit.bind(this)}>
-                    <div className="search-field">
-                        <label htmlFor="search-info-where">
-                            <span>WHERE</span>
-                        </label>
-                            <input type="text"
+                    <div className="nav-search-field">
+                        <input type="text"
                             className="search-info"
                             id="search-info-where"
                             onChange={this.handleChange("location")}
@@ -103,48 +103,76 @@ class SplashPageSearch extends React.Component {
                             pattern={this.props.location_names.join("|")}
                             title="Only the listed regions are searcheable"
                             required
-                            />
+                        />
                         <ul id="search-field-matches">
-                            { locations }
+                            {locations}
                         </ul>
                     </div>
-                    <div className="search-field date">
-                        <div className="date-left">
-                            <label htmlFor="search-info-startdate">
-                                <span>CHECK-IN</span>
-                            </label>
-                            <input type="DATE"
-                                className="search-info"
-                                id="search-info-startdate"
-                                onChange={this.handleChange("start_date")}
-                            />
-                        </div>
-                        <div className="date-right">
-                            <label htmlFor="search-info-enddate">
-                                <span>CHECKOUT</span>
-                            </label>
-                            <input type="DATE"
-                                className="search-info"
-                                id="search-info-enddate"
-                                onChange={this.handleChange("end_date")}
-                            />
-                        </div>
-                    </div>
-                    <div className="search-field">
-                        <label htmlFor="search-info-guests">
-                            <span>GUESTS</span>
-                        </label>
-                        <input type="number"
-                            className="search-info"
-                            id="search-info-guests"
-                            onChange={this.handleChange("guests")}
-                        />
-                    </div>
-                    <button className="search-button">Search</button>
                 </form>
             </div>
         )
+        if (this.props.location.pathname === "/") {
+            return (
+                <div className="search-box">
+                    <h1>Discover the nests of two nomads</h1>
+                    <form onSubmit={this.handleSubmit.bind(this)}>
+                        <div className="search-field">
+                            <label htmlFor="search-info-where">
+                                <span>WHERE</span>
+                            </label>
+                                <input type="text"
+                                className="search-info"
+                                id="search-info-where"
+                                onChange={this.handleChange("location")}
+                                onFocus={this.showMatches.bind(this)}
+                                pattern={this.props.location_names.join("|")}
+                                title="Only the listed regions are searcheable"
+                                required
+                                />
+                            <ul id="search-field-matches">
+                                { locations }
+                            </ul>
+                        </div>
+                        <div className="search-field date">
+                            <div className="date-left">
+                                <label htmlFor="search-info-startdate">
+                                    <span>CHECK-IN</span>
+                                </label>
+                                <input type="DATE"
+                                    className="search-info"
+                                    id="search-info-startdate"
+                                    onChange={this.handleChange("start_date")}
+                                />
+                            </div>
+                            <div className="date-right">
+                                <label htmlFor="search-info-enddate">
+                                    <span>CHECKOUT</span>
+                                </label>
+                                <input type="DATE"
+                                    className="search-info"
+                                    id="search-info-enddate"
+                                    onChange={this.handleChange("end_date")}
+                                />
+                            </div>
+                        </div>
+                        <div className="search-field">
+                            <label htmlFor="search-info-guests">
+                                <span>GUESTS</span>
+                            </label>
+                            <input type="number"
+                                className="search-info"
+                                id="search-info-guests"
+                                onChange={this.handleChange("guests")}
+                            />
+                        </div>
+                        <button className="search-button">Search</button>
+                    </form>
+                </div>
+            )
+        } else {
+            return nav_search_box;
+        }
     }
 }
 
-export default withRouter(SplashPageSearch);
+export default withRouter(Search);

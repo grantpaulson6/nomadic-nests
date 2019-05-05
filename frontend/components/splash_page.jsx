@@ -1,5 +1,5 @@
 import React from 'react';
-import SplashPageSearch from './search/search_container';
+import SearchContainer from './search/search_container';
 
 class SplashPage extends React.Component {
 
@@ -9,7 +9,7 @@ class SplashPage extends React.Component {
         return (
             <div>
                 <div className="splash-page-img">
-                    <SplashPageSearch />
+                    <SearchContainer />
                 </div>
             </div>
         )

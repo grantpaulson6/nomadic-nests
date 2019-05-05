@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';  
-import SplashPageSearch from './splash_page_search';
+import Search from './search';
 import { changeFilter } from '../../actions/filters_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch) => ({
     changeFilter: filters => dispatch(changeFilter(filters))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SplashPageSearch);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

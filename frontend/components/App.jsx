@@ -11,14 +11,8 @@ import ListingShowContainer from './listings/listing_show_container';
 const App = () => (
     <div>
         <Modal />
-        <Switch>
-            <Route exact path="/" 
-                render={props => <NavBarContainer navType="splash" {...props} />}
-            />
-            <Route path="/"
-                render={props => <NavBarContainer navType="main" {...props} />}
-            />
-        </Switch>
+        <Route path="/" component={NavBarContainer} />
+        {/* <Route path="/" component={SearchBarContainer} /> */}
         <Route exact path="/" component={SplashPage} />
         <Route path="/search/" component={ListingsIndexContainer} />
         <Route path="/listings/:listingId" component={ListingShowContainer} />
