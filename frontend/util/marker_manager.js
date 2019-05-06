@@ -1,7 +1,8 @@
 
-export default class MarkerManager {
-    constructor(map) {
+class MarkerManager {
+    constructor(map, history) {
         this.map = map;
+        this.history = history;
         this.markers = {};
     }
 
@@ -29,6 +30,14 @@ export default class MarkerManager {
             map: this.map,
             title: listing.title
         });
+        let new_path = "/listings/" + listing.id;
+        let that = this;
+        marker.addListener('click', () => {
+            debugger
+            that.history.push(new_path);
+        });
         this.markers[listing.id] = marker;
     }
 }
+
+export default MarkerManager;

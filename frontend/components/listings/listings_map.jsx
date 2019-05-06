@@ -1,5 +1,6 @@
 import React from 'react';
 import MarkerManager from '../../util/marker_manager';
+import { withRouter } from 'react-router-dom';
 
 class ListingsMap extends React.Component {
 
@@ -7,7 +8,6 @@ class ListingsMap extends React.Component {
 
     componentDidMount() {
         let mapOptions;
-        debugger
         if (this.props.current_location) {
             mapOptions = {
                 center: { lat: this.props.current_location.lat,
@@ -26,7 +26,8 @@ class ListingsMap extends React.Component {
             const bounds = this.map.getBounds().toJSON();
             this.props.updateBounds(bounds);
         });
-        this.MarkerManager = new MarkerManager(this.map);
+        debugger;
+        this.MarkerManager = new MarkerManager(this.map, this.props.history);
         this.MarkerManager.updateMarkers(this.props.listings);
     }
 
@@ -44,4 +45,4 @@ class ListingsMap extends React.Component {
     }
 }
 
-export default ListingsMap;
+export default withRouter(ListingsMap);
