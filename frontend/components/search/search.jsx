@@ -53,7 +53,7 @@ class Search extends React.Component {
     showMatches(e) {
         e.preventDefault();
         const matches = document.getElementById("search-field-matches");
-        matches.className += " display-on";
+        matches.className = "display-on";
         this.sortList();
         document.getElementById("search-info-where").addEventListener("mousedown", e => e.stopPropagation(), true);
         document.getElementsByTagName("body")[0].addEventListener("mousedown", this.hideMatches, false);
@@ -103,6 +103,7 @@ class Search extends React.Component {
                             id="search-info-where"
                             onChange={this.handleChange("location")}
                             onFocus={this.showMatches.bind(this)}
+                            onClick={this.showMatches.bind(this)}
                             pattern={this.props.location_names.join("|")}
                             title="Only the listed regions are searcheable"
                             required
@@ -128,6 +129,7 @@ class Search extends React.Component {
                                 id="search-info-where"
                                 onChange={this.handleChange("location")}
                                 onFocus={this.showMatches.bind(this)}
+                                onClick={this.showMatches.bind(this)}
                                 pattern={this.props.location_names.join("|")}
                                 title="Only the listed regions are searcheable"
                                 />
