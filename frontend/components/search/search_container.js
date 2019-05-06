@@ -7,7 +7,8 @@ const mapStateToProps = (state, ownProps) => {
         locations: Object.values(state.entities.locations).map(location => {
             return location.name + " (" + location.listing_count + ")";
         }),
-        location_names: Object.values(state.entities.locations).map(location => location.name)
+        location_names: Object.values(state.entities.locations).map(location => location.name),
+        current_location: state.ui.filters.location
 });};
 
 const mapDispatchToProps = (dispatch) => ({

@@ -72,11 +72,10 @@ class Search extends React.Component {
         location = location.split(" ");
         location = location.slice(0, location.length - 1).join(" ");
         this.setState({ location }, () => {
-            const input = document.getElementById("search-info-where");
-            input.value = this.state.location;
             if (this.props.location.pathname != "/") {
                 this.props.changeFilter(this.state);
                 this.props.history.push('/search/');
+                this.setState({location: ""});
             }
         });
     }
@@ -101,10 +100,12 @@ class Search extends React.Component {
                         <input type="text"
                             className="search-info"
                             id="search-info-where"
+                            value={this.state.location}
                             onChange={this.handleChange("location")}
                             onFocus={this.showMatches.bind(this)}
                             onClick={this.showMatches.bind(this)}
                             pattern={this.props.location_names.join("|")}
+                            placeholder={this.props.current_location}
                             title="Only the listed regions are searcheable"
                             required
                         />
@@ -127,6 +128,7 @@ class Search extends React.Component {
                                 <input type="text"
                                 className="search-info"
                                 id="search-info-where"
+                                value={this.state.location}
                                 onChange={this.handleChange("location")}
                                 onFocus={this.showMatches.bind(this)}
                                 onClick={this.showMatches.bind(this)}
