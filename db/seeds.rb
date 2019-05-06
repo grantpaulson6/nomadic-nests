@@ -14,79 +14,92 @@ require 'open-uri'
 # AA = Location.create!(
 #     name: "Alaska",
 #     lat: 63,
-#     lng: -148
+#     lng: -148,
+#     zoom: 5
 # )
 
 # BC = Location.create!(
 #     name: "British Columbia",
 #     lat: 55,
-#     lng: -123
+#     lng: -123,
+#     zoom: 6
 # )
 
 # GL = Location.create!(
 #     name: "Great Lakes",
 #     lat: 45,
-#     lng: -87
+#     lng: -87,
+#     zoom: 6
 # )
 
 # NP = Location.create!(
 #     name: "Northern Plains",
 #     lat: 46,
-#     lng: -108
+#     lng: -108,
+#     zoom: 6
 # )
 
 # NE = Location.create!(
 #     name: "New England",
 #     lat: 44,
-#     lng: -71
+#     lng: -71,
+#     zoom: 6
 # )
 
 # MA = Location.create!(
 #     name: "Mid Atlantic",
 #     lat: 38,
-#     lng: -78
+#     lng: -78,
+#     zoom: 6
 # )
 
 # MD = Location.create!(
 #     name: "Mississipi Drainage",
 #     lat: 36,
-#     lng: -90
+#     lng: -90,
+#     zoom: 6
 # )
 
 # FA = Location.create!(
 #     name: "Florida",
-#     lat: 28,
-#     lng: -81
+#     lat: 28.5,
+#     lng: -82,
+#     zoom: 7
 # )
 
 # SW = Location.create!(
 #     name: "Southwest",
-#     lat: 32,
-#     lng: -108
+#     lat: 33,
+#     lng: -109,
+#     zoom: 6
 # )
 
 # SU = Location.create!(
 #     name: "Southern Utah",
-#     lat: 38,
-#     lng: -111
+#     lat: 38.5,
+#     lng: -111.5,
+#     zoom: 8
 # )
 
 # CO = Location.create!(
 #     name: "Colorado",
-#     lat: 63,
-#     lng: -148
+#     lat: 39,
+#     lng: -106,
+#     zoom: 6
 # )
 
 # CA = Location.create!(
 #     name: "California",
 #     lat: 37,
-#     lng: -120
+#     lng: -120,
+#     zoom: 6
 # )
 
 # NW = Location.create!(
 #     name: "Northwest",
 #     lat: 47,
-#     lng: -122
+#     lng: -122,
+#     zoom: 7
 # )
 
 

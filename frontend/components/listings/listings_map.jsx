@@ -11,7 +11,7 @@ class ListingsMap extends React.Component {
             mapOptions = {
                 center: { lat: this.props.current_location.lat,
                     lng: this.props.current_location.lng
-                }, zoom: 5
+                }, zoom: this.props.current_location.zoom
             };
         } else {
             mapOptions = {
