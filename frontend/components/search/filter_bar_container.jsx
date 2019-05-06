@@ -1,12 +1,21 @@
 import { connect } from 'react-redux';
 import FilterBar from './filter_bar';
 import { withRouter } from 'react-router-dom';
+import { changeFilter } from '../../actions/filters_actions';
 
-const mapStateToProps = (state, ownProps) => ({
-    filter_location: state.ui.filters.location
-});
-
+//hacky, figure out react router dom issue
+const mapStateToProps = (state, ownProps) => {
+    const path_arr = ownProps.location.pathname.split("/");
+    const listingId = path_arr[path_arr.length - 1];
+    const listing = state.entities.listings[listingId];
+    const listing_location = listing ? listing.location : undefined;
+    return ({
+        listing,
+        listing_location
+    });
+};
 const mapDispatchToProps = (dispatch) => ({
+    changeFilter: location => dispatch(changeFilter({ location }))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FilterBar));

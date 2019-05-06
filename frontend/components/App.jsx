@@ -11,11 +11,12 @@ import ListingShowContainer from './listings/listing_show_container';
 const App = () => (
     <div>
         <Modal />
-        <Route path="/" component={NavBarContainer} />
-        {/* <Route path="/" component={SearchBarContainer} /> */}
-        <Route exact path="/" component={SplashPage} />
-        <Route path="/search/" component={ListingsIndexContainer} />
-        <Route path="/listings/:listingId" component={ListingShowContainer} />
+        <NavBarContainer />
+        <Switch>
+            <Route exact path="/" component={SplashPage} />
+            <Route path="/search/" component={ListingsIndexContainer} />
+            <Route path="/listings/:listingId" component={ListingShowContainer} />
+        </Switch>
     </div>
 );
 

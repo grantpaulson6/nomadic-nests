@@ -129,6 +129,8 @@ class ListingsForm extends React.Component {
                     <div className="form-errors">{this.props.errors["address"]}</div>
                     <input type="number"
                         step="0.000001"
+                        max="90"
+                        min="-90"
                         value={this.state.lat}
                         onChange={this.handleChange("lat").bind(this)}
                         placeholder="Lattitude"
@@ -137,6 +139,8 @@ class ListingsForm extends React.Component {
                     <div className="form-errors">{this.props.errors["lat"]}</div>
                     <input type="number"
                         step="0.000001"
+                        max="180"
+                        min="-180"
                         value={this.state.lng}
                         onChange={this.handleChange("lng").bind(this)}
                         placeholder="Longitude"

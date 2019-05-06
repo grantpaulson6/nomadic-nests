@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'react-router-dom';
 import SearchContainer from './search/search_container';
 import FilterBarContainer from './search/filter_bar_container';
 
