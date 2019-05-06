@@ -18,7 +18,7 @@ class ListingsIndex extends React.Component {
         });
         return (
             <div>
-                <div className="listing-item-container map-on">
+                <div className="listing-item-container map-on grid">
                     {listingitems}
                 </div>
                 <ListingsMapContainer key={this.props.filters.location} listings={this.props.listings}/>

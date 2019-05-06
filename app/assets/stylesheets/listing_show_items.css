@@ -1,4 +1,4 @@
-@media all and (min-width: 1501px) {
+/* @media all and (min-width: 1501px) {
     .listing-item.map-off {
         width: 20%
     }
@@ -56,13 +56,13 @@
     .listing-item.map-on {
         width: 100%
     }
-}
+} */
 
 .listing-item {
     padding: 8px;
     background: transparent;
     box-sizing: border-box;
-    max-height: 320px;
+    /* max-height: 320px; */
     cursor: pointer;
 }
 
@@ -123,6 +123,10 @@
     box-sizing: border-box;
 }
 
+.listing-item-container.map-off {
+    padding: 20px 105px
+}
+
 .listing-item-container.map-on {
     width: 66vw;
 }
@@ -145,4 +149,10 @@
 #map {
     height: 100%;
     width: 100%;
+}
+
+.listing-item-container.map-on.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: minmax(200px, 400px)
 }
