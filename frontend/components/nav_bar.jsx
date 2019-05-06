@@ -2,6 +2,7 @@ import React from 'react';
 import SearchContainer from './search/search_container';
 import FilterBarContainer from './search/filter_bar_container';
 
+//filler nav bar kind of hacky
 class NavBar extends React.Component {
 
 

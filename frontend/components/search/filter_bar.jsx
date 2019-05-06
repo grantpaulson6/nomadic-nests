@@ -13,10 +13,12 @@ class FilterBar extends React.Component {
             return null;
         } else {
             return (
-                <div className="filter-bar">
-                    <button onClick={this.handleReturn.bind(this)}>
-                        {this.props.listing_location}
-                    </button>
+                <div className="filler-nav2">
+                    <div className="filter-bar">
+                        <button onClick={this.handleReturn.bind(this)}>
+                            {this.props.listing_location}
+                        </button>
+                    </div>
                 </div>
             )
         }
