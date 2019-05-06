@@ -1,4 +1,5 @@
 import React from 'react';
+import ListingsMapContainer from './listings_map_container';
 
 class ListingShow extends React.Component {
 
@@ -36,7 +37,6 @@ class ListingShow extends React.Component {
                                 <img src={this.props.listing.photoUrls[4]} alt="" />
                             </div>
                         </div>
-
                         <div className="listing-body">
                             <div className="listing-details">
                                 <h1>{this.props.listing.title}</h1>
@@ -50,6 +50,13 @@ class ListingShow extends React.Component {
                                 <div className="details">
                                     <p>{this.props.listing.description}</p>
                                 </div>
+                            <ListingsMapContainer className="show-map" 
+                                    key={this.props.listing.location}
+                                    listings={[this.props.listing]}
+                                    current_location={{lat: this.props.listing.lat,
+                                        lng: this.props.listing.lng,
+                                        zoom: 10}}/>
+                            <div id="asdf">stuff</div>
                             </div>
                             <div className="booking-box">
                                 <div className="price">${this.props.listing.price}
@@ -94,7 +101,7 @@ class ListingShow extends React.Component {
                 </div>
             )
         } else {
-            return <h1>rendering</h1>
+            return <h1>listing not found</h1>
         }
     }
 }

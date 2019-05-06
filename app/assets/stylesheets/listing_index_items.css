@@ -121,6 +121,7 @@
     flex-wrap: wrap;
     padding: 20px;
     box-sizing: border-box;
+    margin-top: 100px;
 }
 
 .listing-item-container.map-off {
@@ -137,8 +138,8 @@
 
 .listing-map.map-on {
     display: block;
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    top: 100px;
     right: 0;
     width: 34vw;
     height: 100%;

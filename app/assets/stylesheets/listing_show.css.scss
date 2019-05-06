@@ -33,6 +33,9 @@
     .listing-body {
         width: 1000px;
         margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
 
         .listing-details {
             float: left;
@@ -141,7 +144,7 @@ input[type="text"].booking-info {
     transition: all 0.3s ease 0s;
     color: white;
     font-weight: 500;
-    float: right;
+    margin: 0 auto;
 }
 
 .booking-button:hover {
@@ -153,18 +156,22 @@ transform: translateY(-3px);
 
 @media only screen and (min-width: 1121px) {
     .booking-box {
-        float: right;
+        // float: right;
+        position: sticky;
+        top: 25px;
         width: 400px;
+        // height: 300px;
         border: 1px solid rgb(237, 231, 231);
         box-sizing: border-box;
         padding: 15px;
-        margin: 15px 0;
+        margin: 25px 0;
         box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
         border-radius: 5px;
     }
 
     .booking-button {
-        width: 100px;
+        margin-top: 20px;
+        width: 300px;
     }
 }
 
@@ -196,3 +203,15 @@ transform: translateY(-3px);
 
 }
 
+#asdf {
+    background-color: beige;
+    height: 4000px;
+    width: 500px;
+}
+
+.listing-show .listing-map.map-on{
+    height: 500px;
+    width: 100%;
+    display: block;
+    position: static;
+}

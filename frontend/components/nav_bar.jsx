@@ -10,12 +10,16 @@ class NavBar extends React.Component {
 
         let search_box;
         let filter_bar;
+        let sticky = null;
         if (this.props.location.pathname === "/") {
             search_box = null;
             filter_bar = null;
         } else {
             search_box = <SearchContainer />;
             filter_bar = <FilterBarContainer />;
+            if (this.props.location.pathname.includes("listings")) {
+                sticky = "sticky";
+            }
         }
         const left_nav = (
             <div className="left-nav">
@@ -68,7 +72,7 @@ class NavBar extends React.Component {
         } else {
             return (
                 <div className="filler-nav">
-                    <div className="main-nav">
+                    <div className={`main-nav ${sticky}`}>
                         { left_nav }
                         { right_nav }
                     </div>

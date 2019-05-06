@@ -7,6 +7,7 @@ class ListingsMap extends React.Component {
 
     componentDidMount() {
         let mapOptions;
+        debugger
         if (this.props.current_location) {
             mapOptions = {
                 center: { lat: this.props.current_location.lat,

@@ -71,13 +71,15 @@ class Search extends React.Component {
         let location = e.currentTarget.innerHTML;
         location = location.split(" ");
         location = location.slice(0, location.length - 1).join(" ");
-        this.setState({ location }, () => {
-            if (this.props.location.pathname != "/") {
-                this.props.changeFilter(this.state);
-                this.props.history.push('/search/');
-                this.setState({location: ""});
-            }
-        });
+        if (location != "No") {
+            this.setState({ location }, () => {
+                if (this.props.location.pathname != "/") {
+                    this.props.changeFilter(this.state);
+                    this.props.history.push('/search/');
+                    this.setState({location: ""});
+                }
+            });
+        }
     }
 
     sortList() {
