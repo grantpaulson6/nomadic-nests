@@ -17,7 +17,6 @@ class Api::ListingsController < ApplicationController
     end
 
     def index
-        # debugger
         location = Location.find_by(name: params[:filters][:location])
         max_guests = params[:filters][:guests] == "" ? 0 : params[:filters][:guests]
         max_price = params[:filters][:price] == "" ? 0 : params[:filters][:price]

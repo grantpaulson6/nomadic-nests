@@ -50,14 +50,14 @@
  }
 
  .modal-background.filter.dates {
-   background: rgb(255, 255, 255, .5);
+   background: rgba(255, 255, 255, .5);
  }
  .modal-background.filter.nest {
-   background: rgb(255, 255, 255, .5);
+   background: rgba(255, 255, 255, .5);
  }
  .modal-background.filter.price {
-   background: rgb(255, 255, 255, .5);
+   background: rgba(255, 255, 255, .5);
  }
  .modal-background.filter.guests {
-   background: rgb(255, 255, 255, .5);
+   background: rgba(255, 255, 255, .5);
  }
