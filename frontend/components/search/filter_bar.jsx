@@ -12,10 +12,13 @@ class FilterBar extends React.Component {
     handleMapToggle(e) {
         e.preventDefault;
         const map = document.getElementById("map-container");
+        const list = document.getElementsByClassName("listing-item-container")[0];
         if (e.currentTarget.checked === true) {
             map.className =("listing-map map-on");
+            list.className = ("listing-item-container map-on grid");
         } else {
             map.className += (" map-off");
+            list.className += (" map-off");
         }
     }
     
