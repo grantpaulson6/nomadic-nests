@@ -1,4 +1,5 @@
 import React from 'react';
+import ToggleSwitch from './toggle_switch';
 
 class FilterBar extends React.Component {
 
@@ -21,24 +22,30 @@ class FilterBar extends React.Component {
             list.className += (" map-off");
         }
     }
+
     
     render() {
-        // https://proto.io/freebies/onoff/ for toggle switch
         if (this.props.location.pathname === "/search/") {
             return (
                 <div className="filler-nav2">
                     <div className="filter-bar fixed">
-                        <div className="onoffswitch">
-                            <input type="checkbox"
-                                name="onoffswitch"
-                                className="onoffswitch-checkbox"
-                                id="myonoffswitch"
-                                onChange={this.handleMapToggle.bind(this)}
-                                defaultChecked/>
-                                <label className="onoffswitch-label" htmlFor="myonoffswitch">
-                                    <span className="onoffswitch-inner"></span>
-                                    <span className="onoffswitch-switch"></span>
-                                </label>
+                        <div className="left-filter">
+                            <button onClick={() => this.props.openModal("filter dates")}>
+                                Dates
+                            </button>
+                            <button onClick={() => this.props.openModal("filter guests")}>
+                                Guests
+                            </button>
+                            <button onClick={() => this.props.openModal("filter nest")}>
+                                Nest Type
+                            </button>
+                            <button onClick={() => this.props.openModal("filter price")}>
+                                Price
+                            </button>
+                        </div>
+                        <div className="right-filter">
+                            <span>Show Map</span>
+                            <ToggleSwitch handleMapToggle={this.handleMapToggle.bind(this)}/>
                         </div>
                     </div>
                 </div>

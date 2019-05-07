@@ -1,5 +1,6 @@
 import React from 'react';
 import ListingsMapContainer from './listings_map_container';
+import BookingBox from './booking_box';
 
 class ListingShow extends React.Component {
 
@@ -50,52 +51,15 @@ class ListingShow extends React.Component {
                                 <div className="details">
                                     <p>{this.props.listing.description}</p>
                                 </div>
-                            <ListingsMapContainer className="show-map" 
+                                <ListingsMapContainer className="show-map" 
                                     key={this.props.listing.location}
                                     listings={[this.props.listing]}
                                     current_location={{lat: this.props.listing.lat,
                                         lng: this.props.listing.lng,
                                         zoom: 10}}/>
-                            <div id="asdf">stuff</div>
+                                <div id="asdf">stuff</div>
                             </div>
-                            <div className="booking-box">
-                                <div className="price">${this.props.listing.price}
-                                    <span className="span"> per night</span>
-                                </div>
-
-                                
-                                <div className="booking-field date">
-                                    <div className="date-left">
-                                        <label htmlFor="booking-info-startdate">
-                                            <span>CHECK-IN</span>
-                                        </label>
-                                        <input type="DATE"
-                                            className="booking-info"
-                                            id="booking-info-where"
-                                        />
-                                    </div>
-                                    <div className="date-right">
-                                        <label htmlFor="booking-info-enddate">
-                                            <span>CHECKOUT</span>
-                                        </label>
-                                        <input type="DATE"
-                                            className="booking-info"
-                                            id="booking-info-where"
-                                            placeholder=""
-                                        />
-                                    </div>
-                                </div>
-                                <div className="booking-field">
-                                    <label htmlFor="booking-info-guests">
-                                        <span>GUESTS</span>
-                                    </label>
-                                    <input type="number"
-                                        className="booking-info"
-                                        id="booking-info-guests"
-                                    />
-                                </div>
-                                <button className="booking-button">Book</button>
-                            </div>
+                            <BookingBox price={this.props.listing.price}/>
                         </div>
                     </div>
                 </div>

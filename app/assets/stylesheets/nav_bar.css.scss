@@ -23,7 +23,7 @@
     align-items: center;
     box-sizing: border-box;
     width: 100%;
-    height: 50px;
+    height: 60px;
     position: sticky;
     z-index: 2;
     top: 100px;
@@ -36,7 +36,37 @@
 .filter-bar.fixed {
     position: fixed;
     top: 100px;
+    display: flex;
+    flex-direction: row;
+
+    .left-filter {
+        height: 100%;
+        width: 50%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .right-filter {
+        height: 100%;
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 20px;
+
+        span {
+            // margin-right: 15px;
+            font-weight: 400;
+        }
+
+        .onoffswitch {
+            margin: 0 15px;
+        }
+    }
 }
+
+
 
 .main-logo {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/86/Tent_Flat_Icon_Vector.svg');
@@ -147,8 +177,12 @@
     font-weight: 500;
 }
 
+.filter-bar button:first-child {
+    margin-left: 103px;
+}
+
 .filter-bar button {
-    margin-left: 100px;
+    margin-left: 20px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, .2);
     font-size: 18px;
     font-weight: 400;
@@ -158,4 +192,26 @@
 
 .filter-bar button:hover {
     background-color: rgb(233, 227, 227)
+}
+
+.filter-field {
+    display: none;
+}
+
+.filter-field.display-on {
+    display: block;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    border-radius: 5px;
+    padding: 5px;
+    
+    li {
+        margin: 10px;
+    }
+
+    li:hover {
+        text-decoration: underline;
+    }
 }

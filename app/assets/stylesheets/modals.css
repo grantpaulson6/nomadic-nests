@@ -22,3 +22,42 @@
     overflow: scroll;
     max-height: 80vh;
  }
+
+ .modal-child.filter {
+   position: absolute;
+    top: 268px;
+    left: 217px;
+    width: 200px;
+    height: 200px;
+    background: white;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: scroll;
+ }
+
+ .modal-child.filter.guests {
+    left: 309px;
+ }
+ .modal-child.filter.nest {
+    left: 410px;
+ }
+ .modal-child.filter.price {
+    left: 540px;
+ }
+
+ .modal-background.filter.dates {
+   background: rgb(255, 255, 255, .5);
+ }
+ .modal-background.filter.nest {
+   background: rgb(255, 255, 255, .5);
+ }
+ .modal-background.filter.price {
+   background: rgb(255, 255, 255, .5);
+ }
+ .modal-background.filter.guests {
+   background: rgb(255, 255, 255, .5);
+ }
