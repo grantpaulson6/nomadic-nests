@@ -1,4 +1,4 @@
-import { REMOVE_FILTERS, UPDATE_FILTERS, UPDATE_FILTERS_LIVE, UPDATE_BOUNDS } from '../actions/filters_actions';
+import { REMOVE_FILTERS, UPDATE_FILTERS, UPDATE_FILTER, UPDATE_BOUNDS } from '../actions/filters_actions';
 import merge from 'lodash/merge';
 
 const noFilters = {
@@ -6,7 +6,8 @@ const noFilters = {
     guests: null,
     start_date: null,
     end_date: null,
-    price: null,
+    min_price: null,
+    max_price: null,
     nest: null,
     bounds: {
         north: 90,
@@ -21,7 +22,7 @@ const filtersReducer = (state = noFilters, action) => {
     switch (action.type) {
         case REMOVE_FILTERS:
             return noFilters;
-        case UPDATE_FILTERS_LIVE:
+        case UPDATE_FILTER:
         const newFilter = {
             [action.filter]: action.value
         };

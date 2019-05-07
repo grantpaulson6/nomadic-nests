@@ -5,9 +5,10 @@ import ListingsFormContainer from '../listings/listings_form_container';
 import FilterDates from '../search/filter_dates';
 import FilterNest from '../search/filter_nest';
 import FilterGuests from '../search/filter_guests';
-import FilterPrice from '../search/filter_price';
+import FilterPriceContainer from '../search/filter_price_container';
 
-const Modal = ({modal, closeModal}) => {
+
+const Modal = ({ modal, closeModal, changeFilter }) => {
     if (!modal) {
         return null;
     }
@@ -23,16 +24,19 @@ const Modal = ({modal, closeModal}) => {
             component = <ListingsFormContainer />;
             break;
         case "filter dates":
-            component = <FilterDates closeModal={closeModal}/>;
+            component = <FilterDates closeModal={closeModal}
+                            changeFilter={changeFilter}/>;
             break;
         case "filter guests":
-            component = <FilterGuests closeModal={closeModal}/>;
+            component = <FilterGuests closeModal={closeModal}
+                            changeFilter={changeFilter}/>;
             break;
         case "filter nest":
-            component = <FilterNest closeModal={closeModal}/>;
+            component = <FilterNest closeModal={closeModal}
+                            changeFilter={changeFilter}/>;
             break;
         case "filter price":
-            component = <FilterPrice closeModal={closeModal}/>;
+            component = <FilterPriceContainer/>;
             break;
         default:
             return null;

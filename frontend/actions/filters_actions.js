@@ -2,13 +2,13 @@ import { fetchListings } from './listings_actions';
 
 export const REMOVE_FILTERS = "REMOVE_FILTERS";
 export const UPDATE_FILTERS = "UPDATE_FILTERS";
-export const UPDATE_FILTERS_LIVE = "UPDATE_FILTERS_LIVE";
+export const UPDATE_FILTER = "UPDATE_FILTER";
 export const UPDATE_BOUNDS = "UPDATE_BOUNDS";
 
 
 //live may be unused
-export const changeFilterLive = (filter, value) => ({
-    type: UPDATE_FILTERS_LIVE,
+export const changeSingleFilter = (filter, value) => ({
+    type: UPDATE_FILTER,
     filter,
     value
 });
