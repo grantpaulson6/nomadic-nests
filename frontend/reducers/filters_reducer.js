@@ -6,6 +6,8 @@ const noFilters = {
     guests: null,
     start_date: null,
     end_date: null,
+    price: null,
+    nest: null,
     bounds: {
         north: 90,
         east: 180,
