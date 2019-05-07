@@ -41,6 +41,7 @@
 
  .modal-child.filter.guests {
     left: 309px;
+    height: 120px;
  }
  .modal-child.filter.nest {
     left: 410px;

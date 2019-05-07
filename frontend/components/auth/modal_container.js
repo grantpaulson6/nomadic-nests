@@ -5,6 +5,7 @@ import Modal from './modal';
 
 const mapStateToProps = (state, ownProps) => ({
     modal: state.ui.modal,
+    filters: state.ui.filters
 });
 
 const mapDispatchToProps = (dispatch) => ({

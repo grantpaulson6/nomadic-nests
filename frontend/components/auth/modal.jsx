@@ -8,7 +8,7 @@ import FilterGuests from '../search/filter_guests';
 import FilterPriceContainer from '../search/filter_price_container';
 
 
-const Modal = ({ modal, closeModal, changeFilter }) => {
+const Modal = ({ modal, closeModal, changeFilter, filters }) => {
     if (!modal) {
         return null;
     }
@@ -29,7 +29,8 @@ const Modal = ({ modal, closeModal, changeFilter }) => {
             break;
         case "filter guests":
             component = <FilterGuests closeModal={closeModal}
-                            changeFilter={changeFilter}/>;
+                            changeFilter={changeFilter}
+                            guests={filters.guests}/>;
             break;
         case "filter nest":
             component = <FilterNest closeModal={closeModal}

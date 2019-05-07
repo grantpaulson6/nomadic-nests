@@ -1,0 +1,7 @@
+.filter-modal button {
+    margin-top: 10px;
+}
+
+.filter-modal button:hover {
+    text-decoration: underline;
+}

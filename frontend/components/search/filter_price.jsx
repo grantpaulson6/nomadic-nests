@@ -24,7 +24,8 @@ class FilterPrice extends React.Component {
     }
     render() {
         return (
-            <div id="filter-price">
+            <div id="filter-price"
+                className="filter-modal">
                 <form className="search-field"
                     onSubmit={this.handleSubmit.bind(this)}>
                     <label htmlFor="filter-info-max-price">
