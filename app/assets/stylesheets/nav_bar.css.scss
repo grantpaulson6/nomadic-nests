@@ -31,7 +31,11 @@
     box-shadow: 0px 0px 5px rgba(0, 0, 0, .2);
     background-color: white;
     font-weight: 500;
+}
 
+.filter-bar.fixed {
+    position: fixed;
+    top: 100px;
 }
 
 .main-logo {

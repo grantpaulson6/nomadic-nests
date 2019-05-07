@@ -33,7 +33,6 @@ class MarkerManager {
         let new_path = "/listings/" + listing.id;
         let that = this;
         marker.addListener('click', () => {
-            debugger
             that.history.push(new_path);
         });
         this.markers[listing.id] = marker;

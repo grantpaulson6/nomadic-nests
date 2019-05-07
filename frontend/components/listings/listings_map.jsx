@@ -26,7 +26,6 @@ class ListingsMap extends React.Component {
             const bounds = this.map.getBounds().toJSON();
             this.props.updateBounds(bounds);
         });
-        debugger;
         this.MarkerManager = new MarkerManager(this.map, this.props.history);
         this.MarkerManager.updateMarkers(this.props.listings);
     }
