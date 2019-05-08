@@ -1,19 +1,19 @@
 # == Schema Information
 #
-# Table name: locations
+# Table name: bookings
 #
 #  id         :bigint           not null, primary key
-#  name       :string           not null
-#  lat        :float            not null
-#  lng        :float            not null
+#  listing_id :integer          not null
+#  nomad_id   :integer          not null
+#  start_date :date             not null
+#  end_date   :date             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  zoom       :integer
 #
 
 require 'test_helper'
 
-class LocationTest < ActiveSupport::TestCase
+class BookingTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

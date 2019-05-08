@@ -7,7 +7,7 @@
 #  price         :float            not null
 #  location_id   :integer          not null
 #  description   :text             not null
-#  property_type          :string           not null
+#  property_type :string           not null
 #  owner_id      :integer          not null
 #  max_guests    :integer          not null
 #  num_beds      :integer          not null
@@ -27,9 +27,12 @@ class Listing < ApplicationRecord
     validate :ensure_photos
 
     belongs_to :location
+
     belongs_to :owner,
     foreign_key: :owner_id,
     class_name: :User
+
+    has_many :bookings
 
     has_many_attached :photos
 

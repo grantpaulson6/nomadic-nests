@@ -23,7 +23,7 @@ class Api::ListingsController < ApplicationController
         max_lng = params[:filters][:bounds][:east]
         min_lat = params[:filters][:bounds][:south]
         min_lng = params[:filters][:bounds][:west]
-
+        
         if location
             @listings = Listing.with_attached_photos.where(["location_id = ? and max_guests >= ? and lat <= ? and lng <= ? and lat >= ? and lng >= ?", 
             location.id, max_guests, max_lat, max_lng, min_lat, min_lng])

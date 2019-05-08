@@ -24,10 +24,9 @@ class ListingsMap extends React.Component {
         this.map = new google.maps.Map(document.getElementById("map"), mapOptions);
         this.map.addListener('idle', () => {
             let bounds = this.map.getBounds().toJSON();
-            if (bounds.south >= bounds.north || bounds.west >= bounds.east) {
-                bounds = { north: 90, south: -90, east: 180, west: -180 };
+            if (bounds.south <= bounds.north && bounds.west <= bounds.east) {
+                this.props.updateBounds(bounds);
             }
-            this.props.updateBounds(bounds);
         });
         this.MarkerManager = new MarkerManager(this.map, this.props.history);
         this.MarkerManager.updateMarkers(this.props.listings);

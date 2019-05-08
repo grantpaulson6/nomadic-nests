@@ -28,6 +28,10 @@ class User < ApplicationRecord
     foreign_key: :owner_id,
     class_name: :Listing
 
+    has_many :bookings,
+    foreign_key: :nomad_id,
+    class_name: :Booking
+
     after_initialize :ensure_session_token!
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)
