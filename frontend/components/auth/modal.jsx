@@ -25,7 +25,9 @@ const Modal = ({ modal, closeModal, changeFilter, filters }) => {
             break;
         case "filter dates":
             component = <FilterDates closeModal={closeModal}
-                            changeFilter={changeFilter}/>;
+                            changeFilter={changeFilter}
+                            start_date={filters.start_date}
+                            end_date={filters.end_date}/>;
             break;
         case "filter guests":
             component = <FilterGuests closeModal={closeModal}

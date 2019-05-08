@@ -23,7 +23,10 @@ class ListingsMap extends React.Component {
         }
         this.map = new google.maps.Map(document.getElementById("map"), mapOptions);
         this.map.addListener('idle', () => {
-            const bounds = this.map.getBounds().toJSON();
+            let bounds = this.map.getBounds().toJSON();
+            if (bounds.south >= bounds.north || bounds.west >= bounds.east) {
+                bounds = { north: 90, south: -90, east: 180, west: -180 };
+            }
             this.props.updateBounds(bounds);
         });
         this.MarkerManager = new MarkerManager(this.map, this.props.history);

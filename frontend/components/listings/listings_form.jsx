@@ -31,9 +31,16 @@ class ListingsForm extends React.Component {
                 formData.append(`listing[${key}]`, this.state[key]);
             }
         }
+        const button = document.getElementById("lsb1");
+        button.className += " disabled";
+        button.disabled = true;
         this.props.createListing(formData)
             .then(this.props.closeModal)
-            .then(() => this.props.history.push(`/listings/${this.props.new_listing}`));
+            .then(() => this.props.history.push(`/listings/${this.props.new_listing}`))
+            .fail(() => {
+                button.classList.remove("disabled");
+                button.disabled = false;
+            });
     }
 
     handleChange(field) {
@@ -152,7 +159,7 @@ class ListingsForm extends React.Component {
                         onChange={this.handleFile.bind(this)}
                     />
                     <div className="form-errors">{this.props.errors["photos"]}</div>
-                    <button className="listings-button">Create Listing</button>
+                    <button className="listings-button" id="lsb1">Create Listing</button>
                 </form>
             </div>
         )

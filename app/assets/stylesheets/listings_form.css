@@ -66,3 +66,12 @@
    height: 15px;
    width: 15px;
 }
+
+#lsb1.disabled {
+   transition: none;
+   background: grey;
+   content: "Uploading"
+}
+#lsb1.disabled:hover {
+   transform: none;
+}
