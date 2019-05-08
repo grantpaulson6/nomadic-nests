@@ -6,7 +6,7 @@ class FilterBar extends React.Component {
 
     handleReturn(e) {
         e.preventDefault();
-        this.props.changeFilter(this.props.listing_location);
+        this.props.changeFilter({ location: this.props.listing_location });
         this.props.history.push("/search/");
     }
 
@@ -41,6 +41,10 @@ class FilterBar extends React.Component {
                             </button>
                             <button onClick={() => this.props.openModal("filter price")}>
                                 Price
+                            </button>
+                            <button onClick={() => this.props.changeFilter({ guests: null, start_date: null, end_date: null, max_price: null, min_price: null, nest: null })}
+                                className="clear-filters">
+                                Clear
                             </button>
                         </div>
                         <div className="right-filter">

@@ -27,7 +27,7 @@ class FilterDates extends React.Component {
             <div id="filter-dates"
                 className="filter-modal">
                 <form className="search-field"
-                    onSubmit={this.handleSubmit.bind(this)}>>
+                    onSubmit={this.handleSubmit.bind(this)}>
                     <div className="date-left">
                         <label htmlFor="filter-info-startdate">
                             <span>CHECK-IN</span>

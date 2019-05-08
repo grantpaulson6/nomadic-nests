@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
     });
 };
 const mapDispatchToProps = (dispatch) => ({
-    changeFilter: location => dispatch(changeFilter({ location })),
+    changeFilter: filters => dispatch(changeFilter(filters)),
     openModal: modal => dispatch(openModal(modal))
 });
 

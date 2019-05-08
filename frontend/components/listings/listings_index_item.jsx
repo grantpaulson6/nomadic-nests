@@ -14,7 +14,8 @@ class ListingsIndexItem extends React.Component {
                 onClick={() => this.props.history.push(`/listings/${this.props.listing.id}`)}
             >
                 <div className="listing-item-picture">
-                    <img src={this.props.listing.photoUrls[0]} alt=""/>
+                    <img className="listing-item-picture"
+                    src={this.props.listing.photoUrls[0]} alt=""/>
                 </div>
 
                 <div className="listing-item-content">

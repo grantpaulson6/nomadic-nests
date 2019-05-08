@@ -1,4 +1,14 @@
+@media only screen and (max-width: 1420px) {
+    .listing-photos {
+        height: 450px;
+    }
+}
 
+@media only screen and (min-width: 1421px) {
+    .listing-photos {
+        height: 600px;
+    }
+}
 
 .listing-show {
 
@@ -9,7 +19,7 @@
     }
     .listing-photos {
         width: 100vw;
-        height: 450px;
+        // height: 450px;
 
         .photos-1 {
             height: 100%;
@@ -39,7 +49,7 @@
 
         .listing-details {
             float: left;
-            width: 600px;
+            // width: 600px;
             padding: 18px 0;
             padding-right: 18px;
             box-sizing: border-box;
@@ -54,6 +64,10 @@
             .details {
                 margin: 15px 0;
                 margin-left: 15px;
+
+                p {
+                    margin-bottom: 50px;
+                }
             }
 
             .details:first-child {
@@ -173,6 +187,10 @@ transform: translateY(-3px);
         margin-top: 20px;
         width: 300px;
     }
+
+    .listing-details {
+        width: 600px;
+    }
 }
 
 @media only screen and (max-width: 1120px) {
@@ -195,6 +213,8 @@ transform: translateY(-3px);
     }
 
     .listing-details {
+        width: 100vw;
+        padding: 40px !important;
         padding-bottom: 78px !important;
     }
     .booking-button {

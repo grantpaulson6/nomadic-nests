@@ -42,9 +42,13 @@
  .modal-child.filter.guests {
     left: 309px;
     height: 120px;
+    top: 226px;
  }
  .modal-child.filter.nest {
-    left: 410px;
+    left: 387px;
+    height: 100px;
+    width: 150px;
+    top: 219px;
  }
  .modal-child.filter.price {
     left: 540px;

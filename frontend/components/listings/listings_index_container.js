@@ -11,7 +11,9 @@ const frontendFilteredListings = (state) => {
             (state.ui.filters.min_price === null ||
             listing.price >= state.ui.filters.min_price) &&
             (state.ui.filters.guests === null ||
-            listing.max_guests >= state.ui.filters.guests)) {
+            listing.max_guests >= state.ui.filters.guests) &&
+            (state.ui.filters.nest === null ||
+            listing.property_type === state.ui.filters.nest)) {
                 listings.push(listing);
             }
     });
