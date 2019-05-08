@@ -8,7 +8,7 @@
     "babel-loader": "^8.0.5",
     "lodash": "^4.17.11",
     "react": "^16.8.6",
-    "react-dates": "^20.1.0",
+    "react-date-picker": "^7.5.1",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",

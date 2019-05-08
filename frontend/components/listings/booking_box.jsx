@@ -1,4 +1,5 @@
 import React from 'react';
+// import DatePicker from 'react-date-picker';
 
 const BookingBox = ({price}) => (
     <div className="booking-box">
@@ -37,6 +38,7 @@ const BookingBox = ({price}) => (
                 id="booking-info-guests"
             />
         </div>
+        {/* <DatePicker /> */}
         <button className="booking-button">Book</button>
     </div>
 );

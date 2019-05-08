@@ -21,7 +21,4 @@ class Booking < ApplicationRecord
     foreign_key: :nomad_id,
     class_name: :User
 
-    belongs_to :owner,
-    through: :listing,
-    source: :owner
 end

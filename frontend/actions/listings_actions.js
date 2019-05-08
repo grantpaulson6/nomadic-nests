@@ -4,14 +4,14 @@ export const RECEIVE_LISTINGS = "RECEIVE_LISTINGS";
 export const RECEIVE_LISTING = "RECEIVE_LISTING";
 export const RECEIVE_LISTING_ERRORS = "RECEIVE_LISTING_ERRORS";
 
-export const receiveListings = listings => ({
+export const receiveListings = payload => ({
     type: RECEIVE_LISTINGS,
-    listings
+    payload
 });
 
-export const receiveListing = listing => ({
+export const receiveListing = payload => ({
     type: RECEIVE_LISTING,
-    listing
+    payload
 });
 
 export const receiveListingErrors = errors => ({

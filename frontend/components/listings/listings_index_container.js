@@ -13,12 +13,37 @@ const frontendFilteredListings = (state) => {
             (state.ui.filters.guests === null ||
             listing.max_guests >= state.ui.filters.guests) &&
             (state.ui.filters.nest === null ||
-            listing.property_type === state.ui.filters.nest)) {
+            listing.property_type === state.ui.filters.nest) &&
+            listingAvailableForDates(listing.id, state, state.ui.filters.start_date, state.ui.filters.end_date)) {
                 listings.push(listing);
             }
     });
     return listings;
 };
+
+const bookingsForListing = (listingId, state) => {
+    const bookingIds = state.entities.listings[listingId].booking_ids;
+    return bookingIds.map( bookingId => state.entities.bookings[bookingId]);
+};
+
+const listingAvailableForDates = (listingId, state, start_date, end_date) => {
+    if (start_date === null || end_date === null) {
+        return true;
+    }
+    const bookings = bookingsForListing(listingId, state);
+    //comparing dates may be issue
+    for (let i in bookings) {
+        let booking = bookings[i];
+        if (booking.end_date > start_date && booking.start_date < end_date) {
+            return false;
+        } else if (booking.start_date < end_date && booking.end_date > start_date) {
+            return false;
+        }
+        // debugger
+    }
+    // debugger
+    return true;
+}
 
 
 const mapStateToProps = (state, ownProps) => ({
