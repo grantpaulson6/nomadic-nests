@@ -34,12 +34,15 @@ class ListingsForm extends React.Component {
         const button = document.getElementById("lsb1");
         button.className += " disabled";
         button.disabled = true;
+        button.innerHTML = "Uploading";
+        debugger
         this.props.createListing(formData)
             .then(this.props.closeModal)
             .then(() => this.props.history.push(`/listings/${this.props.new_listing}`))
             .fail(() => {
                 button.classList.remove("disabled");
                 button.disabled = false;
+                button.innerHTML = "Create Listing";
             });
     }
 

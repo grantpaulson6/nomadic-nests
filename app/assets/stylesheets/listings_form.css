@@ -70,7 +70,8 @@
 #lsb1.disabled {
    transition: none;
    background: grey;
-   content: "Uploading"
+   content: "Uploading";
+   box-shadow: none;
 }
 #lsb1.disabled:hover {
    transform: none;
