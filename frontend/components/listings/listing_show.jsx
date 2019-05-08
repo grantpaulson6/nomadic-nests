@@ -59,7 +59,9 @@ class ListingShow extends React.Component {
                                         zoom: 10}}/>
                                 <div id="asdf">stuff</div>
                             </div>
-                            <BookingBox price={this.props.listing.price}/>
+                            <BookingBox price={this.props.listing.price}
+                                createBooking={this.props.createBooking}
+                                listingId={this.props.listing.id}/>
                         </div>
                     </div>
                 </div>

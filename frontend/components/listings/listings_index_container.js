@@ -31,7 +31,6 @@ const listingAvailableForDates = (listingId, state, start_date, end_date) => {
         return true;
     }
     const bookings = bookingsForListing(listingId, state);
-    //comparing dates may be issue
     for (let i in bookings) {
         let booking = bookings[i];
         if (booking.end_date > start_date && booking.start_date < end_date) {
@@ -39,9 +38,7 @@ const listingAvailableForDates = (listingId, state, start_date, end_date) => {
         } else if (booking.start_date < end_date && booking.end_date > start_date) {
             return false;
         }
-        // debugger
     }
-    // debugger
     return true;
 }
 

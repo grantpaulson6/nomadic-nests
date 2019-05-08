@@ -28,7 +28,7 @@ export const fetchListing = listingId => dispatch => (
 );
 
 export const createListing = (listing) => dispatch => (
-    APIUtil.createListing(listing).then(listing => dispatch(receiveListing(listing)),
+    APIUtil.createListing(listing).then(payload => dispatch(receiveListing(payload)),
         errors => dispatch(receiveListingErrors(errors.responseJSON)))
 );
 

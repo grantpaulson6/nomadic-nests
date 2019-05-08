@@ -11,3 +11,11 @@
     width: 100%;
     margin-bottom: 10px
 }
+
+.react-calendar__month-view__days__day--weekend {
+    color: black !important;
+}
+
+.react-calendar__tile:disabled {
+    background-color: #eb4f4f !important;
+}
