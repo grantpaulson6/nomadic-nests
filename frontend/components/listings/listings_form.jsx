@@ -35,7 +35,6 @@ class ListingsForm extends React.Component {
         button.className += " disabled";
         button.disabled = true;
         button.innerHTML = "Uploading";
-        debugger
         this.props.createListing(formData)
             .then(this.props.closeModal)
             .then(() => this.props.history.push(`/listings/${this.props.new_listing}`))
