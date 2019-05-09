@@ -2,6 +2,7 @@ import React from 'react';
 import DatePicker from 'react-date-picker';
 import { connect } from 'react-redux';
 import { createBooking } from '../../actions/bookings_actions';
+import { openModal } from '../../actions/modal_actions';
 
 class BookingBox extends React.Component {
     constructor(props) {
@@ -29,7 +30,8 @@ class BookingBox extends React.Component {
         e.preventDefault();
         if (this.props.current_user) {
             this.requireLoginMessage = null;
-            this.props.createBooking({ start_date: this.state.start_date, end_date: this.state.end_date, listing_id: this.props.listingId });
+            this.props.createBooking({ start_date: this.state.start_date, end_date: this.state.end_date, listing_id: this.props.listingId })
+                .then(this.props.openModal);
         } else {
             this.requireLoginMessage = "You must be logged in to make a booking";
             this.forceUpdate();
@@ -123,7 +125,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    createBooking: booking => dispatch(createBooking(booking))
+    createBooking: booking => dispatch(createBooking(booking)),
+    openModal: () => dispatch(openModal("booking"))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookingBox);

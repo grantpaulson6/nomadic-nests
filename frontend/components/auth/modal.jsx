@@ -41,6 +41,9 @@ const Modal = ({ modal, closeModal, changeFilter, filters }) => {
         case "filter price":
             component = <FilterPriceContainer/>;
             break;
+        case "booking":
+            component = <h1>Booking complete, enjoy!</h1>
+            break;
         default:
             return null;
     }

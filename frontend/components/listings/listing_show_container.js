@@ -7,8 +7,14 @@ import { fetchListing } from '../../actions/listings_actions';
 const mapStateToProps = (state, ownProps) => {
     const listing = state.entities.listings[ownProps.match.params.listingId];
     let bookings = [];
-    if (listing) {
-        bookings = listing.booking_ids.map(booking_id => state.entities.bookings[booking_id]);
+    if (listing && state.session.id) {
+        bookings = listing.booking_ids.map(booking_id => {
+            let booking = state.entities.bookings[booking_id];
+            if (booking.nomad_id === state.session.id) {
+                return booking;
+            }
+        });
+        bookings = bookings.filter( booking => booking );
     }
     return ({
         listing,

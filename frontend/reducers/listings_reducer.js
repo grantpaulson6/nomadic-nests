@@ -9,7 +9,11 @@ const listingsReducer = (state = {}, action) => {
             newState[action.payload.listing.id] = action.payload.listing;
             return newState;
         case RECEIVE_LISTINGS:
-            return action.payload.listings;
+            if (action.payload.listings) {
+                return action.payload.listings;
+            } else {
+                return {};
+            }
         default:
             return state;
     }

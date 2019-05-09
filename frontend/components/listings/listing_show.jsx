@@ -17,7 +17,25 @@ class ListingShow extends React.Component {
     }
 
     render() {
-        const bookings = this.props.bookings.map((booking, i) => <li key={i}>{booking.start_date + " to " + booking.end_date}</li>)
+        let currentDate = new Date();
+        currentDate = currentDate.toLocaleDateString("sv-SE");
+
+        let pastBookings = this.props.bookings
+            .filter(booking => currentDate.localeCompare(booking.end_date) === 1)
+            .map((booking, i) => booking.start_date + " to " + booking.end_date)
+            .sort((a, b) => a.localeCompare(b))
+            .map((booking, i) => <li key={i}>{booking}</li>);
+        let currentBookings = this.props.bookings
+            .filter(booking => currentDate.localeCompare(booking.start_date) >= 0 && currentDate.localeCompare(booking.end_date) <= 0)
+            .map((booking, i) => booking.start_date + " to " + booking.end_date)
+            .sort((a, b) => a.localeCompare(b))
+            .map((booking, i) => <li key={i}>{booking}</li>);
+        let futureBookings = this.props.bookings
+            .filter(booking => currentDate.localeCompare(booking.start_date) === -1)
+            .map((booking, i) => booking.start_date + " to " + booking.end_date)
+            .sort((a, b) => a.localeCompare(b))
+            .map((booking, i) => <li key={i}>{booking}</li>);
+
         if (this.props.listing) {
             return (
                 <div className="listing-show">
@@ -59,9 +77,17 @@ class ListingShow extends React.Component {
                                         lng: this.props.listing.lng,
                                         zoom: 10}}/>
                                 <div className="bookings-details">
-                                    <h2>Existing Bookings:</h2>
-                                    <ul>
-                                        { bookings }
+                                    <h2>{ pastBookings.length != 0 ? "Your Past Bookings for this nest:" : null}</h2>
+                                    <ul className="past-bookings">
+                                        { pastBookings }
+                                    </ul>
+                                    <h2>{currentBookings.length != 0 ? "Your Current Bookings for this nest:" : null}</h2>
+                                    <ul className="past-bookings">
+                                        { currentBookings }
+                                    </ul>
+                                    <h2>{futureBookings.length != 0 ? "Your Future Bookings for this nest:" : null}</h2>
+                                    <ul className="past-bookings">
+                                        { futureBookings }
                                     </ul>
                                 </div>
                             </div>
