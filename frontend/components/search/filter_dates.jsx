@@ -5,8 +5,8 @@ class FilterDates extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            start_date: null,
-            end_date: null
+            start_date: this.props.start_date,
+            end_date: this.props.end_date
         };
     }
 
@@ -36,7 +36,7 @@ class FilterDates extends React.Component {
                             className="search-info"
                             id="filter-info-startdate"
                             onChange={this.handleUpdate("start_date")}
-                            placeholder={this.props.start_date}
+                            value={this.state.start_date}
                         />
                     </div>
                     <div className="date-right">
@@ -47,7 +47,7 @@ class FilterDates extends React.Component {
                             className="search-info"
                             id="filter-info-enddate"
                             onChange={this.handleUpdate("end_date")}
-                            placeholder={this.props.end_date}
+                            value={this.state.end_date}
                         />
                     </div>
                     <button>Apply</button>

@@ -5,6 +5,7 @@ import Modal from './auth/modal_container';
 import SplashPage from './splash_page';
 import ListingsIndexContainer from './listings/listings_index_container';
 import ListingShowContainer from './listings/listing_show_container';
+import Footer from './auth/footer';
 
 //update navbar to use withRouter, no need for switch statement
 //use withRouter and props.path to drop className in top level div for formatting with padding

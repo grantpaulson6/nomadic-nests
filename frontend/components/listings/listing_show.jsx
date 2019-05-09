@@ -45,55 +45,55 @@ class ListingShow extends React.Component {
                         </div>
                         <div className="other-photos">
                             <div className="photos">
-                                <img src={this.props.listing.photoUrls[1]} alt="" />
+                                <img src={this.props.listing.photoUrls[1] ? this.props.listing.photoUrls[1] : this.props.listing.photoUrls[0]} alt="" />
                             </div>
                             <div className="photos">
-                                <img src={this.props.listing.photoUrls[2]} alt="" />
+                                <img src={this.props.listing.photoUrls[2] ? this.props.listing.photoUrls[2] : this.props.listing.photoUrls[0]} alt="" />
                             </div>
                             <div className="photos">
-                                <img src={this.props.listing.photoUrls[3]} alt="" />
+                                <img src={this.props.listing.photoUrls[3] ? this.props.listing.photoUrls[3] : this.props.listing.photoUrls[0]} alt="" />
                             </div>
                             <div className="photos">
-                                <img src={this.props.listing.photoUrls[4]} alt="" />
+                                <img src={this.props.listing.photoUrls[4] ? this.props.listing.photoUrls[4] : this.props.listing.photoUrls[0]} alt="" />
                             </div>
                         </div>
-                        <div className="listing-body">
-                            <div className="listing-details">
-                                <h1>{this.props.listing.title}</h1>
-                                <div className="details">{this.props.listing.location}</div>
-                                <div className="details">{this.props.listing.property_type}</div>
-                                <ul className="details nums">
-                                    <li className="nums-li">{this.props.listing.max_guests} guests</li>
-                                    <li className="nums-li">{this.props.listing.num_beds} beds</li>
-                                    <li className="nums-li">{this.props.listing.num_bathrooms} baths</li>
+                    </div>
+                    <div className="listing-body">
+                        <div className="listing-details">
+                            <h1>{this.props.listing.title}</h1>
+                            <div className="details">{this.props.listing.location}</div>
+                            <div className="details">{this.props.listing.property_type}</div>
+                            <ul className="details nums">
+                                <li className="nums-li">{this.props.listing.max_guests} guests</li>
+                                <li className="nums-li">{this.props.listing.num_beds} beds</li>
+                                <li className="nums-li">{this.props.listing.num_bathrooms} baths</li>
+                            </ul>
+                            <div className="details">
+                                <p>{this.props.listing.description}</p>
+                            </div>
+                            <ListingsMapContainer className="show-map" 
+                                key={this.props.listing.location}
+                                listings={[this.props.listing]}
+                                current_location={{lat: this.props.listing.lat,
+                                    lng: this.props.listing.lng,
+                                    zoom: 10}}/>
+                            <div className="bookings-details">
+                                <h2>{ pastBookings.length != 0 ? "Your Past Bookings for this nest:" : null}</h2>
+                                <ul className="past-bookings">
+                                    { pastBookings }
                                 </ul>
-                                <div className="details">
-                                    <p>{this.props.listing.description}</p>
-                                </div>
-                                <ListingsMapContainer className="show-map" 
-                                    key={this.props.listing.location}
-                                    listings={[this.props.listing]}
-                                    current_location={{lat: this.props.listing.lat,
-                                        lng: this.props.listing.lng,
-                                        zoom: 10}}/>
-                                <div className="bookings-details">
-                                    <h2>{ pastBookings.length != 0 ? "Your Past Bookings for this nest:" : null}</h2>
-                                    <ul className="past-bookings">
-                                        { pastBookings }
-                                    </ul>
-                                    <h2>{currentBookings.length != 0 ? "Your Current Bookings for this nest:" : null}</h2>
-                                    <ul className="past-bookings">
-                                        { currentBookings }
-                                    </ul>
-                                    <h2>{futureBookings.length != 0 ? "Your Future Bookings for this nest:" : null}</h2>
-                                    <ul className="past-bookings">
-                                        { futureBookings }
-                                    </ul>
-                                </div>
+                                <h2>{currentBookings.length != 0 ? "Your Current Bookings for this nest:" : null}</h2>
+                                <ul className="past-bookings">
+                                    { currentBookings }
+                                </ul>
+                                <h2>{futureBookings.length != 0 ? "Your Future Bookings for this nest:" : null}</h2>
+                                <ul className="past-bookings">
+                                    { futureBookings }
+                                </ul>
                             </div>
-                            <BookingBox price={this.props.listing.price}
-                                listingId={this.props.listing.id}/>
                         </div>
+                        <BookingBox price={this.props.listing.price}
+                            listingId={this.props.listing.id}/>
                     </div>
                 </div>
             )

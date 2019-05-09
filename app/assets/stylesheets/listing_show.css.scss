@@ -168,7 +168,7 @@ color: #fff;
 transform: translateY(-3px);
 }
 
-@media only screen and (min-width: 1121px) {
+// @media only screen and (min-width: 1121px) {
     .booking-box {
         // float: right;
         position: sticky;
@@ -191,37 +191,37 @@ transform: translateY(-3px);
     .listing-details {
         width: 600px;
     }
-}
+// }
 
-@media only screen and (max-width: 1120px) {
-    .booking-box {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        width: 100vw;
-        height: 70px;
-        z-index: 2;
-        background-color: white;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
+// @media only screen and (max-width: 1120px) {
+//     .booking-box {
+//         position: fixed;
+//         bottom: 0;
+//         right: 0;
+//         width: 100vw;
+//         height: 70px;
+//         z-index: 2;
+//         background-color: white;
+//         display: flex;
+//         flex-direction: row;
+//         justify-content: space-around;
+//         align-items: center;
         
-        .booking-field {
-            display: none;
-        }
-    }
+//         .booking-field {
+//             display: none;
+//         }
+//     }
 
-    .listing-details {
-        width: 100vw;
-        padding: 40px !important;
-        padding-bottom: 78px !important;
-    }
-    .booking-button {
-        width: 200px;
-    }
+//     .listing-details {
+//         width: 100vw;
+//         padding: 40px !important;
+//         padding-bottom: 78px !important;
+//     }
+//     .booking-button {
+//         width: 200px;
+//     }
 
-}
+// }
 
 .listing-show .listing-map.map-on{
     height: 500px;
@@ -235,7 +235,7 @@ transform: translateY(-3px);
 
     h2 {
         font-size: 20px;
-        margin-bottom: 10px;
+        margin: 10px 0;
         font-weight: 500;
     }
 }

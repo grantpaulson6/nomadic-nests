@@ -41,6 +41,10 @@ class Booking < ApplicationRecord
     end
 
     def startBeforeEndDate
+        if self.start_date < Time.now || self.end_date < Time.now
+            errors.add(:booking, "cannot be in the past")
+            return
+        end
         if !self.start_date || !self.end_date
             return
         end

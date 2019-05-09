@@ -20,8 +20,8 @@ require 'open-uri'
 
 # BC = Location.create!(
 #     name: "British Columbia",
-#     lat: 55,
-#     lng: -123,
+#     lat: 54,
+#     lng: -122,
 #     zoom: 6
 # )
 
@@ -160,8 +160,6 @@ require 'open-uri'
 #     lng: -123.888732
 # )
 # l2.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_4907.jpg'), filename: 'IMG_4907.jpg')
-# l2.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_4912.jpg'), filename: 'IMG_4912.jpg')
-# l2.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_3625.jpg'), filename: 'IMG_3625.jpg')
 # l2.photos.attach(io: open('https://s3-us-west-1.amazonaws.com/nomadic-nests-seeds/IMG_4915.jpeg'), filename: 'IMG_4915.jpeg')
 # l2.save!
 

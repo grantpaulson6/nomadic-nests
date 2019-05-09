@@ -168,3 +168,8 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-auto-rows: minmax(200px, 400px);
 }
+
+h2.no-listings {
+    font-size: 28px;
+    width: 400px;
+}

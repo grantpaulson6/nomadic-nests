@@ -9,13 +9,16 @@ class ListingsIndex extends React.Component {
     }
 
     render() {
-        const listingitems = this.props.listings.map(listing => {
+        let listingitems = this.props.listings.map(listing => {
         return (
             <ListingsIndexItem 
                 key={listing.id} 
                 listing={listing}
                 />)
         });
+        if (listingitems.length === 0) {
+            listingitems = <h2 className="no-listings">No Nests with the set filters</h2>
+        }
         return (
             <div>
                 <div className="listing-item-container map-on grid">

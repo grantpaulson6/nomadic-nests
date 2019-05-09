@@ -46,6 +46,13 @@ class NavBar extends React.Component {
                         </ul>
                     </div> 
                     <div className="right-nav-el">
+                        <button className="dropdown-parent">Creator Info</button>
+                        <ul className="user-options creator">
+                            <li><a href="https://github.com/grantpaulson6/nomadic-nests-full-stack-project">Github</a></li>
+                            <li><a href="https://www.linkedin.com/in/grant-paulson-2554a640/">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                    <div className="right-nav-el">
                         <button onClick={this.props.logout}>Log Out</button>
                     </div>
                 </nav>
