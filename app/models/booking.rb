@@ -24,19 +24,29 @@ class Booking < ApplicationRecord
 
 #optimize here
     def noDoubleBookings
+        if !self.start_date || !self.end_date
+            errors.add(:booking, "dates required")
+            return
+        end
         bookings = Booking.where(listing_id: self.listing_id)
         bookings.each do |booking|
             if booking.end_date > self.start_date && booking.start_date < self.end_date
                 errors.add(:booking, "isn't available")
+                return
             elsif booking.start_date < self.end_date && booking.end_date > self.start_date
                 errors.add(:booking, "isn't available")
+                return
             end
         end
     end
 
     def startBeforeEndDate
-        if self.start_date >= self.end_date
+        if !self.start_date || !self.end_date
+            return
+        end
+        if self.start_date > self.end_date
             errors.add(:booking, "isn't meaningful")
+            return
         end
     end
 

@@ -17,6 +17,7 @@ class ListingShow extends React.Component {
     }
 
     render() {
+        const bookings = this.props.bookings.map((booking, i) => <li key={i}>{booking.start_date + " to " + booking.end_date}</li>)
         if (this.props.listing) {
             return (
                 <div className="listing-show">
@@ -57,10 +58,14 @@ class ListingShow extends React.Component {
                                     current_location={{lat: this.props.listing.lat,
                                         lng: this.props.listing.lng,
                                         zoom: 10}}/>
-                                <div id="asdf">stuff</div>
+                                <div className="bookings-details">
+                                    <h2>Existing Bookings:</h2>
+                                    <ul>
+                                        { bookings }
+                                    </ul>
+                                </div>
                             </div>
                             <BookingBox price={this.props.listing.price}
-                                createBooking={this.props.createBooking}
                                 listingId={this.props.listing.id}/>
                         </div>
                     </div>

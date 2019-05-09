@@ -223,15 +223,23 @@ transform: translateY(-3px);
 
 }
 
-#asdf {
-    background-color: beige;
-    height: 4000px;
-    width: 500px;
-}
-
 .listing-show .listing-map.map-on{
     height: 500px;
     width: 100%;
     display: block;
     position: static;
+}
+
+.bookings-details {
+    margin: 40px 0;
+
+    h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        font-weight: 500;
+    }
+}
+
+#map-container.listing-map.map-on {
+    float: none;
 }

@@ -5,10 +5,8 @@ const bookingsReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_LISTING:
-        let newState = merge({}, state);
-        if (action.payload.booking != undefined) {
-            newState[action.payload.booking.id] = action.payload.booking;
-            return newState;
+        if (action.payload.bookings != undefined) {
+            return merge({}, state, action.payload.bookings);
         } else {
             return state;
         }

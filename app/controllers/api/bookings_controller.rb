@@ -1,6 +1,10 @@
 class Api::BookingsController < ApplicationController
 
     def create
+        if !logged_in?
+            render json: { booking: ["User must be logged in to make a booking"]}, status: 422
+            return;
+        end
         @booking = Booking.new(booking_params)
         @booking.nomad_id = current_user.id
         if @booking.save
