@@ -41,8 +41,8 @@ class NavBar extends React.Component {
                         <button className="dropdown-parent">{this.props.currentUser.first_name + " " + this.props.currentUser.last_name}</button>
                         <ul className="user-options">
                             <li><button onClick={() => this.props.openModal("create_listing")}>Add your Nest!</button></li>
-                            <li><button>Settings</button></li>
-                            <li><button>User Profile</button></li>
+                            {/* <li><button>Settings</button></li>
+                            <li><button>User Profile</button></li> */}
                         </ul>
                     </div> 
                     <div className="right-nav-el">
