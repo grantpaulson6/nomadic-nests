@@ -50,8 +50,7 @@ class ListingsForm extends React.Component {
     }
 
     handleFile(e) {
-        const addedFiles = this.state.photos.concat(e.currentTarget.files[e.currentTarget.files.length - 1]);
-        this.setState({ photos: addedFiles});
+        this.setState({ photos: Object.values(e.currentTarget.files) });
     }
 
     render() {

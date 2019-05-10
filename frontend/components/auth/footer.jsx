@@ -2,7 +2,6 @@ import React from 'react';
 
 
 const Footer = () => {
-    debugger
     return (
         <div className="footer">
             <div className="footer-center">
