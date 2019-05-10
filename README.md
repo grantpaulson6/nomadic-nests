@@ -1,4 +1,4 @@
-# Nomadic Nests
+# Nomadic Nests | [Live](https://nomadic-nests.herokuapp.com/#/)
 
 This web app emulates Airbnb with a personal spin - the "nests" or rentable places are locations the creator and his wife visited during their travels.  Built using React/Redux with Ruby on Rails powering the backend.
 
