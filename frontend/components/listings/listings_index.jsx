@@ -6,21 +6,16 @@ class ListingsIndex extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            page: 0
-        };
     }
     componentDidMount() {
-        this.props.filterAndFetch(this.props.filters);
+        this.props.filterAndFetch('page', 0);
     }
 
     onPaginatedSearch() {
-        this.setState({page: this.state.page + 1})
-            .then( () => {
-                this.props.filterAndFetch(this.props.filters)
-            })
+        this.props.filterAndFetch('page', this.props.page + 1);
     }
     render() {
+        if (!this.props.listings) return null;
         let listingitems = this.props.listings.map(listing => {
             return (
                 <ListingsIndexItem 
@@ -37,8 +32,8 @@ class ListingsIndex extends React.Component {
                 <div className="listing-item-container map-on grid">
                     {listingitems}
                 </div>
-                <button></button>
-                <ListingsMapContainer key={this.props.filters.location} listings={this.props.listings}/>
+                <button onClick={this.onPaginatedSearch.bind(this)}>More Listings</button>
+                {/* <ListingsMapContainer key={this.props.filters.location} listings={this.props.listings}/> */}
             </div>
         )
     }

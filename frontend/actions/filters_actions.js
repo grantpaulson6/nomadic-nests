@@ -28,7 +28,7 @@ export const updateBounds = bounds => (dispatch, getState) => {
     return fetchListings(getState().ui.filters)(dispatch);
 };
 
-export const filterAndFetch = filters => (dispatch, getState) => {
-    dispatch(changeFilter(filters));
+export const filterAndFetch = (filter, value) => (dispatch, getState) => {
+    dispatch(changeSingleFilter(filter, value));
     return fetchListings(getState().ui.filters)(dispatch);
 };

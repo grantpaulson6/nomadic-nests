@@ -46,14 +46,14 @@ const listingAvailableForDates = (listingId, state, start_date, end_date) => {
 
 const mapStateToProps = (state, ownProps) => ({
     // listings: frontendFilteredListings(state),
-    listings: state.entities.listing,
-    filters: state.ui.filters
+    listings: Object.values(state.entities.listings),
+    page: state.ui.filters.page
 });
 
 const mapDispatchToProps = (dispatch) => ({
     // fetchListings: filters => dispatch(fetchListings(filters)),
     // updateFilter: filters => dispatch(changeFilter(filters))
-    filterAndFetch: filters => dispatch(filterAndFetch(filters))
+    filterAndFetch: (filter, value) => dispatch(filterAndFetch(filter, value))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListingsIndex);

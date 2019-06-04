@@ -14,7 +14,8 @@ const noFilters = {
         east: 180,
         south: -90,
         west: -180
-    }
+    },
+    page: null
 };
 //live may be unused
 const filtersReducer = (state = noFilters, action) => {
