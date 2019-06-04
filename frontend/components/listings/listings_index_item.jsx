@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 class ListingsIndexItem extends React.Component {
 
@@ -14,8 +15,9 @@ class ListingsIndexItem extends React.Component {
                 onClick={() => this.props.history.push(`/listings/${this.props.listing.id}`)}
             >
                 <div className="listing-item-picture">
-                    <img className="listing-item-picture"
-                    src={this.props.listing.photoUrls[0]} alt=""/>
+                    {/* <img className="listing-item-picture"
+                    src={this.props.listing.photoUrls[0]} alt=""/> */}
+                    {ReactHtmlParser(this.props.listing.photoUrls[0])}
                 </div>
 
                 <div className="listing-item-content">

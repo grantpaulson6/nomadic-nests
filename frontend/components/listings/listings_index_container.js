@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import ListingsIndex from './listings_index';
 import { fetchListings } from '../../actions/listings_actions';
+import { changeFilter, filterAndFetch } from '../../actions/filters_actions';
 
 //filter on price, way to optimize this?
 const frontendFilteredListings = (state) => {
@@ -44,12 +45,15 @@ const listingAvailableForDates = (listingId, state, start_date, end_date) => {
 
 
 const mapStateToProps = (state, ownProps) => ({
-    listings: frontendFilteredListings(state),
+    // listings: frontendFilteredListings(state),
+    listings: state.entities.listing,
     filters: state.ui.filters
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchListings: filters => dispatch(fetchListings(filters))
+    // fetchListings: filters => dispatch(fetchListings(filters)),
+    // updateFilter: filters => dispatch(changeFilter(filters))
+    filterAndFetch: filters => dispatch(filterAndFetch(filters))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListingsIndex);
