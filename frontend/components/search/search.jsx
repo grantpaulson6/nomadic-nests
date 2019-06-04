@@ -6,7 +6,8 @@ class Search extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            location: "",
+            location: null,
+            locationName: "",
             guests: "",
             start_date: "",
             end_date: ""
@@ -17,8 +18,17 @@ class Search extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.changeFilter(this.state);
-        this.props.history.push('/search/');
+        let locationId = this.props.locations.map( location => {
+            if (this.state.locationName.split(" ")[0] === location.name.split(" ")[0]) {
+                return location.id;
+            }
+            return null;
+        }).filter(el => el);
+        debugger
+        this.setState({location: locationId[0]}, ()=>{
+            this.props.changeFilter(this.state);
+            this.props.history.push(`/search/${this.state.location}`);
+        });
     }
 
     handleChange(field) {
@@ -32,13 +42,13 @@ class Search extends React.Component {
             return [];
         }
         const matches = [];
-        if (this.state.location.length === 0) {
+        if (this.state.locationName.length === 0) {
             return this.props.locations;
         }
 
         this.props.locations.forEach(location => {
-            const sub = location.slice(0, this.state.location.length);
-            if (sub.toLowerCase() === this.state.location.toLowerCase()) {
+            const sub = location.name.slice(0, this.state.locationName.length);
+            if (sub.toLowerCase() === this.state.locationName.toLowerCase()) {
                 matches.push(location);
             }
         });
@@ -67,15 +77,17 @@ class Search extends React.Component {
 
     selectName(e) {
         e.preventDefault();
-        let location = e.currentTarget.innerHTML;
-        location = location.split(" ");
-        location = location.slice(0, location.length - 1).join(" ");
-        if (location != "No") {
-            this.setState({ location }, () => {
+        let location = e.currentTarget.key;
+        let locationName = e.currentTarget.innerHTML;
+        locationName = locationName.split(" ");
+        locationName = locationName.slice(0, locationName.length - 1).join(" ");
+        if (locationName != "No") {
+            this.setState({ locationName, location }, () => {
                 if (this.props.location.pathname != "/") {
+                    debugger
                     this.props.changeFilter(this.state);
-                    this.props.history.push('/search/');
-                    this.setState({location: ""});
+                    this.props.history.push(`/search/${location}`);
+                    // this.setState({location: ""});
                 }
             });
         }
@@ -90,8 +102,8 @@ class Search extends React.Component {
 
     render() {
 
-        const locations = this.matches().map((result, i) => (
-            <li key={i} onMouseDown={this.selectName.bind(this)}>{result}</li>
+        const locations = this.matches().map(location => (
+            <li key={location.id} onMouseDown={this.selectName.bind(this)}>{location.name}</li>
         ))
 
         const nav_search_box = (
@@ -101,8 +113,8 @@ class Search extends React.Component {
                         <input type="text"
                             className="search-info"
                             id="search-info-where"
-                            value={this.state.location}
-                            onChange={this.handleChange("location")}
+                            value={this.state.locationName}
+                            onChange={this.handleChange("locationName")}
                             onFocus={this.showMatches.bind(this)}
                             onClick={this.showMatches.bind(this)}
                             pattern={this.props.location_names.join("|")}
@@ -129,8 +141,8 @@ class Search extends React.Component {
                                 <input type="text"
                                 className="search-info"
                                 id="search-info-where"
-                                value={this.state.location}
-                                onChange={this.handleChange("location")}
+                                value={this.state.locationName}
+                                onChange={this.handleChange("locationName")}
                                 onFocus={this.showMatches.bind(this)}
                                 onClick={this.showMatches.bind(this)}
                                 pattern={this.props.location_names.join("|")}
