@@ -15,7 +15,7 @@ const App = () => (
         <NavBarContainer />
         <Switch>
             <Route exact path="/" component={SplashPage} />
-            <Route path="/search/" component={ListingsIndexContainer} />
+            <Route path="/search/:locationId" render={props => <ListingsIndexContainer id={props.match.params.locationId}/>} />
             <Route path="/listings/:listingId" component={ListingShowContainer} />
         </Switch>
     </div>

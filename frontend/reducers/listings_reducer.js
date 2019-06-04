@@ -1,5 +1,5 @@
 import { RECEIVE_LISTING, RECEIVE_LISTINGS } from '../actions/listings_actions';
-import { UPDATE_FILTER } from '../actions/filters_actions';
+import { UPDATE_FILTER, UPDATE_FILTERS } from '../actions/filters_actions';
 import merge from 'lodash/merge';
 
 const listingsReducer = (state = {}, action) => {
@@ -21,6 +21,8 @@ const listingsReducer = (state = {}, action) => {
                 return {};
             }
             return state;
+        case UPDATE_FILTERS:
+            return {};
         default:
             return state;
     }
