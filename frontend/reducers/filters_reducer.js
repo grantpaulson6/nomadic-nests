@@ -20,6 +20,7 @@ const noFilters = {
 //live may be unused
 const filtersReducer = (state = noFilters, action) => {
     Object.freeze(state);
+
     switch (action.type) {
         case REMOVE_FILTERS:
             return noFilters;

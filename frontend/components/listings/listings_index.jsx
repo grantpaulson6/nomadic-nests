@@ -4,11 +4,18 @@ import ListingsMapContainer from './listings_map_container';
 
 class ListingsIndex extends React.Component {
     constructor(props) {
+
         super(props);
-        debugger
-        props.match.params.locationId
-    }
-    componentDidMount() {
+        // if (!props.filterLocation) {
+            //     props.updateLocation(props.urlLocation);
+            // }
+        }
+        componentDidMount() {
+            debugger
+            // this.id = this.props.match.params.locationId;
+        if (!this.props.filterLocation) {
+            this.props.updateLocation(this.props.urlLocation);
+        }
         this.props.filterAndFetch('page', 0);
     }
 

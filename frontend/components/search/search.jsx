@@ -28,6 +28,7 @@ class Search extends React.Component {
         this.setState({location: locationId[0]}, ()=>{
             this.props.changeFilter(this.state);
             this.props.history.push(`/search/${this.state.location}`);
+            this.props.filterAndFetch('location', this.state.location);
         });
     }
 
@@ -77,17 +78,18 @@ class Search extends React.Component {
 
     selectName(e) {
         e.preventDefault();
-        let location = e.currentTarget.key;
+
+        let location = e.currentTarget.id;
         let locationName = e.currentTarget.innerHTML;
         locationName = locationName.split(" ");
         locationName = locationName.slice(0, locationName.length - 1).join(" ");
         if (locationName != "No") {
             this.setState({ locationName, location }, () => {
                 if (this.props.location.pathname != "/") {
-                    debugger
                     this.props.changeFilter(this.state);
                     this.props.history.push(`/search/${location}`);
-                    // this.setState({location: ""});
+                    this.props.filterAndFetch('location', location);
+                    this.setState({locationName: ""});
                 }
             });
         }
@@ -103,7 +105,7 @@ class Search extends React.Component {
     render() {
 
         const locations = this.matches().map(location => (
-            <li key={location.id} onMouseDown={this.selectName.bind(this)}>{location.name}</li>
+            <li id={location.id} onMouseDown={this.selectName.bind(this)}>{location.name}</li>
         ))
 
         const nav_search_box = (

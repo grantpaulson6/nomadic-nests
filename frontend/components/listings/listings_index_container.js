@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import ListingsIndex from './listings_index';
 import { fetchListings } from '../../actions/listings_actions';
 import { changeFilter, filterAndFetch } from '../../actions/filters_actions';
+// import { stat } from 'fs';
 
 //filter on price, way to optimize this?
 // const frontendFilteredListings = (state) => {
@@ -44,18 +45,22 @@ import { changeFilter, filterAndFetch } from '../../actions/filters_actions';
 // }
 
 
-const mapStateToProps = (state, ownProps) => ({
-    // listings: frontendFilteredListings(state),
-    listings: Object.values(state.entities.listings),
-    page: state.ui.filters.page
-});
-
-const mapDispatchToProps = (dispatch) => {
-    debugger
+const mapStateToProps = (state, ownProps) => {
+debugger
+    return ({
+        // listings: frontendFilteredListings(state),
+        listings: Object.values(state.entities.listings),
+        page: state.ui.filters.page,
+        filterLocation: state.ui.filters.location,
+        urlLocation: ownProps.match.params.locationId
+    })};
+    
+    const mapDispatchToProps = (dispatch) => {
     return ({
     // fetchListings: filters => dispatch(fetchListings(filters)),
     // updateFilter: filters => dispatch(changeFilter(filters))
-    filterAndFetch: (filter, value) => dispatch(filterAndFetch(filter, value))
+    filterAndFetch: (filter, value) => dispatch(filterAndFetch(filter, value)),
+    updateLocation: location => dispatch(changeFilter({location}))
 })};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListingsIndex);

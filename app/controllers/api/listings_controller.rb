@@ -17,6 +17,7 @@ class Api::ListingsController < ApplicationController
     end
 
     def index
+
         location = Location.find(params[:filters][:location])
         max_guests = params[:filters][:guests] == "" ? 0 : params[:filters][:guests]
         max_lat = params[:filters][:bounds][:north]
