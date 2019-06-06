@@ -24,11 +24,10 @@ class Search extends React.Component {
             }
             return null;
         }).filter(el => el);
-        debugger
         this.setState({location: locationId[0]}, ()=>{
             this.props.changeFilter(this.state);
             this.props.history.push(`/search/${this.state.location}`);
-            this.props.filterAndFetch('location', this.state.location);
+            this.props.filterAndFetch('page', 0);
         });
     }
 
@@ -88,7 +87,7 @@ class Search extends React.Component {
                 if (this.props.location.pathname != "/") {
                     this.props.changeFilter(this.state);
                     this.props.history.push(`/search/${location}`);
-                    this.props.filterAndFetch('location', location);
+                    this.props.filterAndFetch('page', 0);
                     this.setState({locationName: ""});
                 }
             });
@@ -105,7 +104,7 @@ class Search extends React.Component {
     render() {
 
         const locations = this.matches().map(location => (
-            <li id={location.id} onMouseDown={this.selectName.bind(this)}>{location.name}</li>
+            <li key={location.id} onMouseDown={this.selectName.bind(this)}>{location.name}</li>
         ))
 
         const nav_search_box = (

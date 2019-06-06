@@ -4,7 +4,6 @@ import { changeFilter, filterAndFetch } from '../../actions/filters_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
     // const current_location = state.ui.filters.location ? state.entities.locations[state.ui.filters.location].name
     return ({
         locations: Object.values(state.entities.locations).map(location => {

@@ -6,8 +6,9 @@ class FilterBar extends React.Component {
 
     handleReturn(e) {
         e.preventDefault();
-        this.props.changeFilter({ location: this.props.listing_location });
-        this.props.history.push("/search/");
+        debugger
+        this.props.changeFilter({ location: this.props.listingLocation.id });
+        this.props.history.push(`/search/${this.props.listingLocation.id}`);
     }
 
     handleMapToggle(e) {
@@ -25,7 +26,7 @@ class FilterBar extends React.Component {
 
     
     render() {
-        if (this.props.location.pathname === "/search/") {
+        if (this.props.location.pathname.match(/search/)) {
             return (
                 <div className="filler-nav2">
                     <div className="filter-bar fixed">
@@ -59,7 +60,7 @@ class FilterBar extends React.Component {
                 <div className="filler-nav2">
                     <div className="filter-bar">
                         <button onClick={this.handleReturn.bind(this)}>
-                            {this.props.listing_location}
+                            {this.props.listingLocation.name}
                         </button>
                     </div>
                 </div>

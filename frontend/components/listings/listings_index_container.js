@@ -46,7 +46,7 @@ import { changeFilter, filterAndFetch } from '../../actions/filters_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
-debugger
+
     return ({
         // listings: frontendFilteredListings(state),
         listings: Object.values(state.entities.listings),

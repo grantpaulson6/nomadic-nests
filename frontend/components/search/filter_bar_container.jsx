@@ -9,10 +9,10 @@ const mapStateToProps = (state, ownProps) => {
     const path_arr = ownProps.location.pathname.split("/");
     const listingId = path_arr[path_arr.length - 1];
     const listing = state.entities.listings[listingId];
-    const listing_location = listing ? listing.location : undefined;
+    const listingLocation = listing ? state.entities.locations[listing.location] : {};
     return ({
         listing,
-        listing_location
+        listingLocation
     });
 };
 const mapDispatchToProps = (dispatch) => ({
