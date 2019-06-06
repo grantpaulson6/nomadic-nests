@@ -6,7 +6,7 @@ class FilterBar extends React.Component {
 
     handleReturn(e) {
         e.preventDefault();
-        this.props.changeFilter({ location: this.props.listingLocation.id });
+        // this.props.changeFilter({ location: this.props.listingLocation.id });
         this.props.history.push(`/search/${this.props.listingLocation.id}`);
     }
 

@@ -51,7 +51,8 @@ const mapStateToProps = (state, ownProps) => {
         // listings: frontendFilteredListings(state),
         listings: Object.values(state.entities.listings),
         page: state.ui.filters.page,
-        location: ownProps.match.params.locationId
+        location: ownProps.match.params.locationId,
+        reduxLocation: state.ui.filters.location
     })};
     
     const mapDispatchToProps = (dispatch) => {
