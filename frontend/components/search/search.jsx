@@ -25,9 +25,9 @@ class Search extends React.Component {
             return null;
         }).filter(el => el);
         this.setState({location: locationId[0]}, ()=>{
-            this.props.changeFilter(this.state);
+            // this.props.changeFilter(this.state);
             this.props.history.push(`/search/${this.state.location}`);
-            this.props.filterAndFetch('page', 0);
+            // this.props.filterAndFetch('page', 0);
         });
     }
 
@@ -85,9 +85,9 @@ class Search extends React.Component {
         if (locationName != "No") {
             this.setState({ locationName, location }, () => {
                 if (this.props.location.pathname != "/") {
-                    this.props.changeFilter(this.state);
+                    // this.props.changeFilter(this.state);
                     this.props.history.push(`/search/${location}`);
-                    this.props.filterAndFetch('page', 0);
+                    // this.props.filterAndFetch('page', 0);
                     this.setState({locationName: ""});
                 }
             });

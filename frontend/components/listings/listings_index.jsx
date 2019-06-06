@@ -3,18 +3,9 @@ import ListingsIndexItem from './listings_index_item';
 import ListingsMapContainer from './listings_map_container';
 
 class ListingsIndex extends React.Component {
-    constructor(props) {
 
-        super(props);
-        // if (!props.filterLocation) {
-            //     props.updateLocation(props.urlLocation);
-            // }
-        }
-        componentDidMount() {
-            // this.id = this.props.match.params.locationId;
-        if (!this.props.filterLocation) {
-            this.props.updateLocation(this.props.urlLocation);
-        }
+    componentDidMount() {
+        this.props.updateLocation(this.props.location);
         this.props.filterAndFetch('page', 0);
     }
 
@@ -40,7 +31,7 @@ class ListingsIndex extends React.Component {
                     {listingitems}
                 </div>
                 <button onClick={this.onPaginatedSearch.bind(this)}>More Listings</button>
-                {/* <ListingsMapContainer key={this.props.filters.location} listings={this.props.listings}/> */}
+                {/* <ListingsMapContainer key={this.props.location} listings={this.props.listings}/> */}
             </div>
         )
     }

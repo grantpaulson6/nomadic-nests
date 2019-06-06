@@ -51,8 +51,7 @@ const mapStateToProps = (state, ownProps) => {
         // listings: frontendFilteredListings(state),
         listings: Object.values(state.entities.listings),
         page: state.ui.filters.page,
-        filterLocation: state.ui.filters.location,
-        urlLocation: ownProps.match.params.locationId
+        location: ownProps.match.params.locationId
     })};
     
     const mapDispatchToProps = (dispatch) => {
