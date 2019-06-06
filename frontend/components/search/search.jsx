@@ -78,7 +78,7 @@ class Search extends React.Component {
     selectName(e) {
         e.preventDefault();
 
-        let location = e.currentTarget.id;
+        let location = e.currentTarget.getAttribute('locationid');
         let locationName = e.currentTarget.innerHTML;
         locationName = locationName.split(" ");
         locationName = locationName.slice(0, locationName.length - 1).join(" ");
@@ -103,8 +103,8 @@ class Search extends React.Component {
 
     render() {
 
-        const locations = this.matches().map(location => (
-            <li key={location.id} onMouseDown={this.selectName.bind(this)}>{location.name}</li>
+        const locations = this.matches().map((location,i) => (
+            <li key={i} locationid={location.id} onMouseDown={this.selectName.bind(this)}>{location.name}</li>
         ))
 
         const nav_search_box = (

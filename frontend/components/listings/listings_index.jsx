@@ -12,7 +12,6 @@ class ListingsIndex extends React.Component {
         }
         componentDidMount() {
             // this.id = this.props.match.params.locationId;
-            debugger
         if (!this.props.filterLocation) {
             this.props.updateLocation(this.props.urlLocation);
         }
