@@ -43,3 +43,13 @@
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
 }
+
+.listing-map.map-on #map-toggle {
+    position: absolute;
+    top: 0;
+    right: 100px;
+    height: 115px;
+    width: 40px;
+    z-index: 2;
+    background-color: white;
+}

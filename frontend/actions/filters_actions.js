@@ -25,6 +25,10 @@ export const receiveBounds = bounds => ({
 
 export const updateBounds = bounds => (dispatch, getState) => {
     dispatch(receiveBounds(bounds));
+};
+
+export const updateBoundsAndFetch = bounds => (dispatch, getState) => {
+    dispatch(receiveBounds(bounds));
     return fetchListings(getState().ui.filters)(dispatch);
 };
 

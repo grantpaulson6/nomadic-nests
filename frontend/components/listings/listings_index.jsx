@@ -56,8 +56,9 @@ class ListingsIndex extends React.Component {
                 <div className="listing-item-container map-on grid">
                     {listingitems}
                 </div>
-                {/* <button onClick={this.onPaginatedSearch.bind(this)}>More Listings</button> */}
-                {/* <ListingsMapContainer key={this.props.location} listings={this.props.listings}/> */}
+                <ListingsMapContainer key={this.props.location}
+                    current_location={this.props.location}
+                    listings={this.props.listings}/>
             </div>
         )
     }

@@ -16,9 +16,11 @@ const mapStateToProps = (state, ownProps) => {
         });
         bookings = bookings.filter( booking => booking );
     }
+
     return ({
         listing,
-        bookings
+        bookings,
+        location: listing ? state.entities.locations[listing.location].name : null
     });
 };
 
