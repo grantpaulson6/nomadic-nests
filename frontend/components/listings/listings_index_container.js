@@ -5,51 +5,52 @@ import { changeFilter, filterAndFetch, changeSingleFilter } from '../../actions/
 // import { stat } from 'fs';
 
 //filter on price, way to optimize this?
-// const frontendFilteredListings = (state) => {
-//     const listings = [];
-//     Object.values(state.entities.listings).forEach( listing => {
-//         if ((state.ui.filters.max_price === null ||
-//             listing.price <= state.ui.filters.max_price) &&
-//             (state.ui.filters.min_price === null ||
-//             listing.price >= state.ui.filters.min_price) &&
-//             (state.ui.filters.guests === null ||
-//             listing.max_guests >= state.ui.filters.guests) &&
-//             (state.ui.filters.nest === null ||
-//             listing.property_type === state.ui.filters.nest) &&
-//             listingAvailableForDates(listing.id, state, state.ui.filters.start_date, state.ui.filters.end_date)) {
-//                 listings.push(listing);
-//             }
-//     });
-//     return listings;
-// };
+const frontendFilteredListings = (state) => {
+    const listings = [];
+    Object.values(state.entities.listings).forEach( listing => {
+        if (
+            // (state.ui.filters.max_price === null ||
+            // listing.price <= state.ui.filters.max_price) &&
+            // (state.ui.filters.min_price === null ||
+            // listing.price >= state.ui.filters.min_price) &&
+            // (state.ui.filters.guests === null ||
+            // listing.max_guests >= state.ui.filters.guests) &&
+            // (state.ui.filters.nest === null ||
+            // listing.property_type === state.ui.filters.nest) &&
+            listingAvailableForDates(listing.id, state, state.ui.filters.start_date, state.ui.filters.end_date)) {
+                listings.push(listing);
+            }
+    });
+    return listings;
+};
 
-// const bookingsForListing = (listingId, state) => {
-//     const bookingIds = state.entities.listings[listingId].booking_ids;
-//     return bookingIds.map( bookingId => state.entities.bookings[bookingId]);
-// };
+const bookingsForListing = (listingId, state) => {
+    const bookingIds = state.entities.listings[listingId].booking_ids;
+    return bookingIds.map( bookingId => state.entities.bookings[bookingId]);
+};
 
-// const listingAvailableForDates = (listingId, state, start_date, end_date) => {
-//     if (start_date === null || end_date === null) {
-//         return true;
-//     }
-//     const bookings = bookingsForListing(listingId, state);
-//     for (let i in bookings) {
-//         let booking = bookings[i];
-//         if (booking.end_date > start_date && booking.start_date < end_date) {
-//             return false;
-//         } else if (booking.start_date < end_date && booking.end_date > start_date) {
-//             return false;
-//         }
-//     }
-//     return true;
-// }
+const listingAvailableForDates = (listingId, state, start_date, end_date) => {
+    if (start_date === null || end_date === null) {
+        return true;
+    }
+    const bookings = bookingsForListing(listingId, state);
+    for (let i in bookings) {
+        let booking = bookings[i];
+        if (booking.end_date > start_date && booking.start_date < end_date) {
+            return false;
+        } else if (booking.start_date < end_date && booking.end_date > start_date) {
+            return false;
+        }
+    }
+    return true;
+}
 
 
 const mapStateToProps = (state, ownProps) => {
 
     return ({
-        // listings: frontendFilteredListings(state),
-        listings: Object.values(state.entities.listings),
+        listings: frontendFilteredListings(state),
+        // listings: Object.values(state.entities.listings),
         page: state.ui.filters.page,
         location: ownProps.match.params.locationId,
         reduxLocation: state.ui.filters.location,

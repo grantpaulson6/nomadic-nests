@@ -27,7 +27,7 @@ class FilterNest extends React.Component {
                 className="filter-modal">
                 <form className="search-field"
                     onSubmit={this.handleSubmit.bind(this)}>
-                    <select onChange={this.handleUpdate("nest").bind(this)}
+                    <select onChange={this.handleUpdate("property_type").bind(this)}
                         className="listings-info"
                         id="filter-nest">
                         <option disabled selected>Type of Nest</option>

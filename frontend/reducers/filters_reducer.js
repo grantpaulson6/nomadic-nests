@@ -17,7 +17,8 @@ const noFilters = {
     },
     page: null,
     mapSearch: false,
-    allListings: false
+    allListings: false,
+    property_type: null
 };
 //live may be unused
 const filtersReducer = (state = noFilters, action) => {

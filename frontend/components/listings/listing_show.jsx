@@ -71,12 +71,6 @@ class ListingShow extends React.Component {
                             <div className="details">
                                 <p>{this.props.listing.description}</p>
                             </div>
-                            <ListingsMapContainer className="show-map" 
-                                key={this.props.listing.location}
-                                listings={[this.props.listing]}
-                                current_location={{lat: this.props.listing.lat,
-                                    lng: this.props.listing.lng,
-                                    zoom: 10}}/>
                             <div className="bookings-details">
                                 <h2>{ pastBookings.length != 0 ? "Your Past Bookings for this nest:" : null}</h2>
                                 <ul className="past-bookings">
@@ -91,6 +85,12 @@ class ListingShow extends React.Component {
                                     { futureBookings }
                                 </ul>
                             </div>
+                            <ListingsMapContainer className="show-map" 
+                                key={this.props.listing.location}
+                                listings={[this.props.listing]}
+                                current_location={{lat: this.props.listing.lat,
+                                    lng: this.props.listing.lng,
+                                    zoom: 10}}/>
                         </div>
                         <BookingBox price={this.props.listing.price}
                             listingId={this.props.listing.id}/>

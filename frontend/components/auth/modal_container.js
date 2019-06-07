@@ -1,5 +1,5 @@
 import { closeModal } from '../../actions/modal_actions';
-import { filtersAndFetch } from '../../actions/filters_actions';
+import { filtersAndFetch, changeFilter } from '../../actions/filters_actions';
 import { connect } from 'react-redux';
 import Modal from './modal';
 
@@ -10,7 +10,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     closeModal: () => dispatch(closeModal()),
-    changeFilter: filters => dispatch(filtersAndFetch(filters))
+    changeFilterAndFetch: filters => dispatch(filtersAndFetch(filters)),
+    changeFilter: filters => dispatch(changeFilter(filters))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

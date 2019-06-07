@@ -41,6 +41,7 @@ export const filterAndFetch = (filter, value) => (dispatch, getState) => {
 
 export const filtersAndFetch = (filters) => (dispatch, getState) => {
     dispatch(changeSingleFilter('page', 0));
+    dispatch(changeSingleFilter('allListings', false));
     dispatch(changeFilter(filters));
     return fetchListings(getState().ui.filters)(dispatch);
 };

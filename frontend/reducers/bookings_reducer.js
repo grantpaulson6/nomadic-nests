@@ -12,7 +12,7 @@ const bookingsReducer = (state = {}, action) => {
         }
         case RECEIVE_LISTINGS:
         if (action.payload.bookings) {
-            return action.payload.bookings;
+            return merge({}, state, action.payload.bookings);
         } else {
             return state;
         }
