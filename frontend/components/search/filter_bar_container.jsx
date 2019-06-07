@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import FilterBar from './filter_bar';
 import { withRouter } from 'react-router-dom';
-import { changeFilter } from '../../actions/filters_actions';
+import { changeFilter, filtersAndFetch } from '../../actions/filters_actions';
 import { openModal } from '../../actions/modal_actions';
 
 //hacky, figure out react router dom issue
@@ -17,6 +17,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = (dispatch) => ({
     changeFilter: filters => dispatch(changeFilter(filters)),
+    filtersAndFetch: filters => dispatch(filtersAndFetch(filters)),
     openModal: modal => dispatch(openModal(modal))
 });
 

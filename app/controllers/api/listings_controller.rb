@@ -18,17 +18,19 @@ class Api::ListingsController < ApplicationController
 
     def index
 
-        location = Location.find(params[:filters][:location])
         max_guests = params[:filters][:guests] == "" ? 0 : params[:filters][:guests]
+        
+        
         max_lat = params[:filters][:bounds][:north]
         max_lng = params[:filters][:bounds][:east]
         min_lat = params[:filters][:bounds][:south]
         min_lng = params[:filters][:bounds][:west]
         @page_size = 4
         offset = params[:filters][:page].to_i*@page_size
-        if location
-            @listings = Listing.with_attached_photos.offset(offset).limit(@page_size).where(["location_id = ? and max_guests >= ? and lat <= ? and lng <= ? and lat >= ? and lng >= ?", 
-            location.id, max_guests, max_lat, max_lng, min_lat, min_lng])
+
+        if params[:filters][:location] != ""
+            location = Location.find(params[:filters][:location])
+            @listings = Listing.with_attached_photos.offset(offset).limit(@page_size).where(["location_id = ? and max_guests >= ?", location.id, max_guests])
         else
             @listings = Listing.with_attached_photos.offset(offset).limit(@page_size).where(["max_guests >= ? and lat <= ? and lng <= ? and lat >= ? and lng >= ?", 
             max_guests, max_lat, max_lng, min_lat, min_lng])

@@ -46,10 +46,17 @@
 
 .listing-map.map-on #map-toggle {
     position: absolute;
-    top: 0;
-    right: 100px;
-    height: 115px;
-    width: 40px;
+    display: flex;
+    top: 10px;
+    right: 60px;
+    height: 40px;
+    width: 160px;
     z-index: 2;
-    background-color: white;
+    box-shadow: rgba(0,0,0,0.3);
+    box-sizing: border-box;
+    background-color: rgb(255,255,255);
+    font-family: Roboto, Arial, sans-serif;
 }
+
+
+.listing-map.map-on #map-toggle {

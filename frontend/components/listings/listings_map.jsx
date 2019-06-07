@@ -3,7 +3,12 @@ import MarkerManager from '../../util/marker_manager';
 import { withRouter } from 'react-router-dom';
 
 class ListingsMap extends React.Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            mapSearch: false
+        };
+    }
     //calculate zoom;
 
     componentDidMount() {
@@ -22,15 +27,15 @@ class ListingsMap extends React.Component {
             };
         }
         this.map = new google.maps.Map(document.getElementById("map"), mapOptions);
-            // if (bounds.south <= bounds.north && bounds.west <= bounds.east) {
-            //     this.props.updateBounds(bounds);
-            // }
-        // this.map.addListener('idle', () => {
-        //     let bounds = this.map.getBounds().toJSON();
-        //     if (bounds.south <= bounds.north && bounds.west <= bounds.east) {
-        //         this.props.updateBounds(bounds);
-        //     }
-        // });
+
+        this.map.addListener('idle', () => {
+            if (this.state.mapSearch) {
+                let bounds = this.map.getBounds().toJSON();
+                if (bounds.south <= bounds.north && bounds.west <= bounds.east) {
+                    this.props.updateBoundsAndFetch(bounds);
+                }
+            }
+        });
         this.MarkerManager = new MarkerManager(this.map, this.props.history);
         this.MarkerManager.updateMarkers(this.props.listings);
     }
@@ -38,12 +43,18 @@ class ListingsMap extends React.Component {
     componentDidUpdate() {
         this.MarkerManager.updateMarkers(this.props.listings);
     }
+    handleChange(e) {
+        this.setState({ mapSearch: e.currentTarget.checked });
+    }
     render() {
 
         return (
             <div className="listing-map map-on"
                 id="map-container">
-                <div id="map-toggle"></div>
+                <div id="map-toggle">
+                    <input type="checkbox" onChange={this.handleChange.bind(this)}/>
+                    Search as I move the map
+                </div>
                 <div id="map">
                 </div>
             </div>

@@ -19,7 +19,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
     updateBounds: bounds => dispatch(updateBounds(bounds)),
-    updateBoundsAndFetch: bounds => dispatch(updateBounds(bounds))
+    updateBoundsAndFetch: bounds => dispatch(updateBoundsAndFetch(bounds))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListingsMap);

@@ -42,7 +42,7 @@ class FilterBar extends React.Component {
                             <button onClick={() => this.props.openModal("filter price")}>
                                 Price
                             </button>
-                            <button onClick={() => this.props.changeFilter({ guests: null, start_date: null, end_date: null, max_price: null, min_price: null, nest: null })}
+                            <button onClick={() => this.props.filtersAndFetch({ guests: null, start_date: null, end_date: null, max_price: null, min_price: null, nest: null })}
                                 className="clear-filters">
                                 Clear
                             </button>

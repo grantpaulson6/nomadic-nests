@@ -17,12 +17,12 @@ const listingsReducer = (state = {}, action) => {
             // }
             return merge({}, state, action.payload.listings);
         case UPDATE_FILTER:
-            if (action.value == 0) {
+            if (action.value == 0 && action.filter === 'page') {
                 return {};
             }
             return state;
-        case UPDATE_FILTERS:
-            return {};
+        // case UPDATE_FILTERS:
+        //     return {};
         default:
             return state;
     }

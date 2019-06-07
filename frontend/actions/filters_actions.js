@@ -1,4 +1,5 @@
 import { fetchListings } from './listings_actions';
+import merge from 'lodash/merge';
 
 export const REMOVE_FILTERS = "REMOVE_FILTERS";
 export const UPDATE_FILTERS = "UPDATE_FILTERS";
@@ -29,10 +30,17 @@ export const updateBounds = bounds => (dispatch, getState) => {
 
 export const updateBoundsAndFetch = bounds => (dispatch, getState) => {
     dispatch(receiveBounds(bounds));
-    return fetchListings(getState().ui.filters)(dispatch);
+    dispatch(changeSingleFilter('page',0));
+    return fetchListings(merge({}, getState().ui.filters, {location: null}))(dispatch);
 };
 
 export const filterAndFetch = (filter, value) => (dispatch, getState) => {
     dispatch(changeSingleFilter(filter, value));
+    return fetchListings(getState().ui.filters)(dispatch);
+};
+
+export const filtersAndFetch = (filters) => (dispatch, getState) => {
+    dispatch(changeSingleFilter('page', 0));
+    dispatch(changeFilter(filters));
     return fetchListings(getState().ui.filters)(dispatch);
 };
