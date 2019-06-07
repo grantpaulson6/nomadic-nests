@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import ListingsIndex from './listings_index';
 import { fetchListings } from '../../actions/listings_actions';
-import { changeFilter, filterAndFetch } from '../../actions/filters_actions';
+import { changeFilter, filterAndFetch, changeSingleFilter } from '../../actions/filters_actions';
 // import { stat } from 'fs';
 
 //filter on price, way to optimize this?
@@ -52,7 +52,8 @@ const mapStateToProps = (state, ownProps) => {
         listings: Object.values(state.entities.listings),
         page: state.ui.filters.page,
         location: ownProps.match.params.locationId,
-        reduxLocation: state.ui.filters.location
+        reduxLocation: state.ui.filters.location,
+        allListings: state.ui.filters.allListings
     })};
     
     const mapDispatchToProps = (dispatch) => {
@@ -60,7 +61,8 @@ const mapStateToProps = (state, ownProps) => {
     // fetchListings: filters => dispatch(fetchListings(filters)),
     // updateFilter: filters => dispatch(changeFilter(filters))
     filterAndFetch: (filter, value) => dispatch(filterAndFetch(filter, value)),
-    updateLocation: location => dispatch(changeFilter({location}))
+    updateLocation: location => dispatch(changeFilter({location})),
+    toggleAllListings: value => dispatch(changeSingleFilter('allListings',value))
 })};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListingsIndex);

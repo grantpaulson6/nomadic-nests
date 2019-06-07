@@ -28,7 +28,7 @@ class Api::ListingsController < ApplicationController
         @page_size = 4
         offset = params[:filters][:page].to_i*@page_size
 
-        if params[:filters][:location] != ""
+        if params[:filters][:mapSearch] == "false"
             location = Location.find(params[:filters][:location])
             @listings = Listing.with_attached_photos.offset(offset).limit(@page_size).where(["location_id = ? and max_guests >= ?", location.id, max_guests])
         else

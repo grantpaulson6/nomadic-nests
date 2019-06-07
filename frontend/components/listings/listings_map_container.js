@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ListingsMap from './listings_map';
-import { updateBounds, updateBoundsAndFetch } from '../../actions/filters_actions';
+import { updateBounds, updateBoundsAndFetch, changeSingleFilter } from '../../actions/filters_actions';
 
 const mapStateToProps = (state, ownProps) => {
     // let current_location;
@@ -13,13 +13,21 @@ const mapStateToProps = (state, ownProps) => {
         current_location: typeof ownProps.current_location === "string" ?
             state.entities.locations[ownProps.current_location] :
             ownProps.current_location,
-        listings: ownProps.listings
+        listings: ownProps.listings,
+        mapSearch: state.ui.filters.mapSearch
     });
 };
 
 const mapDispatchToProps = (dispatch) => ({
     updateBounds: bounds => dispatch(updateBounds(bounds)),
-    updateBoundsAndFetch: bounds => dispatch(updateBoundsAndFetch(bounds))
+    updateBoundsAndFetch: bounds => {
+        dispatch(changeSingleFilter('allListings', false));
+        return dispatch(updateBoundsAndFetch(bounds));
+    },
+    toggleMapSearch: value => {
+        dispatch(changeSingleFilter('allListings', false));
+        return dispatch(changeSingleFilter('mapSearch', value));
+    }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListingsMap);

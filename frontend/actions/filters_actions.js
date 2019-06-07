@@ -31,7 +31,7 @@ export const updateBounds = bounds => (dispatch, getState) => {
 export const updateBoundsAndFetch = bounds => (dispatch, getState) => {
     dispatch(receiveBounds(bounds));
     dispatch(changeSingleFilter('page',0));
-    return fetchListings(merge({}, getState().ui.filters, {location: null}))(dispatch);
+    return fetchListings(getState().ui.filters)(dispatch);
 };
 
 export const filterAndFetch = (filter, value) => (dispatch, getState) => {

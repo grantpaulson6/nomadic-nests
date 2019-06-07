@@ -6,17 +6,18 @@ class ListingsIndex extends React.Component {
     constructor(props) {
         super(props);
         this.onScroll = this.onScroll.bind(this);
-        this.state = {
-            allListings: false
-        }
+        // this.state = {
+        //     allListings: false
+        // }
     }
     componentDidMount() {
         if (this.props.location != this.props.reduxLocation) {
             this.props.updateLocation(this.props.location);
+            if (this.props.allListings) this.props.toggleAllListings(false);
             this.props.filterAndFetch('page', 0)
                 .then( (e) => {
                     if (e.payload.count[0] < e.payload.count[1]) {
-                        this.setState({allListings: true});
+                        this.props.toggleAllListings(true);
                     }
                 });
         }
@@ -29,11 +30,11 @@ class ListingsIndex extends React.Component {
 
     onScroll() {
         // if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500) && this.props.listings.length) {
-            if (!this.state.allListings && (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight -5)) {
+            if (!this.props.allListings && (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight -5)) {
                 this.props.filterAndFetch('page', this.props.page + 1)
                     .then((e) => {
                         if (e.payload.count[0] < e.payload.count[1]) {
-                            this.setState({ allListings: true });
+                            this.props.toggleAllListings(!this.props.allListings);
                         }
                     });
         }

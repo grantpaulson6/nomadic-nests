@@ -15,7 +15,9 @@ const noFilters = {
         south: -90,
         west: -180
     },
-    page: null
+    page: null,
+    mapSearch: false,
+    allListings: false
 };
 //live may be unused
 const filtersReducer = (state = noFilters, action) => {
