@@ -16,6 +16,12 @@ class ListingShow extends React.Component {
         }
     }
 
+    handleClick(e) {
+        e.preventDefault();
+        this.props.destroyListing(this.props.listing.id);
+        this.props.history.push(`/search/${this.props.listing.location}`);
+    }
+
     render() {
         let currentDate = new Date();
         currentDate = currentDate.toLocaleDateString("sv-SE");
@@ -92,7 +98,7 @@ class ListingShow extends React.Component {
                                     lng: this.props.listing.lng,
                                     zoom: 10}}
                                 searchBox={false}/>
-                            {this.props.owner ? <button id="delete-listing">Delete Your Listing</button> : null }
+                            {this.props.owner ? <button id="delete-listing" onClick={this.handleClick.bind(this)}>Delete Your Listing</button> : null }
                         </div>
                         <BookingBox price={this.props.listing.price}
                             listingId={this.props.listing.id}/>

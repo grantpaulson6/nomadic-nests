@@ -54,7 +54,8 @@ const mapStateToProps = (state, ownProps) => {
         page: state.ui.filters.page,
         location: ownProps.match.params.locationId,
         reduxLocation: state.ui.filters.location,
-        allListings: state.ui.filters.allListings
+        allListings: state.ui.filters.allListings,
+        showMap: state.ui
     })};
     
     const mapDispatchToProps = (dispatch) => {

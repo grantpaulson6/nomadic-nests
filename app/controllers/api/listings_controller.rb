@@ -13,15 +13,9 @@ class Api::ListingsController < ApplicationController
     end
 
     def destroy
-        @listing = Listing.new(listings_params)
-        location = Location.find_by(name: params[:listing][:location])
-        @listing.location_id = location.id if location
-        @listing.owner_id = current_user.id
-        if @listing.save
-            render "api/listings/show"
-        else
-            render "api/errors/listing_errors", status: 422
-        end
+        listing = Listing.find(params[:id])
+        listing.destroy
+
     end
 
     def index
@@ -36,7 +30,7 @@ class Api::ListingsController < ApplicationController
         min_price = params[:filters][:min_price] != "" ? params[:filters][:min_price] : -1
         max_price = params[:filters][:max_price] != "" ? params[:filters][:max_price] : 999999
         property_type = params[:filters][:property_type] #!= "" ? `LIKE #{params[:filters][:property_type]}` : "IS NOT NULL"
-        @page_size = 4
+        @page_size = 10
         offset = params[:filters][:page].to_i*@page_size
 
         if params[:filters][:mapSearch] == "false"

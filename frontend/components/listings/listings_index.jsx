@@ -63,7 +63,8 @@ class ListingsIndex extends React.Component {
                 <ListingsMapContainer key={this.props.location}
                     current_location={this.props.location}
                     listings={this.props.listings}
-                    searchBox={true}/>
+                    searchBox={true}
+                    showMap={this.props./>
             </div>
         )
     }
