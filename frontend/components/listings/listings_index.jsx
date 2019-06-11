@@ -22,7 +22,10 @@ class ListingsIndex extends React.Component {
                 });
         }
         window.addEventListener('scroll', this.onScroll, false);
+        this.onScroll();
     }
+
+
 
     componentWillUnmount() {
         window.removeEventListener('scroll', this.onScroll, false);
@@ -59,7 +62,8 @@ class ListingsIndex extends React.Component {
                 </div>
                 <ListingsMapContainer key={this.props.location}
                     current_location={this.props.location}
-                    listings={this.props.listings}/>
+                    listings={this.props.listings}
+                    searchBox={true}/>
             </div>
         )
     }

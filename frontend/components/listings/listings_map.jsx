@@ -52,13 +52,14 @@ class ListingsMap extends React.Component {
     }
     render() {
 
+        const searchBox = this.props.searchBox ? <div id="map-toggle">
+            <input type="checkbox" onChange={this.handleChange.bind(this)}/>
+            Search map region as map moves</div> : null
+        
         return (
             <div className="listing-map map-on"
                 id="map-container">
-                <div id="map-toggle">
-                    <input type="checkbox" onChange={this.handleChange.bind(this)}/>
-                    Search map region as map changes
-                </div>
+                {searchBox}
                 <div id="map">
                 </div>
             </div>

@@ -90,7 +90,9 @@ class ListingShow extends React.Component {
                                 listings={[this.props.listing]}
                                 current_location={{lat: this.props.listing.lat,
                                     lng: this.props.listing.lng,
-                                    zoom: 10}}/>
+                                    zoom: 10}}
+                                searchBox={false}/>
+                            {this.props.owner ? <button id="delete-listing">Delete Your Listing</button> : null }
                         </div>
                         <BookingBox price={this.props.listing.price}
                             listingId={this.props.listing.id}/>

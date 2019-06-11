@@ -12,8 +12,16 @@ class Api::ListingsController < ApplicationController
         end
     end
 
-    def update
-
+    def destroy
+        @listing = Listing.new(listings_params)
+        location = Location.find_by(name: params[:listing][:location])
+        @listing.location_id = location.id if location
+        @listing.owner_id = current_user.id
+        if @listing.save
+            render "api/listings/show"
+        else
+            render "api/errors/listing_errors", status: 422
+        end
     end
 
     def index

@@ -52,9 +52,8 @@ class Search extends React.Component {
                 matches.push(location);
             }
         });
-
         if (matches.length === 0) {
-            matches.push('No matches');
+            matches.push({name:'No matches'});
         }
         return matches;
     }

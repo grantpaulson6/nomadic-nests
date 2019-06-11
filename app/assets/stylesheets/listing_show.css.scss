@@ -228,6 +228,7 @@ transform: translateY(-3px);
     width: 100%;
     display: block;
     position: relative;
+    top: 10px;
 }
 
 .bookings-details {
@@ -242,4 +243,8 @@ transform: translateY(-3px);
 
 #map-container.listing-map.map-on {
     float: none;
+}
+
+#delete-listing {
+    margin-top: 20px;
 }
