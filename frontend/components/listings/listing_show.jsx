@@ -16,6 +16,12 @@ class ListingShow extends React.Component {
         }
     }
 
+    handleClick(e) {
+        e.preventDefault();
+        this.props.destroyListing(this.props.listing.id);
+        this.props.history.push(`/search/${this.props.listing.location}`);
+    }
+
     render() {
         let currentDate = new Date();
         currentDate = currentDate.toLocaleDateString("sv-SE");
@@ -61,7 +67,7 @@ class ListingShow extends React.Component {
                     <div className="listing-body">
                         <div className="listing-details">
                             <h1>{this.props.listing.title}</h1>
-                            <div className="details">{this.props.listing.location}</div>
+                            <div className="details">{this.props.location}</div>
                             <div className="details">{this.props.listing.property_type}</div>
                             <ul className="details nums">
                                 <li className="nums-li">{this.props.listing.max_guests} guests</li>
@@ -71,12 +77,6 @@ class ListingShow extends React.Component {
                             <div className="details">
                                 <p>{this.props.listing.description}</p>
                             </div>
-                            <ListingsMapContainer className="show-map" 
-                                key={this.props.listing.location}
-                                listings={[this.props.listing]}
-                                current_location={{lat: this.props.listing.lat,
-                                    lng: this.props.listing.lng,
-                                    zoom: 10}}/>
                             <div className="bookings-details">
                                 <h2>{ pastBookings.length != 0 ? "Your Past Bookings for this nest:" : null}</h2>
                                 <ul className="past-bookings">
@@ -91,6 +91,14 @@ class ListingShow extends React.Component {
                                     { futureBookings }
                                 </ul>
                             </div>
+                            <ListingsMapContainer className="show-map" 
+                                key={this.props.listing.location}
+                                listings={[this.props.listing]}
+                                current_location={{lat: this.props.listing.lat,
+                                    lng: this.props.listing.lng,
+                                    zoom: 10}}
+                                searchBox={false}/>
+                            {this.props.owner ? <button id="delete-listing" onClick={this.handleClick.bind(this)}>Delete Your Listing</button> : null }
                         </div>
                         <BookingBox price={this.props.listing.price}
                             listingId={this.props.listing.id}/>

@@ -8,7 +8,7 @@ import FilterGuests from '../search/filter_guests';
 import FilterPriceContainer from '../search/filter_price_container';
 
 
-const Modal = ({ modal, closeModal, changeFilter, filters }) => {
+const Modal = ({ modal, closeModal, changeFilter, changeFilterAndFetch, filters }) => {
     if (!modal) {
         return null;
     }
@@ -31,15 +31,16 @@ const Modal = ({ modal, closeModal, changeFilter, filters }) => {
             break;
         case "filter guests":
             component = <FilterGuests closeModal={closeModal}
-                            changeFilter={changeFilter}
+                            changeFilter={changeFilterAndFetch}
                             guests={filters.guests}/>;
             break;
         case "filter nest":
             component = <FilterNest closeModal={closeModal}
-                            changeFilter={changeFilter}/>;
+                changeFilter={changeFilterAndFetch}/>;
             break;
         case "filter price":
-            component = <FilterPriceContainer/>;
+            component = <FilterPriceContainer
+                changeFilter={changeFilterAndFetch}/>;
             break;
         case "booking":
             component = <h1>Booking complete, enjoy!</h1>

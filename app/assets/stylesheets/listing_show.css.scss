@@ -63,7 +63,7 @@
 
             .details {
                 margin: 15px 0;
-                margin-left: 15px;
+                // margin-left: 15px;
 
                 p {
                     margin-bottom: 50px;
@@ -227,7 +227,8 @@ transform: translateY(-3px);
     height: 500px;
     width: 100%;
     display: block;
-    position: static;
+    position: relative;
+    top: 10px;
 }
 
 .bookings-details {
@@ -242,4 +243,8 @@ transform: translateY(-3px);
 
 #map-container.listing-map.map-on {
     float: none;
+}
+
+#delete-listing {
+    margin-top: 20px;
 }

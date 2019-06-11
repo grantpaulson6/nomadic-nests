@@ -6,6 +6,7 @@ json.listings do
         end
     end
 end
+json.count [@listings.length, @page_size]
 
 json.bookings do
     @listings.each do |listing|

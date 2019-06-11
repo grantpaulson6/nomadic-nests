@@ -8,6 +8,7 @@ class ListingsMap extends React.Component {
 
     componentDidMount() {
         let mapOptions;
+        if (this.props.mapSearch) this.props.toggleMapSearch(!this.props.mapSearch);
         if (this.props.current_location) {
             mapOptions = {
                 center: { lat: this.props.current_location.lat,
@@ -22,10 +23,13 @@ class ListingsMap extends React.Component {
             };
         }
         this.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
         this.map.addListener('idle', () => {
-            let bounds = this.map.getBounds().toJSON();
-            if (bounds.south <= bounds.north && bounds.west <= bounds.east) {
-                this.props.updateBounds(bounds);
+            if (this.props.mapSearch) {
+                let bounds = this.map.getBounds().toJSON();
+                if (bounds.south <= bounds.north && bounds.west <= bounds.east) {
+                    this.props.updateBoundsAndFetch(bounds);
+                }
             }
         });
         this.MarkerManager = new MarkerManager(this.map, this.props.history);
@@ -35,12 +39,29 @@ class ListingsMap extends React.Component {
     componentDidUpdate() {
         this.MarkerManager.updateMarkers(this.props.listings);
     }
+    handleChange(e) {
+        // this.setState({ mapSearch: e.currentTarget.checked });
+        
+        if (!this.props.mapSearch) {
+            let bounds = this.map.getBounds().toJSON();
+            if (bounds.south <= bounds.north && bounds.west <= bounds.east) {
+                this.props.updateBoundsAndFetch(bounds);
+            }
+        }
+        this.props.toggleMapSearch(!this.props.mapSearch);
+    }
     render() {
 
+        const searchBox = this.props.searchBox ? <div id="map-toggle">
+            <input type="checkbox" onChange={this.handleChange.bind(this)}/>
+            Search map region as map moves</div> : null
+        
         return (
             <div className="listing-map map-on"
                 id="map-container">
-                <div id="map"></div>
+                {searchBox}
+                <div id="map">
+                </div>
             </div>
         )
     }

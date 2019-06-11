@@ -119,12 +119,16 @@
 }
 
 .listing-item-container {
+    position: absolute;
+    top: 160px;
+    left: 0px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     padding: 20px;
     box-sizing: border-box;
-    margin-top: 160px;
+    overflow: scroll;
+    /* margin-top: 160px; */
 }
 
 .listing-item-container.map-off {
@@ -142,13 +146,16 @@
 .listing-map.map-on {
     display: block;
     position: fixed;
-    top: 100px;
+    bottom: 0;
     right: 0;
+    top: 160px;
     width: 34vw;
-    height: 100%;
+    /* height: 100%; */
     float: right;
-    background-color: beige;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
 }
+
 
 .listing-map.map-on.map-off {
     display: none;

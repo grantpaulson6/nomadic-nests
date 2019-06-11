@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     closeModal: () => dispatch(closeModal()),
-    changeFilter: (filter, value) => dispatch(changeFilter(filter, value))
+    // changeFilter: (filter, value) => dispatch(changeFilter(filter, value))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterPrice);

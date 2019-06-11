@@ -15,11 +15,15 @@ const noFilters = {
         south: -90,
         west: -180
     },
-    page: null
+    page: null,
+    mapSearch: false,
+    allListings: false,
+    property_type: null
 };
 //live may be unused
 const filtersReducer = (state = noFilters, action) => {
     Object.freeze(state);
+
     switch (action.type) {
         case REMOVE_FILTERS:
             return noFilters;

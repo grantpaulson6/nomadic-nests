@@ -43,3 +43,26 @@
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
 }
+
+.listing-map.map-on #map-toggle {
+    position: absolute;
+    display: flex;
+    top: 10px;
+    right: 60px;
+    height: 40px;
+    min-width: 160px;
+    z-index: 2;
+    box-shadow: rgba(0,0,0,0.3);
+    box-sizing: border-box;
+    background-color: rgb(255,255,255);
+    font-family: Roboto, Arial, sans-serif;
+    padding: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.listing-map.map-on #map-toggle  input {
+    height: 16px;
+    width: 16px;
+    margin-right: 5px;
+}

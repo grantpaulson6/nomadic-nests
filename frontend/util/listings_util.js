@@ -26,3 +26,14 @@ export const createListing = listing => {
     })
 )
 }
+
+export const destroyListing = listingId => {
+    return (
+    $.ajax({
+        method: "DELETE",
+        url: `api/listings/${listingId}`,
+        contentType: false,
+        processData: false
+    })
+)
+}

@@ -1,20 +1,22 @@
 import { connect } from 'react-redux';
 import ListingsIndex from './listings_index';
 import { fetchListings } from '../../actions/listings_actions';
-import { changeFilter, filterAndFetch } from '../../actions/filters_actions';
+import { changeFilter, filterAndFetch, changeSingleFilter } from '../../actions/filters_actions';
+// import { stat } from 'fs';
 
 //filter on price, way to optimize this?
 const frontendFilteredListings = (state) => {
     const listings = [];
     Object.values(state.entities.listings).forEach( listing => {
-        if ((state.ui.filters.max_price === null ||
-            listing.price <= state.ui.filters.max_price) &&
-            (state.ui.filters.min_price === null ||
-            listing.price >= state.ui.filters.min_price) &&
-            (state.ui.filters.guests === null ||
-            listing.max_guests >= state.ui.filters.guests) &&
-            (state.ui.filters.nest === null ||
-            listing.property_type === state.ui.filters.nest) &&
+        if (
+            // (state.ui.filters.max_price === null ||
+            // listing.price <= state.ui.filters.max_price) &&
+            // (state.ui.filters.min_price === null ||
+            // listing.price >= state.ui.filters.min_price) &&
+            // (state.ui.filters.guests === null ||
+            // listing.max_guests >= state.ui.filters.guests) &&
+            // (state.ui.filters.nest === null ||
+            // listing.property_type === state.ui.filters.nest) &&
             listingAvailableForDates(listing.id, state, state.ui.filters.start_date, state.ui.filters.end_date)) {
                 listings.push(listing);
             }
@@ -44,16 +46,25 @@ const listingAvailableForDates = (listingId, state, start_date, end_date) => {
 }
 
 
-const mapStateToProps = (state, ownProps) => ({
-    // listings: frontendFilteredListings(state),
-    listings: Object.values(state.entities.listings),
-    page: state.ui.filters.page
-});
+const mapStateToProps = (state, ownProps) => {
 
-const mapDispatchToProps = (dispatch) => ({
+    return ({
+        listings: frontendFilteredListings(state),
+        // listings: Object.values(state.entities.listings),
+        page: state.ui.filters.page,
+        location: ownProps.match.params.locationId,
+        reduxLocation: state.ui.filters.location,
+        allListings: state.ui.filters.allListings,
+        showMap: state.ui
+    })};
+    
+    const mapDispatchToProps = (dispatch) => {
+    return ({
     // fetchListings: filters => dispatch(fetchListings(filters)),
     // updateFilter: filters => dispatch(changeFilter(filters))
-    filterAndFetch: (filter, value) => dispatch(filterAndFetch(filter, value))
-});
+    filterAndFetch: (filter, value) => dispatch(filterAndFetch(filter, value)),
+    updateLocation: location => dispatch(changeFilter({location})),
+    toggleAllListings: value => dispatch(changeSingleFilter('allListings',value))
+})};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListingsIndex);

@@ -5,14 +5,42 @@ import ListingsMapContainer from './listings_map_container';
 class ListingsIndex extends React.Component {
     constructor(props) {
         super(props);
-
+        this.onScroll = this.onScroll.bind(this);
+        // this.state = {
+        //     allListings: false
+        // }
     }
     componentDidMount() {
-        this.props.filterAndFetch('page', 0);
+        if (this.props.location != this.props.reduxLocation) {
+            this.props.updateLocation(this.props.location);
+            if (this.props.allListings) this.props.toggleAllListings(false);
+            this.props.filterAndFetch('page', 0)
+                .then( (e) => {
+                    if (e.payload.count[0] < e.payload.count[1]) {
+                        this.props.toggleAllListings(true);
+                    }
+                });
+        }
+        window.addEventListener('scroll', this.onScroll, false);
+        this.onScroll();
     }
 
-    onPaginatedSearch() {
-        this.props.filterAndFetch('page', this.props.page + 1);
+
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.onScroll, false);
+    }
+
+    onScroll() {
+        // if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500) && this.props.listings.length) {
+            if (!this.props.allListings && (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight -5)) {
+                this.props.filterAndFetch('page', this.props.page + 1)
+                    .then((e) => {
+                        if (e.payload.count[0] < e.payload.count[1]) {
+                            this.props.toggleAllListings(!this.props.allListings);
+                        }
+                    });
+        }
     }
     render() {
         if (!this.props.listings) return null;
@@ -32,8 +60,10 @@ class ListingsIndex extends React.Component {
                 <div className="listing-item-container map-on grid">
                     {listingitems}
                 </div>
-                <button onClick={this.onPaginatedSearch.bind(this)}>More Listings</button>
-                {/* <ListingsMapContainer key={this.props.filters.location} listings={this.props.listings}/> */}
+                <ListingsMapContainer key={this.props.location}
+                    current_location={this.props.location}
+                    listings={this.props.listings}
+                    searchBox={true}/>
             </div>
         )
     }

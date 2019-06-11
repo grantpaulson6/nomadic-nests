@@ -5,7 +5,9 @@ import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from
 class ListingsIndexItem extends React.Component {
 
     constructor(props) {
+
         super(props);
+
     }
 
     render() {
@@ -15,9 +17,9 @@ class ListingsIndexItem extends React.Component {
                 onClick={() => this.props.history.push(`/listings/${this.props.listing.id}`)}
             >
                 <div className="listing-item-picture">
-                    {/* <img className="listing-item-picture"
-                    src={this.props.listing.photoUrls[0]} alt=""/> */}
-                    {ReactHtmlParser(this.props.listing.photoUrls[0])}
+                    <img className="listing-item-picture"
+                    src={this.props.listing.photoUrls[0]} alt=""/>
+                    {/* {ReactHtmlParser(this.props.listing.photoUrls[0])} */}
                 </div>
 
                 <div className="listing-item-content">
