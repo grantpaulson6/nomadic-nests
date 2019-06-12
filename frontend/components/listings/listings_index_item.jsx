@@ -34,9 +34,9 @@ class ListingsIndexItem extends React.Component {
                     <div className="LIC-3">
                         <span>${this.props.listing.price} per night</span>
                     </div>
-                    <div className="LIC-4">
+                    {/* <div className="LIC-4">
                         <span>review score here</span>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )
