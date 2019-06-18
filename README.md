@@ -63,3 +63,6 @@ Similar to a site with a much larger database, the search functionality always q
 
 Like Airbnb, Nomadic Nets keeps the layout simple, clean, and minimalist.  The search field in the navigation bar and a dynamic filter bar allow for quick navigation.  A toggle on/off option for the map display allows the user to browse the data in either a geographic or data-driven way.
 
+## Features in Development
+
+Animation for loading listings
