@@ -147,6 +147,7 @@ class Search extends React.Component {
                                 onClick={this.showMatches.bind(this)}
                                 pattern={this.props.location_names.join("|")}
                                 title="Only the listed regions are searcheable"
+                                required
                                 />
                             <ul id="search-field-matches">
                                 { locations }
