@@ -180,3 +180,17 @@ h2.no-listings {
     font-size: 28px;
     width: 400px;
 }
+
+div.listing-item-picture, div.photos-1, div.photos {
+    background-image: image-url('loading.gif');
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+img {
+    visibility: hidden;
+}
+
+img.loaded {
+    visibility: visible;
+}

@@ -11,14 +11,15 @@ class ListingsIndexItem extends React.Component {
     }
 
     render() {
-
+        
         return (
             <div className="listing-item map-on"
                 onClick={() => this.props.history.push(`/listings/${this.props.listing.id}`)}
             >
                 <div className="listing-item-picture">
                     <img className="listing-item-picture"
-                    src={this.props.listing.photoUrls[0]} alt=""/>
+                    src={this.props.listing.photoUrls[0]} 
+                    alt=""/>
                     {/* {ReactHtmlParser(this.props.listing.photoUrls[0])} */}
                 </div>
 
