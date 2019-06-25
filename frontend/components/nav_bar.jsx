@@ -67,10 +67,10 @@ class NavBar extends React.Component {
                     <div className="right-nav-el">
                         <div className="dropdown-parent">Creator Info
                         <ul className="user-options creator">
-                                <li><a href="https://github.com/grantpaulson6/nomadic-nests-full-stack-project">Github</a></li>
-                                <li><a href="https://www.linkedin.com/in/grant-paulson-3000/">LinkedIn</a></li>
-                                <li><a href="grantwpaulson.com">Portfolio</a></li>
-                            </ul>
+                            <li><a href="https://github.com/grantpaulson6/nomadic-nests-full-stack-project">Github</a></li>
+                            <li><a href="https://www.linkedin.com/in/grant-paulson-3000/">LinkedIn</a></li>
+                            <li><a href="https://grantwpaulson.com">Portfolio</a></li>
+                        </ul>
                         </div>
                     </div>
                     <div className="right-nav-el">
