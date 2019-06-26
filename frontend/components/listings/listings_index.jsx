@@ -43,17 +43,6 @@ class ListingsIndex extends React.Component {
         }
     }
     render() {
-        window.setTimeout(() => {
-            const i = $("img");
-            if (i.prop('complete')) {
-                i.addClass('loaded');
-            } else {
-                i.on('load', () => {
-                    i.addClass('loaded');
-                });
-            }
-        });
-
         if (!this.props.listings) return null;
         let listingitems = this.props.listings.map(listing => {
             return (

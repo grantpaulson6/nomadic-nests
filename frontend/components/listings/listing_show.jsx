@@ -43,16 +43,6 @@ class ListingShow extends React.Component {
             .map((booking, i) => <li key={i}>{booking}</li>);
 
         if (this.props.listing) {
-            window.setTimeout(() => {
-                const i = $("img");
-                if (i.prop('complete')) {
-                    i.addClass('loaded');
-                } else {
-                    i.on('load', () => {
-                        i.addClass('loaded');
-                    });
-                }
-            });
             return (
                 <div className="listing-show">
                     <div className="listing-photos">
